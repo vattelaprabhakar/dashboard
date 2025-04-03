@@ -1,0 +1,44 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Form</title>
+<link rel="stylesheet" href="..\assets\css\signup.css">
+</head>
+<body>
+    <section class="bgclass">
+    <div class="signup-container">
+        <div class="logo">
+            <img src="..\assets\images\quiz.png">
+        </div>
+        <p>SignUp</p>
+        
+        <form id="signupform" action="" method="post">
+            <div class="radiobutton">
+                <label class="label">
+                <input type="radio" id="radio1" name="category"> Tutor</label>
+                <label class="label">
+                <input type="radio" id="radio2" name="category"> Student</label>
+            </div>
+        <div class="form-group">
+        <input type="text" id="username" name="username" placeholder="username" required/>
+        </div>
+        <div class="form-group">
+        <input type="email" id="email" name="email" placeholder="email" required/>
+        </div>
+        <div class="form-group">
+        <input type="tel" id="phonenumber" name="phonenumber" placeholder="phonenumber" required/>
+        </div>
+        <div class="form-group">
+        <input type="password " id="password" name="password" placeholder="password" required/>
+        </div>  
+        <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        <div>
+       <p>Already have an account Please <a href="login.html">Login</a></p>
+        </div>
+       
+</div>
+</section>
+</body>
+
+</html>
