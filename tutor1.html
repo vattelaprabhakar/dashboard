@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <!-- Bootstrao 5.3.2 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<!-- Iconos de bootstrap -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link 
+rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+crossorigin="anonymous" 
+referrerpolicy="no-referrer" 
+/>
+
+<link rel="stylesheet" href="../assets/css/tutor1.css">
+</head>
+
+<body>
+    <aside class="collapse show collapse-horizontal col-sm-2 p-3 border-end bg-body-tertiary d-none d-lg-block"
+        id="collapseWidthExample">
+        <a href="#" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <img src="../assets/images/quiz (3).png" width="40" alt="">
+            <span class="d-print-block ms-2">Quiz App</span>
+        </a>
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li>
+                <a href="../tutor/tutor1.html" class="nav-link link-body-emphasis">
+                    <p class="bi bi-speedometer2" style="position:fixed;"> Dashboard</p><br>
+                </a>
+            </li>
+            <li>
+              <a class="nav-link" data-bs-toggle="collapse" href="#studentsCollapse" role="button" aria-expanded="false" aria-controls="studentsCollapse">
+                <i class="bi bi-people-fill"></i>
+                <span>Students</span>
+              </a>
+              <div class="collapse sub-menu" id="studentsCollapse">
+                <a class="nav-link" href="#">Create</a>
+                <a class="nav-link" href="#">All Students</a>
+              
+              </div>
+           
+            </li>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" data-bs-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">
+                  <i class="bi bi-book-fill"></i> Courses
+                </a>
+                <div class="collapse" id="courseCollapse">
+                  <a class="nav-link ps-4" href="#">Create</a>
+                  <a class="nav-link ps-4" href="../tutor/mycourses.html">My Courses</a>
+                </div>
+              </li>
+            </ul>
+            <ul class="nav flex-column">
+            <li class="nav-item">
+                <a  class="nav-link " data-bs-toggle="collapse" href="#quizcollapse" role="button" aria-expanded="false" aria-controls="quizcollapse">
+                  <i class="bi bi-card-checklist"></i> Quiz
+                </a>
+                <div class="collapse" id="quizcollapse">
+                  <a class="nav-link ps-4" href="../tutor/quizes.html">Create</a>
+                  <a class="nav-link ps-4" href="#">My Quizes</a>
+                </div>
+            </li>
+            </ul>
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                  <a  class="nav-link " data-bs-toggle="collapse" href="#reviewcollapse" role="button" aria-expanded="false" aria-controls="reviewcollapse">
+                    <i class="bi bi-star-fill"></i> Reviews
+                  </a>
+                  <div class="collapse" id="reviewcollapse">
+                    <a class="nav-link ps-4" href="#">Create</a>
+                    <a class="nav-link ps-4" href="../tutor/reviews.html">My Reviews</a>
+                  </div>
+              </li>
+              </ul>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a  class="nav-link " data-bs-toggle="collapse" href="#assignmentcollapse" role="button" aria-expanded="false" aria-controls="assignmentcollapse">
+                      <i class="bi bi-file-earmark-text-fill"></i> Assignments
+                    </a>
+                    <div class="collapse" id="assignmentcollapse">
+                      <a class="nav-link ps-4" href="#">Create</a>
+                      <a class="nav-link ps-4" href="#">My Assignments</a>
+                    </div>
+                </li>
+                </ul>
+        </ul>
+        <hr>
+        
+    </aside>
+
+    <main class="col-lg-10 bg-body-tertiary" id="main">
+        <!-- NavBar -->
+        <nav class="navbar sticky-top navbar-expand-lg border-bottom bg-body-tertiary">
+            <div class="container-fluid">
+
+                <button class="btn btn-outline-secondary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasExample" aria-controls="offcanvasExample"
+                    style="margin-right: 10px; padding: 2px 6px 2px 6px;" id="sidebarshow">
+                    <i class="bi bi-arrow-bar-right"></i>
+                </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex" role="search">
+                        <input class="form-control me-2" style="width: 500px;" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary" style="height: 40px;" type="submit">Search</button>
+                    </form>
+                    
+                    <div class="dropdown ms-auto">
+                      
+                        <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                            data-bs-toggle="dropdown" aria-expanded="true">
+                            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                            <span class="d-print-block"><strong>
+                              Vattela Prabhakar
+                            </strong></span>
+                        </a>
+                        <ul class="dropdown-menu text-small shadow">
+                            <li><a class="dropdown-item" href="../tutor/myprofile.html">My Profile</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container mt-5">
+          <div class="row">
+            <!-- Card 1: Number of Students -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="card text-white mb-3" style="background-color: #B2FFD6;">
+                <div class="card-body" style="color: black;">
+                  <h5 class="card-title text-center d-flex justify-content-center"><i class="bi bi-person-lines-fill me-2"></i> Number of Students</h5>
+                  <p class="card-text display-6 text-center">200</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 2: Number of Courses -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="card text-white mb-3" style="background-color: #DD6E42;">
+                <div class="card-body" style="color: black;">
+                  <h5 class="card-title text-center d-flex justify-content-center"><i class="fa-solid fa-chalkboard-user me-2"></i> Number of Courses</h5>
+                  <p class="card-text display-6 text-center">400</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 3: Courses in Progress -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="card text-white mb-3" style="background-color: #98B06F;">
+                <div class="card-body" style="color: black;">
+                  <h5 class="card-title text-center d-flex justify-content-center"><i class="bi bi-book-fill me-2"></i> Courses in Progress</h5>
+                  <p class="card-text display-6 text-center">250</p>
+                </div>
+              </div>
+            </div>
+            <!-- Card 4: Quiz -->
+            <div class="col-12 col-sm-6 col-md-3">
+              <div class="card text-white mb-3" style="background-color: #DB5461;">
+                <div class="card-body" style="color: black;">
+                  <h5 class="card-title text-center d-flex justify-content-center"><i class="bi bi-person-lines-fill me-2"></i> Quiz</h5>
+                  <p class="card-text display-6 text-center">1,234</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <h3 class="ms-2">Recent Items</h3>
+          <table class="table table-hover text-center">
+            <thead class="table-primary">
+              <tr>
+                <th scope="col">S.No</th>
+                <th scope="col">Quiz</th>
+                <th scope="col">Date</th>
+                <th scope="col">Tutor</th>
+                <th scope="col">Status</th>
+                <th scope="col">Details</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Java</td>
+                <td>02/03/2025</td>
+                <td>Ramu</td>
+                <td style="color: lightcoral;">Completed</td>
+                <td><a href="#" class="btn-sm">View More</a></td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>.Net</td>
+                <td>01/03/2025</td>
+                <td>Abdul</td>
+                <td style="color: green;">On Going</td>
+                <td><a href="#" class="  btn-sm">View More</a></td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Python</td>
+                <td>05/03/2025</td>
+                <td>Alex</td>
+                <td style="color: darkcyan;">Up Coming</td>
+                <td><a  href="#" class=" btn-sm">View More</a></td>
+              </tr>
+            </tbody>
+          </table>
+        
+        
+        <!-- NavBar Fin -->
+        <section id="courses" class="py-3">
+            <div class="container">
+              <h2 class="ms-2">Featured Courses</h2>
+              
+              <div class="row row-cols-1 row-cols-md-3 g-4">
+                <!-- Course Card 1 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/dotnet.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">.Net Full Stack</h5>
+                      <p class="card-text text-muted">Our .NET Full Stack course covers C#, databases web tecnologies and...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Course Card 2 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/javafull.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">Java Full Stack</h5>
+                      <p class="card-text text-muted">Our Java Full Stack course equips students with vital skills...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Course Card 3 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/pythonsql.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">Python With Sql</h5>
+                      <p class="card-text text-muted">Gain expertise with our Python programming along with SQL ...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Course Card 4 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/devops.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">DevOps</h5>
+                      <p class="card-text text-muted">Our DevOps course equips you with essential skills in cloud infrastructure...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Course Card 5 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/ui.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">UI Development</h5>
+                      <p class="card-text text-muted">Embark on a transformative journey into the world of UI development...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+                <!-- Course Card 6 -->
+                <div class="col">
+                  <div class="card h-100 shadow-sm">
+                    <img src="../assets/images/manualtesting.png" class="card-img-top" alt="Course Image" style="height: 200px; object-fit: cover;">
+                    <div class="card-body">
+                      <h5 class="card-title">Manual Testing</h5>
+                      <p class="card-text text-muted">The Manual Testing course equips students with the advanced skills...</p>
+                    </div>
+                    <div class="card-footer bg-transparent">
+                      <a href="#" class="btn btn-primary">View Course</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <div id="footer">
+            <footer>
+              <div class="container">
+                <div class="row">
+                <div class="row text-center">
+                  <div class="col-md-4 box">
+                    <span class="copyright quick-links">Copyright &copy; QuizApplication <script>
+                        document.write(new Date().getFullYear())
+                      </script>
+                    </span>
+                  </div>
+                  <div class="col-md-4 box">
+                    <ul class="list-inline social-buttons">
+                      <li class="list-inline-item">
+                        <a href="#">
+                          <i class="fab fa-twitter"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#">
+                          <i class="fab fa-facebook-f"></i>
+                        </a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#">
+                          <i class="fab fa-linkedin-in"></i>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-md-4 box">
+                    <ul class="list-inline quick-links">
+                      <li class="list-inline-item">
+                        <a href="#">Privacy Policy</a>
+                      </li>
+                      <li class="list-inline-item">
+                        <a href="#">Terms of Use</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </footer>
+            </div>
+          
+    </main>
+
+    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <a href="/"
+                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi pe-none me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap" />
+                </svg>
+                <span class="d-print-block">Sidebar</span>
+            </a>
+            <hr>
+            <ul class="nav nav-pills flex-column mb-auto">
+              <li>
+                  <a href="#" class="nav-link link-body-emphasis">
+                      <p class="bi bi-speedometer2" style="position:fixed;"> Dashboard</p><br>
+                  </a>
+              </li>
+              <li>
+                <a class="nav-link" data-bs-toggle="collapse" href="#studentsCollapse" role="button" aria-expanded="false" aria-controls="studentsCollapse">
+                  <i class="bi bi-people-fill"></i>
+                  <span>Students</span>
+                </a>
+                <div class="collapse sub-menu" id="studentsCollapse">
+                  <a class="nav-link" href="#">Create</a>
+                  <a class="nav-link" href="#">All Students</a>
+                
+                </div>
+             
+              </li>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" data-bs-toggle="collapse" href="#courseCollapse" role="button" aria-expanded="false" aria-controls="courseCollapse">
+                    <i class="bi bi-book-fill"></i> Courses
+                  </a>
+                  <div class="collapse" id="courseCollapse">
+                    <a class="nav-link ps-4" href="#">Create</a>
+                    <a class="nav-link ps-4" href="../tutor/mycourses.html">My Courses</a>
+                  </div>
+                </li>
+              </ul>
+              <ul class="nav flex-column">
+              <li class="nav-item">
+                  <a  class="nav-link " data-bs-toggle="collapse" href="#quizcollapse" role="button" aria-expanded="false" aria-controls="quizcollapse">
+                    <i class="bi bi-card-checklist"></i> Quiz
+                  </a>
+                  <div class="collapse" id="quizcollapse">
+                    <a class="nav-link ps-4" href="../tutor/quizes.html">Create</a>
+                    <a class="nav-link ps-4" href="#">My Quizes</a>
+                  </div>
+              </li>
+              </ul>
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a  class="nav-link " data-bs-toggle="collapse" href="#reviewcollapse" role="button" aria-expanded="false" aria-controls="reviewcollapse">
+                      <i class="bi bi-star-fill"></i> Reviews
+                    </a>
+                    <div class="collapse" id="reviewcollapse">
+                      <a class="nav-link ps-4" href="#">Create</a>
+                      <a class="nav-link ps-4" href="../tutor/reviews.html">My Reviews</a>
+                    </div>
+                </li>
+                </ul>
+                <ul class="nav flex-column">
+                  <li class="nav-item">
+                      <a  class="nav-link " data-bs-toggle="collapse" href="#assignmentcollapse" role="button" aria-expanded="false" aria-controls="assignmentcollapse">
+                        <i class="bi bi-file-earmark-text-fill"></i> Assignments
+                      </a>
+                      <div class="collapse" id="assignmentcollapse">
+                        <a class="nav-link ps-4" href="#">Create</a>
+                        <a class="nav-link ps-4" href="#">My Assignments</a>
+                      </div>
+                  </li>
+                  </ul>
+          </ul>
+            <hr>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
+                    data-bs-toggle="dropdown" aria-expanded="true">
+                    <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+                    <span class="d-print-block"><strong>Vattela Prabhakar</strong></span>
+                </a>
+                <ul class="dropdown-menu text-small shadow">
+                   <li><a class="dropdown-item" href="#">Settings</a></li>
+                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="#">Sign out</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+   
+    <!-- Script de bootstap 5.2.3 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
