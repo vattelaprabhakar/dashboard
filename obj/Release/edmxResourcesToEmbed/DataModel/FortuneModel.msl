@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FortuneModelStoreContainer" CdmEntityContainer="FortuneSoftEntities">
+    <EntitySetMapping Name="tbl_campaign">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_campaign">
+        <MappingFragment StoreEntitySet="tbl_campaign">
+          <ScalarProperty Name="campId" ColumnName="campId" />
+          <ScalarProperty Name="camp_name" ColumnName="camp_name" />
+          <ScalarProperty Name="camp_start_dt" ColumnName="camp_start_dt" />
+          <ScalarProperty Name="camp_end_dt" ColumnName="camp_end_dt" />
+          <ScalarProperty Name="camp_Category" ColumnName="camp_Category" />
+          <ScalarProperty Name="camp_type" ColumnName="camp_type" />
+          <ScalarProperty Name="camp_day" ColumnName="camp_day" />
+          <ScalarProperty Name="camp_product" ColumnName="camp_product" />
+          <ScalarProperty Name="camp_status" ColumnName="camp_status" />
+          <ScalarProperty Name="camp_comments" ColumnName="camp_comments" />
+          <ScalarProperty Name="compId" ColumnName="compId" />
+          <ScalarProperty Name="brId" ColumnName="brId" />
+          <ScalarProperty Name="camp_flag" ColumnName="camp_flag" />
+          <ScalarProperty Name="camp_CategoryId" ColumnName="camp_CategoryId" />
+          <ScalarProperty Name="camp_typeId" ColumnName="camp_typeId" />
+          <ScalarProperty Name="camp_dayId" ColumnName="camp_dayId" />
+          <ScalarProperty Name="camp_productId" ColumnName="camp_productId" />
+          <ScalarProperty Name="camp_statusId" ColumnName="camp_statusId" />
+          <ScalarProperty Name="camp_flagId" ColumnName="camp_flagId" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_customlabel">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_customlabel">
+        <MappingFragment StoreEntitySet="tbl_customlabel">
+          <ScalarProperty Name="labelId" ColumnName="labelId" />
+          <ScalarProperty Name="label_schema_name" ColumnName="label_schema_name" />
+          <ScalarProperty Name="label_name" ColumnName="label_name" />
+          <ScalarProperty Name="compId" ColumnName="compId" />
+          <ScalarProperty Name="brId" ColumnName="brId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EmailLog">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_EmailLog">
+        <MappingFragment StoreEntitySet="tbl_EmailLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+          <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+          <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="IdentityFlag" ColumnName="IdentityFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_enquirydetails">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_enquirydetails">
+        <MappingFragment StoreEntitySet="tbl_enquirydetails">
+          <ScalarProperty Name="detailId" ColumnName="detailId" />
+          <ScalarProperty Name="enquiryId" ColumnName="enquiryId" />
+          <ScalarProperty Name="dtl_leadowner" ColumnName="dtl_leadowner" />
+          <ScalarProperty Name="dtl_leadname" ColumnName="dtl_leadname" />
+          <ScalarProperty Name="dtl_status" ColumnName="dtl_status" />
+          <ScalarProperty Name="dtl_product" ColumnName="dtl_product" />
+          <ScalarProperty Name="dtl_comments" ColumnName="dtl_comments" />
+          <ScalarProperty Name="dtl_createddt" ColumnName="dtl_createddt" />
+          <ScalarProperty Name="compId" ColumnName="compId" />
+          <ScalarProperty Name="brId" ColumnName="brId" />
+          <ScalarProperty Name="dtl_maploc_url" ColumnName="dtl_maploc_url" />
+          <ScalarProperty Name="dtl_fileloc_folder" ColumnName="dtl_fileloc_folder" />
+          <ScalarProperty Name="followup_date" ColumnName="followup_date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_EnquiryForm">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_EnquiryForm">
+        <MappingFragment StoreEntitySet="tbl_EnquiryForm">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="ProfessionalDetails" ColumnName="ProfessionalDetails" />
+          <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+          <ScalarProperty Name="Yearofpassedout" ColumnName="Yearofpassedout" />
+          <ScalarProperty Name="Workexpdomain" ColumnName="Workexpdomain" />
+          <ScalarProperty Name="Product" ColumnName="Product" />
+          <ScalarProperty Name="Preferredlocation" ColumnName="Preferredlocation" />
+          <ScalarProperty Name="Prefbatch" ColumnName="Prefbatch" />
+          <ScalarProperty Name="Reference" ColumnName="Reference" />
+          <ScalarProperty Name="Wanttojoin" ColumnName="Wanttojoin" />
+          <ScalarProperty Name="WantSMSAlerts" ColumnName="WantSMSAlerts" />
+          <ScalarProperty Name="LeadAssignedby" ColumnName="LeadAssignedby" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="LeadAssignedTo" ColumnName="LeadAssignedTo" />
+          <ScalarProperty Name="Record_CreatedBy" ColumnName="Record_CreatedBy" />
+          <ScalarProperty Name="Record_ModifiedBy" ColumnName="Record_ModifiedBy" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="Industry" ColumnName="Industry" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+          <ScalarProperty Name="Comment2" ColumnName="Comment2" />
+          <ScalarProperty Name="Comment3" ColumnName="Comment3" />
+          <ScalarProperty Name="LeadOwner" ColumnName="LeadOwner" />
+          <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+          <ScalarProperty Name="FollowUpdate" ColumnName="FollowUpdate" />
+          <ScalarProperty Name="CommentsForAssignment" ColumnName="CommentsForAssignment" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="SelectedProductId" ColumnName="SelectedProductId" />
+          <ScalarProperty Name="SelectedStatusId" ColumnName="SelectedStatusId" />
+          <ScalarProperty Name="SelectedReference" ColumnName="SelectedReference" />
+          <ScalarProperty Name="WantMailAlerts" ColumnName="WantMailAlerts" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FortuneBasicInfo">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneBasicInfo">
+        <MappingFragment StoreEntitySet="tbl_FortuneBasicInfo">
+          <ScalarProperty Name="basic_id" ColumnName="basic_id" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+          <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+          <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+          <ScalarProperty Name="OrgPhone" ColumnName="OrgPhone" />
+          <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+          <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+          <ScalarProperty Name="SmsCount" ColumnName="SmsCount" />
+          <ScalarProperty Name="NumberOfUserToAllowed" ColumnName="NumberOfUserToAllowed" />
+          <ScalarProperty Name="OrgLogo" ColumnName="OrgLogo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FortuneRoles">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneRoles">
+        <MappingFragment StoreEntitySet="tbl_FortuneRoles">
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_FortuneUsers">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneUsers">
+        <MappingFragment StoreEntitySet="tbl_FortuneUsers">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="Record_CreatedBy" ColumnName="Record_CreatedBy" />
+          <ScalarProperty Name="Record_ModifiedBy" ColumnName="Record_ModifiedBy" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="IsActiveId" ColumnName="IsActiveId" />
+          <ScalarProperty Name="IsActiveName" ColumnName="IsActiveName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeadEmailContent">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_LeadEmailContent">
+        <MappingFragment StoreEntitySet="tbl_LeadEmailContent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+          <ScalarProperty Name="InterestedCourse" ColumnName="InterestedCourse" />
+          <ScalarProperty Name="leadstatus" ColumnName="leadstatus" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeadStatus">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_LeadStatus">
+        <MappingFragment StoreEntitySet="tbl_LeadStatus">
+          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LeadStatusEmailContent">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_LeadStatusEmailContent">
+        <MappingFragment StoreEntitySet="tbl_LeadStatusEmailContent">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LeadStatus" ColumnName="LeadStatus" />
+          <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+          <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Logs">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_Logs">
+        <MappingFragment StoreEntitySet="tbl_Logs">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+          <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+          <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Menu">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_Menu">
+        <MappingFragment StoreEntitySet="tbl_Menu">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+          <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+          <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+          <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+          <ScalarProperty Name="Text" ColumnName="Text" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Payment">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_Payment">
+        <MappingFragment StoreEntitySet="tbl_Payment">
+          <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+          <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+          <ScalarProperty Name="cust_mobile" ColumnName="cust_mobile" />
+          <ScalarProperty Name="product_name" ColumnName="product_name" />
+          <ScalarProperty Name="product_actual_cost" ColumnName="product_actual_cost" />
+          <ScalarProperty Name="product_revised_amount" ColumnName="product_revised_amount" />
+          <ScalarProperty Name="modeof_payment" ColumnName="modeof_payment" />
+          <ScalarProperty Name="paid_amount" ColumnName="paid_amount" />
+          <ScalarProperty Name="balance_amount" ColumnName="balance_amount" />
+          <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+          <ScalarProperty Name="payment_followupdate" ColumnName="payment_followupdate" />
+          <ScalarProperty Name="compid" ColumnName="compid" />
+          <ScalarProperty Name="brid" ColumnName="brid" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="modeofpayment_id" ColumnName="modeofpayment_id" />
+          <ScalarProperty Name="comments" ColumnName="comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Productlist">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_Productlist">
+        <MappingFragment StoreEntitySet="tbl_Productlist">
+          <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="ProductAmount" ColumnName="ProductAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SmsContent">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_SmsContent">
+        <MappingFragment StoreEntitySet="tbl_SmsContent">
+          <ScalarProperty Name="SmsId" ColumnName="SmsId" />
+          <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+          <ScalarProperty Name="InterestedCourse" ColumnName="InterestedCourse" />
+          <ScalarProperty Name="leadstatus" ColumnName="leadstatus" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_SmsLog">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_SmsLog">
+        <MappingFragment StoreEntitySet="tbl_SmsLog">
+          <ScalarProperty Name="SmsIdCount" ColumnName="SmsIdCount" />
+          <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+          <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+          <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_Source">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_Source">
+        <MappingFragment StoreEntitySet="tbl_Source">
+          <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+          <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+          <ScalarProperty Name="monthly_budget" ColumnName="monthly_budget" />
+          <ScalarProperty Name="JanBudgtet" ColumnName="JanBudgtet" />
+          <ScalarProperty Name="FebBudgtet" ColumnName="FebBudgtet" />
+          <ScalarProperty Name="MarBudgtet" ColumnName="MarBudgtet" />
+          <ScalarProperty Name="AprBudgtet" ColumnName="AprBudgtet" />
+          <ScalarProperty Name="MayBudgtet" ColumnName="MayBudgtet" />
+          <ScalarProperty Name="JunBudgtet" ColumnName="JunBudgtet" />
+          <ScalarProperty Name="JulBudgtet" ColumnName="JulBudgtet" />
+          <ScalarProperty Name="AugBudgtet" ColumnName="AugBudgtet" />
+          <ScalarProperty Name="SepBudgtet" ColumnName="SepBudgtet" />
+          <ScalarProperty Name="OctBudgtet" ColumnName="OctBudgtet" />
+          <ScalarProperty Name="NovBudgtet" ColumnName="NovBudgtet" />
+          <ScalarProperty Name="DecBudgtet" ColumnName="DecBudgtet" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UserLog">
+      <EntityTypeMapping TypeName="FortuneModel.tbl_UserLog">
+        <MappingFragment StoreEntitySet="tbl_UserLog">
+          <ScalarProperty Name="LogId" ColumnName="LogId" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+          <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+          <ScalarProperty Name="LogDatetime" ColumnName="LogDatetime" />
+          <ScalarProperty Name="CompId" ColumnName="CompId" />
+          <ScalarProperty Name="BrId" ColumnName="BrId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Proc_AddLead" FunctionName="FortuneModel.Store.Proc_AddLead" />
+    <FunctionImportMapping FunctionImportName="Proc_AddUser" FunctionName="FortuneModel.Store.Proc_AddUser" />
+    <FunctionImportMapping FunctionImportName="Proc_getleadsbyuseridentity" FunctionName="FortuneModel.Store.Proc_getleadsbyuseridentity" />
+    <FunctionImportMapping FunctionImportName="Proc_InserLogs" FunctionName="FortuneModel.Store.Proc_InserLogs" />
+    <FunctionImportMapping FunctionImportName="Proc_UpdateLead" FunctionName="FortuneModel.Store.Proc_UpdateLead" />
+    <FunctionImportMapping FunctionImportName="Proc_UpdateUser" FunctionName="FortuneModel.Store.Proc_UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>

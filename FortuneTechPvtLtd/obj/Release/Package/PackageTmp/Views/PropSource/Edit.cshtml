@@ -1,0 +1,104 @@
+﻿@model FortuneTechPvtLtd.Models.SourceModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+         <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style>
+</head>
+<body>
+
+    @using (Html.BeginForm("Update", "PropSource", FormMethod.Post))
+    {
+      
+       <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning"> Edit Lead Source</b></h3>
+                         @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+  @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div>@Html.HiddenFor(m => m.sourceid)<span class="required">Source Name</span></div>
+                        <div>@Html.TextBoxFor(m => m.sourcename, new { @class = "form-control", @placeholder = "Lead Source",@autocomplete="off"  })</div>
+                        <div>@Html.ValidationMessageFor(model => model.sourcename, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                          <div class="col-md-12">
+                   <div class="form-group row">
+                       <div class="col-md-3">@Html.TextBoxFor(m=>m.JanAmount, new { @class = "form-control", @placeholder = "Jan Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3"> @Html.TextBoxFor(m=>m.FebAmount, new { @class = "form-control", @placeholder = "Feb Budget",@autocomplete="off"  })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.MarAmount, new { @class = "form-control", @placeholder = "Mar Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.AprAmount, new { @class = "form-control", @placeholder = "Apr Budget" ,@autocomplete="off" })</div>
+                  </div>
+                </div>
+                         <div class="col-md-12">
+                    <div class="form-group row">
+                       <div class="col-md-3">@Html.TextBoxFor(m=>m.MayAmount, new { @class = "form-control", @placeholder = "May Budget",@autocomplete="off"  })</div>
+                        <div class="col-md-3"> @Html.TextBoxFor(m=>m.JunAmount, new { @class = "form-control", @placeholder = "Jun Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.JulAmount, new { @class = "form-control", @placeholder = "Jul Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.AugAmount, new { @class = "form-control", @placeholder = "Aug Budget" ,@autocomplete="off" })</div>
+                  </div>
+                </div>
+                         <div class="col-md-12">
+                    <div class="form-group row">
+                       <div class="col-md-3">@Html.TextBoxFor(m=>m.SepAmount, new { @class = "form-control", @placeholder = "Sep Budget",@autocomplete="off"  })</div>
+                        <div class="col-md-3"> @Html.TextBoxFor(m=>m.OctAmount, new { @class = "form-control", @placeholder = "Oct Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.NovAmount, new { @class = "form-control", @placeholder = "Nov Budget" ,@autocomplete="off" })</div>
+                        <div class="col-md-3">@Html.TextBoxFor(m=>m.DecAmount, new { @class = "form-control", @placeholder = "Dec Budget",@autocomplete="off"  })</div>
+                  </div>
+                </div>
+              
+                    <div class="col-md-12">
+                          <div class="form-group row">
+                        <input class="btn btn-info mr-3" type="submit" name="Update" value="Update" id="btnupdate" />
+                        <input class="btn btn-info" type="submit" value="Cancel" />
+                    </div>
+                </div>
+            </div>
+        </div>  
+           </div>  
+    }
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnupdate").click(function () {
+                if ($("#sourcename").val() == "") {
+                    alert("Please Enter SourceName");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

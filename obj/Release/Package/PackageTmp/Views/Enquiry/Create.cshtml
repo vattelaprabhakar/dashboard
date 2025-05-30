@@ -1,0 +1,467 @@
+﻿@model FortuneTechPvtLtd.Models.EnquiryModel
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    var cuser = Session["CurrentUser"].ToString();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create</title>
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  @*  <link href= "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"  rel="stylesheet" > *@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+ <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style> 
+  
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+    @using (Html.BeginForm("Create", "Enquiry", FormMethod.Post, new { @autocomplete = "off", @enctype = "multipart/form-data" }))
+    {
+       
+   
+         @Html.ValidationSummary()
+        <!-- Begin page -->@*
+        <div class="panel panel-body responsive">*@
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Lead Registration</b></h3>
+                            <div class="form-group row ">
+                              @Html.HiddenFor(m => m.companyid, new { @Value = Session["CurrentCompanyId"].ToString() })
+                                 @Html.HiddenFor(m => m.branchid, new { @Value = Session["CurrentCompanyBranchId"].ToString() })
+                                    <div class="col-md-12"><span class="required">Lead Name</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.LeadName, new { @class = "form-control", @placeholder = "Lead Name", @autofocus = "autofocus", @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.LeadName, "", new { @class = "text-danger" })
+                             
+                            </div>
+                             <div class="form-group row ">
+                              
+                                    <div class="col-md-12"><span class="required">Product</span></div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Product product in ViewBag.products)
+                                            {
+                                                @Html.RadioButtonFor(m => m.selectedinterestedcourse, product.ProductId, new { @class = "form-check-input" })@Html.Label(product.ProductName, new { @class = "form-check-label mr-3" })
+                                            }
+                                            @Html.ValidationMessageFor(model => model.selectedinterestedcourse, "", new { @class = "text-danger" })
+                                        </div>
+                                        <input type="hidden" id="hdnselectedinterestedcourse" value="" name="hdnselectedinterestedcourse" />
+                                    </div>
+                                </div>
+                           
+                              <div class="form-group row ">
+                                
+                                    <div class="col-md-12">
+                                       <span class="required">Lead Source</span>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Source source in ViewBag.source)
+                                            {
+                                                @Html.RadioButtonFor(m => m.selectedrefby, source.SourceId, new { @class = "form-check-input" })@Html.Label(source.SourceName, new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnselectedrefby" value="" name="hdnselectedrefby" />
+                                    </div>
+                              
+                            </div>
+                            <div class="form-group row">
+                             
+                                    <div class=" col-md-12"> <span class="required">Mobile</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Mobile, new { @class = "form-control", @placeholder = "Mobile", @id = "numericOnly", @maxlength = "10", autocomplete="false" ,@minlenght="10"})</div>
+                                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                              
+                            </div>
+
+                            <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span class="required">Email</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", @autocomplete = "off",@id="Email" })</div>
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                               <div class="form-group row">
+                               
+                                    <div class="col-md-12"><span class="required">Status</span></div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Leadstatus status in ViewBag.stustatus)
+                                            {
+                                                @Html.RadioButtonFor(m => m.selectedstatus, status.StatusId, new { @class = "form-check-input" })@Html.Label(status.StatusName, new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnselectedstatus" value="" name="hdnselectedstatus" />
+                                        @Html.HiddenFor(m => m.selectedleadassignedto)
+                                    </div>
+                                </div>
+                            
+                             <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span>Address</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Address, new { @class = "form-control", @placeholder = "Address", @autocomplete = "off" })</div>
+                                
+                            </div>
+                           <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span class="required">Lead Date</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Leaddate, new { @class = "form-control", @placeholder = "LeadDate", @readonly = "readonly", @autocomplete = "off" })</div>
+                                
+                            </div>
+                           <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span>FollowupDate</span> </div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Followupdate, new { @class = "form-control", @placeholder = "Followupdate", @readonly = "readonly", @autocomplete = "off" })</div>
+                                
+                            </div>
+                             <div class="form-group row">
+                               
+                                    <div class="col-md-12"><span class="required">Lead Assigned By</span>  </div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.LeadAssignedby, new { @class = "form-control", @placeholder = "Qualification", @Value = Session["CurrentUser"].ToString(), @readonly = "readonly" })</div>
+                                    @Html.ValidationMessageFor(model => model.LeadAssignedby, "", new { @class = "text-danger" })
+                                
+                            </div>
+                             <div class="form-group row">
+                               
+                                    <div class="col-md-12"><span class="required">Lead Owner</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.LeadOwner, new { @class = "form-control", @placeholder = "Qualification", @Value = Session["CurrentUser"].ToString(), @readonly = "readonly" })</div>
+                                    @Html.ValidationMessageFor(model => model.LeadOwner, "", new { @class = "text-danger" })
+                               
+                            </div>
+                              <div class="form-group row">
+                              
+                                    <div class="col-md-12">Website</div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Website, new { @class = "form-control", @placeholder = "Website", @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Website, "", new { @class = "text-danger" })
+                               
+                            </div>
+                             <div class="form-group row">
+                              
+                                    <div class="col-md-12">Industry</div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Industry, new { @class = "form-control", @placeholder = "Industry", @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Industry, "", new { @class = "text-danger" })
+                             
+                            </div>
+                             <div class="form-group row">
+                               
+                                    <div class="col-md-12">Rating</div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Rating, new { @class = "form-control", @placeholder = "Rating", @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+                               
+                            </div>
+                             <div class="form-group row">
+                               
+                                    <div class="col-md-12">Comment1</div>
+                                    <div class="col-md-12">@Html.TextAreaFor(m => m.Comment1, new { @class = "form-control", @placeholder = "Comments", @rows = 3, @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Comment1, "", new { @class = "text-danger" })
+                              
+                            </div>
+                              <div class="form-group row">
+                              
+                                    <div class="col-md-12">Comment2</div>
+                                    <div class="col-md-12">@Html.TextAreaFor(m => m.Comment2, new { @class = "form-control", @placeholder = "Comments", @rows = 3, @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Comment1, "", new { @class = "text-danger" })
+                              
+                            </div>
+                              <div class="form-group row">
+                                
+                                    <div class="col-md-12">Comment3</div>
+                                    <div class="col-md-12">@Html.TextAreaFor(m => m.Comment3, new { @class = "form-control", @placeholder = "Comments", @rows = 3, @autocomplete = "off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Comment1, "", new { @class = "text-danger" })
+                              
+                            </div>
+                            <div class="form-group row">
+                                
+                                    <div class="col-md-12"> Want SMS Alerts </div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Alerts alterts in ViewBag.alters)
+                                            {
+                                                @Html.RadioButtonFor(m => m.seletedwantsmsalerts, alterts.AlertId, new { @class = "form-check-input" })@Html.Label(alterts.AlertName, new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnseletedwantsmsalerts" value="" name="hdnseletedwantsmsalerts" />
+                                    </div>
+                                </div>
+                           <div class="form-group row">
+                                
+                                    <div class="col-md-12"> Want MAIL Alerts </div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Alerts alterts in ViewBag.alters)
+                                            {
+                                                @Html.RadioButtonFor(m => m.seletedwantmailalerts, alterts.AlertId, new { @class = "form-check-input" })@Html.Label(alterts.AlertName,new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnseletedwantmailalerts" value="" name="hdnseletedwantmailalerts" />
+                                    </div>
+                                </div>
+
+                    @*    <div class="form-group row" id="alertsdiv">
+                            <div class="col-md-12"> Alert Type </div>
+                         <div class="col-md-12">   @Html.DropDownList("Alerttype", new SelectList(Enum.GetValues(typeof(FortuneTechPvtLtd.Models.Alerttype))), "BOTH", new { @class = "form-control" })
+                             <input type="hidden" id="hdnalerttype" value="" name="hdnalerttype" />
+                            </div></div>*@
+                            </div>
+                           
+                               
+                                    <div class="col-md-12">
+                                         <div class="form-group row ">
+                                        <input class="btn btn-info btn-rounded mr-3" type="submit" name="Submit" value="Submit" id="btnsubmit" />
+                                        <input class="btn btn-info btn-rounded" type="submit" name="Cancel" value="Cancel" id="btncancel" formaction="Cancel" />
+                                    </div>
+                               
+                            </div>
+                        </div>
+                        </div>
+           
+       
+    }
+
+       
+   
+    <script type="text/javascript">
+        $(document).ready(function () {
+         //   $('#Mobile').attr("autocomplete", "off");
+            $('#alertsdiv').hide();
+            var data;
+            function DisableButton() {
+                $("#btnsubmit").attr('disabled', 'disabled');
+                $("#btncancel").attr('disabled', 'disabled');
+            }
+            window.onbeforeunload = DisableButton;
+
+            $("input[type=radio][name='selectedinterestedcourse']").change(function () {
+                var radioValue = $("input[name='selectedinterestedcourse']:checked").val();
+                var radiotext = $("input[name='selectedinterestedcourse']:checked").next().html();
+                $("input[id=hdnselectedinterestedcourse]").val(radiotext);
+            });
+
+            //reference
+            $("input[type=radio][name='selectedrefby']").change(function () {
+                var radioValue = $("input[name='selectedrefby']:checked").val();
+                var radiotext = $("input[name='selectedrefby']:checked").next().html();
+                $("input[id=hdnselectedrefby]").val(radiotext);
+            });
+
+            ////selectedwanttojoin
+            //$("input[type=radio][name='selectedwanttojoin']").change(function () {
+            //    var radioValue = $("input[name='selectedwanttojoin']:checked").val();
+            //    var radiotext = $("input[name='selectedwanttojoin']:checked").next().html();
+            //    $("input[id=hdnselectedwanttojoin]").val(radiotext);
+            //});
+
+            // sms
+            $("input[type=radio][name='seletedwantsmsalerts']").change(function () {
+                var radioValue = $("input[name='seletedwantsmsalerts']:checked").val();
+                var radiotext = $("input[name='seletedwantsmsalerts']:checked").next().html();
+                $("input[id=hdnseletedwantsmsalerts]").val(radiotext);
+            });
+
+            //mail
+            $("input[type=radio][name='seletedwantmailalerts']").change(function () {
+                var radioValue = $("input[name='seletedwantmailalerts']:checked").val();
+                var radiotext = $("input[name='seletedwantmailalerts']:checked").next().html();
+                $("input[id=hdnseletedwantmailalerts]").val(radiotext);
+            });
+
+            //selectedstatus
+            $("input[type=radio][name='selectedstatus']").change(function () {
+                var radioValue = $("input[name='selectedstatus']:checked").val();
+                var radiotext = $("input[name='selectedstatus']:checked").next().html();
+                $("input[id=hdnselectedstatus]").val(radiotext);
+            });
+
+            //alert type
+            //$("input[type=radio][name='seletedwantalerts']").change(function () {
+            //    var radiotext = $("input[name='seletedwantalerts']:checked").next().html();
+            //    if (radiotext == 'Yes') {
+                    
+            //        $('#alertsdiv').show();
+            //       // alert('changeevent')
+            //    }
+            //    else {
+            //        $('#alertsdiv').hide();
+            //    }
+            //});
+            //Allow users to enter numbers only
+            $("#numericOnly").bind('keypress', function (e) {
+                if (e.keyCode == '9' || e.keyCode == '16') {
+                    return;
+                }
+                var code;
+                if (e.keyCode) code = e.keyCode;
+                else if (e.which) code = e.which;
+                if (e.which == 46)
+                    return false;
+                if (code == 8 || code == 46)
+                    return true;
+                if (code < 48 || code > 57)
+                    return false;
+            });
+
+            //Disable paste
+            $("#numericOnly").bind("paste", function (e) {
+                e.preventDefault();
+            });
+
+            $("#numericOnly").bind('mouseenter', function (e) {
+                var val = $(this).val();
+                if (val != '0') {
+                    val = val.replace(/[^0-9]+/g, "")
+                    $(this).val(val);
+                }
+            });
+          
+          
+
+            // validation
+           $("#btnsubmit").click(function ()
+           {
+
+
+              
+               //alerts
+              
+               //var alerttype = $('#Alerttype option:selected').text();
+               //$("input[id=hdnalerttype]").val(alerttype);
+               //if (alerttype != "Select Alert Type") {
+
+               //}
+              // alert($("input[id=hdnalerttype]").val());
+               if ($("#LeadName").val() == "") {
+                   alert("Please Enter Lead Name");
+                   return false;
+               }
+               if ($('[name="selectedinterestedcourse"]:checked').length === 0) {
+                   alert('Please select Product');
+                   return false;
+               }
+
+               if ($('[name="selectedrefby"]:checked').length === 0) {
+                   alert('Please select Lead Source');
+                   return false;
+               }
+               
+               //if ($("#numericOnly").val() == "") {
+               //    alert("Please Enter 10 Digit Mobile Number");
+               //    return false;
+               //}
+               //if ($("#Mobile").length > 10) {
+               //    alert("Please Enter 10 Digit Mobile Number");
+               //    return false;
+               //}
+               //if ($("#Mobile").val() != "") {
+
+               //}
+               if (!$('#numericOnly').val().match('[0-9]{10}')) {
+                   alert("Please Enter 10 digit mobile number");
+                   return false;
+               }
+              
+               if ($("#Email").val() == "") {
+                   var entermailid = $("#Email").val();
+                   var reg = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                   if (!entermailid.match(reg)) {
+                       alert("Please Enter Valid Email Id");
+                       return false;
+                   }
+               }
+               if ($("#Email").val() != "") {
+                   var entermailid = $("#Email").val();
+                   var reg = /^([\w-\.]+)@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+                   if (!entermailid.match(reg)) {
+                       alert("Please Enter Valid Email Id");
+                       return false;
+                   }
+               }
+               
+               if ($('[name="selectedstatus"]:checked').length === 0) {
+                   alert('Please select Status');
+                   return false;
+               }
+               //if ($("#Address").val() == "") {
+               //    alert("Please Enter Address");
+               //    return false;
+               //}
+               if ($("#Leaddate").val() == "") {
+                   alert("Please Enter Lead date");
+                   return false;
+               }
+               //lead followup date is required while selecting pending status
+               var radioValue = $("input[name='selectedstatus']:checked").val();
+               var radiotext = $("input[name='selectedstatus']:checked").next().html();
+               data = radiotext;
+               if (data == 'Pending-FollowUp') {
+                   if ($("#Followupdate").val() == "") {
+                       alert("Please Enter Followupdate");
+                       return false;
+                   }
+               }
+               if ($("#LeadAssignedby").val() == "") {
+                   alert("Please Enter LeadAssignedby");
+                   return false;
+               }
+               if ($("#LeadOwner").val() == "") {
+                   alert("Please Enter LeadOwner");
+                   return false;
+               }
+                //if ($('[name="selectedwanttojoin"]:checked').length === 0) {
+                //    alert('Please select Want to Join');
+                //    return false;
+                //}
+                //if ($('[name="seletedwantalerts"]:checked').length === 0) {
+                //    alert('Please select Want Alerts');
+                //    return false;
+                //}
+                //if ($("#LeadAssignedby").val() == "") {
+                //    alert("Please Enter Lead Assigned By");
+                //    return false;
+                //}
+
+                //trimming:
+                //    ===========
+                //    
+                //        if($.trim($("#textbox").val()).length>10)
+                //        {
+                //            alert('The criteria is that max 10 letters. ');
+                //            return;
+                //        }
+                //    
+
+            });
+            //datepicker for YearOfPassedOut
+            //get date using datepicker
+            $("#Leaddate").datepicker().datepicker("setDate", new Date());
+            $("#Followupdate").datepicker().datepicker("", new Date());
+           
+           
+            //product
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\FortuneTechPvtLtd\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\fortunetechpvtltd\\controllers\\emailcontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\emailcontentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\controllers\\mailcampaigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\mailcampaigncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\views\\userregistration\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:views\\userregistration\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\views\\userregistration\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:views\\userregistration\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\views\\userregistration\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:views\\userregistration\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\dashboardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\datamodel\\userdata.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:datamodel\\userdata.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\FortuneTechPvtLtd\\datamodel\\userdata.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:datamodel\\userdata.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailContentController.cs",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Controllers\\EmailContentController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmailContentController.cs",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Controllers\\EmailContentController.cs",
+              "RelativeToolTip": "Controllers\\EmailContentController.cs",
+              "ViewState": "AQIAAMUAAAAAAAAAAAAwwNAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T07:17:23.01Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MailCampaignController.cs",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Controllers\\MailCampaignController.cs",
+              "RelativeDocumentMoniker": "Controllers\\MailCampaignController.cs",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Controllers\\MailCampaignController.cs",
+              "RelativeToolTip": "Controllers\\MailCampaignController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T07:13:45.593Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DashboardController.cs",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Controllers\\DashboardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DashboardController.cs",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Controllers\\DashboardController.cs",
+              "RelativeToolTip": "Controllers\\DashboardController.cs",
+              "ViewState": "AQIAAN8BAAAAAAAAAAAIwOkBAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T06:31:56.687Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserRegistration\\Index.cshtml",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\Index.cshtml",
+              "RelativeToolTip": "Views\\UserRegistration\\Index.cshtml",
+              "ViewState": "AQIAAHUAAAAAAAAAAAAkwHcAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T06:28:16.817Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Edit.cshtml",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\Edit.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserRegistration\\Edit.cshtml",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\Edit.cshtml",
+              "RelativeToolTip": "Views\\UserRegistration\\Edit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T06:28:14.249Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AddUser.cshtml",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\AddUser.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserRegistration\\AddUser.cshtml",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Views\\UserRegistration\\AddUser.cshtml",
+              "RelativeToolTip": "Views\\UserRegistration\\AddUser.cshtml",
+              "ViewState": "AQIAADwAAAAAAAAAAAAcwCcAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T06:28:01.645Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserData.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\DataModel\\UserData.edmx",
+              "RelativeDocumentMoniker": "DataModel\\UserData.edmx",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\DataModel\\UserData.edmx [Diagram1]",
+              "RelativeToolTip": "DataModel\\UserData.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-07-04T11:00:24.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserData.Context.cs",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\DataModel\\UserData.Context.cs",
+              "RelativeDocumentMoniker": "DataModel\\UserData.Context.cs",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\DataModel\\UserData.Context.cs",
+              "RelativeToolTip": "DataModel\\UserData.Context.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAEAAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T06:26:36.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "homeController.cs",
+              "DocumentMoniker": "C:\\FortuneTechPvtLtd\\Controllers\\homeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\homeController.cs",
+              "ToolTip": "C:\\FortuneTechPvtLtd\\Controllers\\homeController.cs",
+              "RelativeToolTip": "Controllers\\homeController.cs",
+              "ViewState": "AQIAAIYAAAAAAAAAAAAYwJkAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T04:58:40.757Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

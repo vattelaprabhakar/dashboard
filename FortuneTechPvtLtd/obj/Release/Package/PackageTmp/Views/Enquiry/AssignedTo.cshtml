@@ -1,0 +1,194 @@
+﻿@model FortuneTechPvtLtd.Models.EnquiryModel
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create</title>
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+     <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style>
+</head>
+
+<body>
+    @using(Html.BeginForm("TaskUpdate", "Enquiry", FormMethod.Post))
+    {
+   
+    <div class="row">
+         @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+                                 @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Lead Assignment</b></h3>
+                         <div class="form-group row">
+
+                <div class="col-md-12">
+                    <input class="btn btn-info btn-rounded mr-3" type="submit" name="Update" value="Submit" id="btnsubmit" />
+                    <input class="btn btn-info btn-rounded" type="submit" name="Cancel" value="Cancel" id="btncancel" formaction="@Url.Action("Cancel")" />
+                </div>
+            </div>
+                        
+             <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div><span class="required">Lead Assigned To</span></div>
+                    <div>
+                        @Html.DropDownListFor(m => m.selectedleadassignedto, new SelectList(ViewBag.users, "UserId", "UserName"), "-select-", new { @class = "form-control" })
+                        <input type="hidden" id="hdnselectedtextofassignedto" value="" name="hdnselectedtextofassignedto" />
+                    </div>
+
+                </div>
+                   <div class="form-group row">
+                                
+                                    <div class="col-md-12">Comments</div>
+                                    <div class="col-md-12">@Html.TextAreaFor(m=>m.Commentsforassignedto, new { @class = "form-control", @placeholder = "Comments",@rows=3 })</div>
+                                    @Html.ValidationMessageFor(model => model.Commentsforassignedto, "", new { @class = "text-danger" })
+                              
+                            </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Lead Name @Html.HiddenFor(model => model.Id)</div>
+                    <div>@Html.TextBoxFor(model => model.LeadName, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.LeadName, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>
+                         <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Product </div>
+                    <div>@Html.TextBoxFor(m => m.selectedinterestedcourse, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.selectedinterestedcourse, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Reference </div>
+                    <div>@Html.TextBoxFor(m => m.selectedrefby, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.selectedrefby, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>
+                         <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Status</div>
+                    <div>
+                        @Html.TextBoxFor(m => m.selectedstatus, new { @class = "form-control", @readonly = "readonly" })
+                        <input type="hidden" id="hdnselectedstatus" value="" name="hdnselectedstatus" />
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Mobile </div>
+                    <div>@Html.TextBoxFor(model => model.Mobile, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Email </div>
+                    <div>@Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>
+
+           @* <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Address </div>
+                    <div>@Html.TextBoxFor(model => model.Address, new { @class = "form-control", @readonly = "readonly" })</div>
+                    <div>@Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })</div>
+                </div>
+            </div>*@
+           
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Want SMS Alerts </div>
+                    <div>@Html.TextBoxFor(m => m.seletedwantsmsalerts, new { @class = "form-control", @readonly = "readonly" })</div>
+
+                </div>
+            </div>
+                            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Want MAIL Alerts </div>
+                    <div>@Html.TextBoxFor(m => m.seletedwantmailalerts, new { @class = "form-control", @readonly = "readonly" })</div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Assigned By</div>
+                    <div>@Html.TextBoxFor(m => m.LeadAssignedby, new { @class = "form-control", @placeholder = "Qualification", @Value = Session["CurrentUser"].ToString(), @readonly = "readonly" })</div>
+
+                </div>
+            </div>
+           
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Website</div>
+                    <div>
+                        @Html.TextBoxFor(m => m.Website, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group mb-3">
+                    <div>Industry</div>
+                    <div>@Html.TextBoxFor(m => m.Industry, new { @class = "form-control", @readonly = "readonly" })
+                    </div>
+
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+        </div>
+
+    }
+
+ <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function DisableButton() {
+                $("#btnsubmit").attr('disabled', 'disabled');
+                $("#btncancel").attr('disabled', 'disabled');
+            }
+            window.onbeforeunload = DisableButton;
+            $("#selectedleadassignedto").change(function () {
+                var catText = $("#selectedleadassignedto option:selected").text();
+                $("#hdnselectedtextofassignedto").val(catText);
+            });
+            $("#btnsubmit").click(function () {
+                if ($("#selectedleadassignedto :selected").val() == 0) {
+                    alert('Please Select AssignedTo ');
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

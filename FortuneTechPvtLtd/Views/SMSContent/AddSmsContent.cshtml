@@ -1,0 +1,132 @@
+﻿@model FortuneTechPvtLtd.Models.SMSContentModel
+
+@{
+    ViewBag.Title = "AddNewEmailContent";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add New Email Content</title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+       <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style> 
+</head>
+<body>
+   
+         @using (Html.BeginForm("Submit", "SMSContent", FormMethod.Post))
+         {
+          
+        <div class="row">
+
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Compose New SMS</b></h3>
+                          @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+  @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+                          <div class="form-group row ">
+                              
+                                    <div class="col-md-12"><span class="required">Product</span></div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Product product in ViewBag.products)
+                                            {
+                                                @Html.RadioButtonFor(m => m.interestedcourse, product.ProductId, new { @class = "form-check-input" })@Html.Label(product.ProductName, new { @class = "form-check-label mr-3" })
+                                            }
+                                            @Html.ValidationMessageFor(model => model.interestedcourse, "", new { @class = "text-danger" })
+                                        </div>
+                                        <input type="hidden" id="hdnselectedinterestedcourse" value="" name="hdnselectedinterestedcourse" />
+                                    </div>
+                                </div>
+                         <div class="form-group row">
+                               
+                                    <div class="col-md-12"><span class="required">Status</span></div>
+                                    <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.Leadstatus status in ViewBag.stustatus)
+                                            {
+                                                @Html.RadioButtonFor(m => m.leadstutus, status.StatusId, new { @class = "form-check-input" })@Html.Label(status.StatusName, new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnselectedstatus" value="" name="hdnselectedstatus" />
+                                       
+                                    </div>
+                                </div>
+              
+                             <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div>@Html.HiddenFor(m=>m.smsid) <span class="required"> SMS Content</span></div>
+                        <div>@Html.TextAreaFor(m=>m.smscontent, new { @class = "form-control", @placeholder = "SMS Text",@autocomplete="off"  })</div>
+                        <div> @Html.ValidationMessageFor(model => model.smscontent, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                        
+                                
+                    <div class="col-md-12">
+                         <div class="form-group row">
+                       <input class="btn btn-info btn-rounded mr-3" type="submit" name="Submit" value="Submit" id="btnsubmit" />
+                       <input class="btn btn-info btn-rounded" type="submit" name="Cancel" value="Cancel" formaction="Cancel" />
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>                   
+        }
+    
+     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () {
+
+                var radioValue = $("input[name='interestedcourse']:checked").val();
+                var radiotext = $("input[name='interestedcourse']:checked").next().html();
+                $("input[id=hdnselectedinterestedcourse]").val(radiotext);
+
+                //selectedstatus
+
+                var radioValue = $("input[name='leadstutus']:checked").val();
+                var radiotext = $("input[name='leadstutus']:checked").next().html();
+                $("input[id=hdnselectedstatus]").val(radiotext);
+
+               
+               
+                if ($('[name="interestedcourse"]:checked').length === 0) {
+                    alert('Please select Product');
+                    return false;
+                }
+                if ($('[name="leadstutus"]:checked').length === 0) {
+                    alert('Please select Status');
+                    return false;
+                }
+                if ($("#smscontent").val() == "") {
+                    alert("Please Enter SMS  Content");
+                    return false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

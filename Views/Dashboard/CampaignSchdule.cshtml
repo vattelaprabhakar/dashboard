@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "CampaignSchdule";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<html>
+    <head>
+        <title></title>
+         <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    </head>
+    <body>
+        <script>
+
+           
+            $(document).ready(function () {
+                var validation = '@TempData["campcreated"]';
+
+                if (validation == "campcreated") {
+                    alert("Successfully Created a Campaign!");
+                }
+
+                var validation11 = '@TempData["campnotcreated"]';
+
+            if (validation11 == "campnotcreated") {
+                alert("We cannot create campaign,Please Verify Campaign screen!");
+            }
+
+            var validation22 = '@TempData["campnotcreatedforbasicinfo"]';
+
+            if (validation22 == "campnotcreatedforbasicinfo") {
+                alert("We cannot create campaign,Please Verify Organization Screen!");
+            }
+            var validation33 = '@TempData["coursemail"]';
+
+                if (validation33 == "coursemail") {
+                alert("There is no Appropriate data for product and status!");
+            }
+            location.href = "/Dashboard/Index";
+        });
+            </script>
+    </body>
+</html>
+

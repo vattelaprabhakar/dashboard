@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "CampaignSchdule";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<html>
+    <head>
+        <title></title>
+         <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    </head>
+    <body>
+        <script>
+
+           
+            $(document).ready(function () {
+                var validation = '@TempData["runcampsuccessfully"]';
+
+                if (validation == "runcampsuccessfully") {
+                    alert("Successfully Completed Campaign!");
+                }
+
+                var validation11 = '@TempData["nothingforrun"]';
+
+                if (validation11 == "nothingforrun") {
+                alert("There is No Data to Process!");
+            }
+            location.href = "/Dashboard/Index";
+        });
+            </script>
+    </body>
+</html>
+

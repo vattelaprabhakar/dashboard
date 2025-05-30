@@ -1,0 +1,446 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FortuneModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="FortuneModelStoreContainer">
+    <EntitySet Name="tbl_campaign" EntityType="FortuneModel.Store.tbl_campaign" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_customlabel" EntityType="FortuneModel.Store.tbl_customlabel" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_EmailLog" EntityType="FortuneModel.Store.tbl_EmailLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_enquirydetails" EntityType="FortuneModel.Store.tbl_enquirydetails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_EnquiryForm" EntityType="FortuneModel.Store.tbl_EnquiryForm" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_FortuneBasicInfo" EntityType="FortuneModel.Store.tbl_FortuneBasicInfo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_FortuneRoles" EntityType="FortuneModel.Store.tbl_FortuneRoles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_FortuneUsers" EntityType="FortuneModel.Store.tbl_FortuneUsers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_LeadEmailContent" EntityType="FortuneModel.Store.tbl_LeadEmailContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_LeadStatus" EntityType="FortuneModel.Store.tbl_LeadStatus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_LeadStatusEmailContent" EntityType="FortuneModel.Store.tbl_LeadStatusEmailContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Logs" EntityType="FortuneModel.Store.tbl_Logs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Menu" EntityType="FortuneModel.Store.tbl_Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Payment" EntityType="FortuneModel.Store.tbl_Payment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Productlist" EntityType="FortuneModel.Store.tbl_Productlist" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_SmsContent" EntityType="FortuneModel.Store.tbl_SmsContent" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_SmsLog" EntityType="FortuneModel.Store.tbl_SmsLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_Source" EntityType="FortuneModel.Store.tbl_Source" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="tbl_UserLog" EntityType="FortuneModel.Store.tbl_UserLog" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK__tbl_Menu__RoleId__36B12243" Association="FortuneModel.Store.FK__tbl_Menu__RoleId__36B12243">
+      <End Role="tbl_FortuneRoles" EntitySet="tbl_FortuneRoles" />
+      <End Role="tbl_Menu" EntitySet="tbl_Menu" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="tbl_campaign">
+    <Key>
+      <PropertyRef Name="campId" />
+    </Key>
+    <Property Name="campId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="camp_name" Type="varchar" MaxLength="100" />
+    <Property Name="camp_start_dt" Type="datetime" />
+    <Property Name="camp_end_dt" Type="datetime" />
+    <Property Name="camp_Category" Type="varchar" MaxLength="40" />
+    <Property Name="camp_type" Type="varchar" MaxLength="40" />
+    <Property Name="camp_day" Type="varchar" MaxLength="40" />
+    <Property Name="camp_product" Type="varchar" MaxLength="40" />
+    <Property Name="camp_status" Type="varchar" MaxLength="40" />
+    <Property Name="camp_comments" Type="nvarchar(max)" />
+    <Property Name="compId" Type="int" Nullable="false" />
+    <Property Name="brId" Type="int" Nullable="false" />
+    <Property Name="camp_flag" Type="varchar" MaxLength="40" />
+    <Property Name="camp_CategoryId" Type="int" />
+    <Property Name="camp_typeId" Type="int" />
+    <Property Name="camp_dayId" Type="int" />
+    <Property Name="camp_productId" Type="int" />
+    <Property Name="camp_statusId" Type="int" />
+    <Property Name="camp_flagId" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_customlabel">
+    <Key>
+      <PropertyRef Name="labelId" />
+    </Key>
+    <Property Name="labelId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="label_schema_name" Type="varchar" MaxLength="100" />
+    <Property Name="label_name" Type="varchar" MaxLength="100" />
+    <Property Name="compId" Type="int" Nullable="false" />
+    <Property Name="brId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_EmailLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginUserName" Type="varchar" MaxLength="330" />
+    <Property Name="EmailFrom" Type="varchar" MaxLength="300" />
+    <Property Name="EmailTo" Type="varchar" MaxLength="300" />
+    <Property Name="SentDate" Type="datetime" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+    <Property Name="LeadName" Type="varchar" MaxLength="150" />
+    <Property Name="Product" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="varchar" MaxLength="200" />
+    <Property Name="IdentityFlag" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_enquirydetails">
+    <Key>
+      <PropertyRef Name="detailId" />
+    </Key>
+    <Property Name="detailId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="enquiryId" Type="int" Nullable="false" />
+    <Property Name="dtl_leadowner" Type="varchar" MaxLength="40" />
+    <Property Name="dtl_leadname" Type="varchar" MaxLength="40" />
+    <Property Name="dtl_status" Type="varchar" MaxLength="40" />
+    <Property Name="dtl_product" Type="varchar" MaxLength="40" />
+    <Property Name="dtl_comments" Type="nvarchar(max)" />
+    <Property Name="dtl_createddt" Type="datetime" />
+    <Property Name="compId" Type="int" Nullable="false" />
+    <Property Name="brId" Type="int" Nullable="false" />
+    <Property Name="dtl_maploc_url" Type="nvarchar(max)" />
+    <Property Name="dtl_fileloc_folder" Type="nvarchar(max)" />
+    <Property Name="followup_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tbl_EnquiryForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LeadName" Type="varchar" MaxLength="300" />
+    <Property Name="Address" Type="varchar" MaxLength="300" />
+    <Property Name="Mobile" Type="varchar" MaxLength="300" />
+    <Property Name="Email" Type="varchar" MaxLength="300" />
+    <Property Name="ProfessionalDetails" Type="varchar" MaxLength="50" />
+    <Property Name="Qualification" Type="varchar" MaxLength="50" />
+    <Property Name="Yearofpassedout" Type="nvarchar" MaxLength="300" />
+    <Property Name="Workexpdomain" Type="varchar" MaxLength="30" />
+    <Property Name="Product" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="Preferredlocation" Type="varchar" MaxLength="50" />
+    <Property Name="Prefbatch" Type="varchar" MaxLength="50" />
+    <Property Name="Reference" Type="varchar" MaxLength="50" />
+    <Property Name="Wanttojoin" Type="varchar" MaxLength="50" />
+    <Property Name="WantSMSAlerts" Type="varchar" MaxLength="50" />
+    <Property Name="LeadAssignedby" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="300" />
+    <Property Name="LeadAssignedTo" Type="varchar" MaxLength="50" />
+    <Property Name="Record_CreatedBy" Type="varchar" MaxLength="50" />
+    <Property Name="Record_ModifiedBy" Type="varchar" MaxLength="50" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Modified_Date" Type="datetime" />
+    <Property Name="Website" Type="varchar" MaxLength="300" />
+    <Property Name="Industry" Type="varchar" MaxLength="300" />
+    <Property Name="Rating" Type="varchar" MaxLength="300" />
+    <Property Name="Comment1" Type="varchar" MaxLength="300" />
+    <Property Name="Comment2" Type="varchar" MaxLength="800" />
+    <Property Name="Comment3" Type="varchar" MaxLength="800" />
+    <Property Name="LeadOwner" Type="varchar" MaxLength="300" />
+    <Property Name="LeadDate" Type="datetime" />
+    <Property Name="FollowUpdate" Type="datetime" />
+    <Property Name="CommentsForAssignment" Type="varchar" MaxLength="800" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+    <Property Name="SelectedProductId" Type="int" />
+    <Property Name="SelectedStatusId" Type="int" />
+    <Property Name="SelectedReference" Type="int" />
+    <Property Name="WantMailAlerts" Type="varchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbl_FortuneBasicInfo">
+    <Key>
+      <PropertyRef Name="basic_id" />
+    </Key>
+    <Property Name="basic_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="CompId" Type="int" Nullable="false" />
+    <Property Name="BrId" Type="int" Nullable="false" />
+    <Property Name="OrganizationName" Type="varchar" MaxLength="500" />
+    <Property Name="BranchName" Type="varchar" MaxLength="500" />
+    <Property Name="LogoPath" Type="nvarchar" MaxLength="900" />
+    <Property Name="OrgEmail" Type="nvarchar" MaxLength="100" />
+    <Property Name="OrgPhone" Type="nvarchar" MaxLength="20" />
+    <Property Name="FromDate" Type="datetime" />
+    <Property Name="ToDate" Type="datetime" />
+    <Property Name="SmsCount" Type="int" />
+    <Property Name="NumberOfUserToAllowed" Type="int" />
+    <Property Name="OrgLogo" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tbl_FortuneRoles">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_FortuneUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="RoleName" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="Record_CreatedBy" Type="varchar" MaxLength="30" />
+    <Property Name="Record_ModifiedBy" Type="varchar" MaxLength="30" />
+    <Property Name="Created_Date" Type="datetime" />
+    <Property Name="Modified_Date" Type="datetime" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+    <Property Name="IsActiveId" Type="int" />
+    <Property Name="IsActiveName" Type="varchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="tbl_LeadEmailContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="EmailSubject" Type="nvarchar(max)" />
+    <Property Name="EmailBody" Type="nvarchar(max)" />
+    <Property Name="InterestedCourse" Type="nvarchar(max)" />
+    <Property Name="leadstatus" Type="nvarchar(max)" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_LeadStatus">
+    <Key>
+      <PropertyRef Name="StatusId" />
+    </Key>
+    <Property Name="StatusId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="varchar" MaxLength="70" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_LeadStatusEmailContent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LeadStatus" Type="varchar" MaxLength="40" />
+    <Property Name="EmailSubject" Type="nvarchar(max)" />
+    <Property Name="EmailBody" Type="nvarchar(max)" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Logs">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ControllerName" Type="varchar" MaxLength="30" />
+    <Property Name="ActionName" Type="varchar" MaxLength="30" />
+    <Property Name="ExceptionMessage" Type="nvarchar(max)" />
+    <Property Name="StackTrace" Type="nvarchar(max)" />
+    <Property Name="DateTime" Type="datetime" />
+    <Property Name="UserName" Type="varchar" MaxLength="40" />
+    <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Menu">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ControllerName" Type="varchar" MaxLength="30" />
+    <Property Name="ActionName" Type="varchar" MaxLength="30" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="RoleName" Type="varchar" MaxLength="30" />
+    <Property Name="Text" Type="varchar" MaxLength="30" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Payment">
+    <Key>
+      <PropertyRef Name="cust_id" />
+    </Key>
+    <Property Name="cust_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="cust_name" Type="varchar" MaxLength="200" />
+    <Property Name="cust_mobile" Type="nvarchar" MaxLength="100" />
+    <Property Name="product_name" Type="varchar" MaxLength="200" />
+    <Property Name="product_actual_cost" Type="decimal" />
+    <Property Name="product_revised_amount" Type="decimal" />
+    <Property Name="modeof_payment" Type="varchar" MaxLength="200" />
+    <Property Name="paid_amount" Type="decimal" />
+    <Property Name="balance_amount" Type="decimal" />
+    <Property Name="payment_date" Type="datetime" />
+    <Property Name="payment_followupdate" Type="datetime" />
+    <Property Name="compid" Type="int" />
+    <Property Name="brid" Type="int" />
+    <Property Name="product_id" Type="int" />
+    <Property Name="modeofpayment_id" Type="int" />
+    <Property Name="comments" Type="nvarchar" MaxLength="900" />
+  </EntityType>
+  <EntityType Name="tbl_Productlist">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="varchar" MaxLength="70" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+    <Property Name="ProductAmount" Type="decimal" />
+  </EntityType>
+  <EntityType Name="tbl_SmsContent">
+    <Key>
+      <PropertyRef Name="SmsId" />
+    </Key>
+    <Property Name="SmsId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SmsContent" Type="varchar(max)" />
+    <Property Name="InterestedCourse" Type="varchar" MaxLength="400" />
+    <Property Name="leadstatus" Type="varchar" MaxLength="400" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_SmsLog">
+    <Key>
+      <PropertyRef Name="SmsIdCount" />
+    </Key>
+    <Property Name="SmsIdCount" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="LoginUserName" Type="varchar" MaxLength="400" />
+    <Property Name="OrganizationName" Type="varchar" MaxLength="200" />
+    <Property Name="MobileNum" Type="nvarchar" MaxLength="30" />
+    <Property Name="SentDate" Type="datetime" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <EntityType Name="tbl_Source">
+    <Key>
+      <PropertyRef Name="SourceId" />
+    </Key>
+    <Property Name="SourceId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SourceName" Type="varchar" MaxLength="70" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+    <Property Name="monthly_budget" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="JanBudgtet" Type="decimal" />
+    <Property Name="FebBudgtet" Type="decimal" />
+    <Property Name="MarBudgtet" Type="decimal" />
+    <Property Name="AprBudgtet" Type="decimal" />
+    <Property Name="MayBudgtet" Type="decimal" />
+    <Property Name="JunBudgtet" Type="decimal" />
+    <Property Name="JulBudgtet" Type="decimal" />
+    <Property Name="AugBudgtet" Type="decimal" />
+    <Property Name="SepBudgtet" Type="decimal" />
+    <Property Name="OctBudgtet" Type="decimal" />
+    <Property Name="NovBudgtet" Type="decimal" />
+    <Property Name="DecBudgtet" Type="decimal" />
+  </EntityType>
+  <EntityType Name="tbl_UserLog">
+    <Key>
+      <PropertyRef Name="LogId" />
+    </Key>
+    <Property Name="LogId" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="varchar" MaxLength="200" />
+    <Property Name="OrgName" Type="varchar" MaxLength="500" />
+    <Property Name="ScreenName" Type="varchar" MaxLength="500" />
+    <Property Name="LogDatetime" Type="datetime" />
+    <Property Name="CompId" Type="int" />
+    <Property Name="BrId" Type="int" />
+  </EntityType>
+  <Association Name="FK__tbl_Menu__RoleId__36B12243">
+    <End Role="tbl_FortuneRoles" Type="FortuneModel.Store.tbl_FortuneRoles" Multiplicity="0..1" />
+    <End Role="tbl_Menu" Type="FortuneModel.Store.tbl_Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_FortuneRoles">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="tbl_Menu">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Proc_AddLead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompId" Type="int" Mode="In" />
+    <Parameter Name="BrId" Type="int" Mode="In" />
+    <Parameter Name="LeadName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Product" Type="varchar" Mode="In" />
+    <Parameter Name="Reference" Type="varchar" Mode="In" />
+    <Parameter Name="WantSMSAlerts" Type="varchar" Mode="In" />
+    <Parameter Name="LeadAssignedby" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="Website" Type="varchar" Mode="In" />
+    <Parameter Name="Industry" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+    <Parameter Name="Comment1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Comment2" Type="varchar" Mode="In" />
+    <Parameter Name="Comment3" Type="varchar" Mode="In" />
+    <Parameter Name="LeadOwner" Type="varchar" Mode="In" />
+    <Parameter Name="LeadDate" Type="datetime" Mode="In" />
+    <Parameter Name="FollowUpdate" Type="datetime" Mode="In" />
+    <Parameter Name="SelectedProductId" Type="int" Mode="In" />
+    <Parameter Name="SelectedStatusId" Type="int" Mode="In" />
+    <Parameter Name="SelectedReference" Type="int" Mode="In" />
+    <Parameter Name="Record_CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="WantMailAlerts" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompId" Type="int" Mode="In" />
+    <Parameter Name="BrId" Type="int" Mode="In" />
+    <Parameter Name="IsActiveId" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="IsActiveName" Type="varchar" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+    <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Record_CreatedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Proc_getleadsbyuseridentity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="stu_LeadAssignedTo" Type="varchar" Mode="In" />
+    <Parameter Name="stu_LeadAssignedby" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_InserLogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MachineName" Type="varchar" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="UserRole" Type="varchar" Mode="In" />
+    <Parameter Name="ControllerName" Type="varchar" Mode="In" />
+    <Parameter Name="ActionName" Type="varchar" Mode="In" />
+    <Parameter Name="ExceptionMessage" Type="varchar" Mode="In" />
+    <Parameter Name="StackTrace" Type="varchar" Mode="In" />
+    <Parameter Name="DateTime" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="Proc_UpdateLead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="CompId" Type="int" Mode="In" />
+    <Parameter Name="BrId" Type="int" Mode="In" />
+    <Parameter Name="LeadName" Type="varchar" Mode="In" />
+    <Parameter Name="Address" Type="varchar" Mode="In" />
+    <Parameter Name="Mobile" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="Product" Type="varchar" Mode="In" />
+    <Parameter Name="Reference" Type="varchar" Mode="In" />
+    <Parameter Name="WantSMSAlerts" Type="varchar" Mode="In" />
+    <Parameter Name="LeadAssignedby" Type="varchar" Mode="In" />
+    <Parameter Name="Status" Type="varchar" Mode="In" />
+    <Parameter Name="Website" Type="varchar" Mode="In" />
+    <Parameter Name="Industry" Type="varchar" Mode="In" />
+    <Parameter Name="Rating" Type="varchar" Mode="In" />
+    <Parameter Name="Comment1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Comment2" Type="varchar" Mode="In" />
+    <Parameter Name="Comment3" Type="varchar" Mode="In" />
+    <Parameter Name="LeadOwner" Type="varchar" Mode="In" />
+    <Parameter Name="LeadDate" Type="datetime" Mode="In" />
+    <Parameter Name="FollowUpdate" Type="datetime" Mode="In" />
+    <Parameter Name="SelectedProductId" Type="int" Mode="In" />
+    <Parameter Name="SelectedStatusId" Type="int" Mode="In" />
+    <Parameter Name="SelectedReference" Type="int" Mode="In" />
+    <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="WantMailAlerts" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="Proc_UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CompId" Type="int" Mode="In" />
+    <Parameter Name="BrId" Type="int" Mode="In" />
+    <Parameter Name="UserId" Type="int" Mode="In" />
+    <Parameter Name="UserName" Type="varchar" Mode="In" />
+    <Parameter Name="RoleId" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="RoleName" Type="varchar" Mode="In" />
+    <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+    <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+    <Parameter Name="IsActiveId" Type="int" Mode="In" />
+    <Parameter Name="IsActiveName" Type="varchar" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+</Schema>

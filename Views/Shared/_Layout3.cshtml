@@ -1,0 +1,440 @@
+﻿@using System.Security.Principal
+@{
+    ViewBag.Title = "_Layout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/assets/images/favicon.ico">
+
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="~/assets/plugins/morris/morris.css">
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+    @*<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style>
+        .logo-top {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            right: 0;
+            z-index: 9;
+        }
+
+            .logo-top h4 {
+                color: #fff;
+                text-align: center;
+            }
+
+        .btn-warning:focus, .btn-warning:hover {
+            background-position: initial!important;
+        }
+
+        #sidebar-menu ul ul a {
+            text-align: left;
+            padding: 12px 25px 12px 20px;
+        }
+
+        #sidebar-menu > ul > li > a {
+            text-align: left;
+        }
+    </style>
+
+
+
+    <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @*<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>*@
+
+    <!-- dropdown menu -->
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="~/assets/js/detect.js"></script>
+    <script src="~/assets/js/fastclick.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.blockUI.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- skycons -->
+    <script src="~/assets/plugins/skycons/skycons.min.js"></script>
+
+    <!-- skycons -->
+    <script src="~/assets/plugins/peity/jquery.peity.min.js"></script>
+
+    <!--Morris Chart-->
+    <script src="~/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/assets/plugins/raphael/raphael-min.js"></script>
+
+    <!-- dashboard -->
+    <script src="~/assets/pages/dashboard.js"></script>
+
+    <!-- App js -->
+    <script src="~/assets/js/app.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //$(".dropdown").hover(            
+            //   function() {
+            //       $('.dropdwon-menu', this).stop( true, true ).fadeIn("fast");
+            //       $(this).toggleClass('open');
+            //       $('b', this).toggleClass("caret caret-up");                
+            //   },
+            //   function() {
+            //       $('.dropdwon-menu', this).stop( true, true ).fadeOut("fast");
+            //       $(this).toggleClass('open');
+            //       $('b', this).toggleClass("caret caret-up");                
+            //   });
+        });
+
+    </script>
+
+
+
+
+
+
+
+</head>
+<body class="fixed-left">
+
+    <!-- Loader -->
+    <div id="preloader">
+        <div id="status">
+            <div class="spinner"></div>
+        </div>
+    </div>
+
+    <!-- Begin page -->
+    <div id="wrapper">
+
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                <i class="ion-close"></i>
+            </button>
+            <!-- ========== Logo ========== -->
+            <div class="left-side-logo d-block d-lg-none">
+                <div class="text-center">
+                </div>
+            </div>
+
+            <div class="sidebar-inner slimscrollleft">
+
+                <div id="sidebar-menu" style="margin-left: 5px; margin-top: 2px">
+                    <ul>
+                        <li>
+                            <span class="btn-warning btn-block btn-lg mb-1">@Html.ActionLink("Dashboard", "Index", "Dashboard")</span>
+
+                        </li>
+                        @if (Session["MenuMaster"] != null)
+                        {
+                            var menumaster = (List<FortuneTechPvtLtd.Models.MenuModel>)Session["MenuMaster"];
+                            var groupbymenu = menumaster.GroupBy(x => x.MenuName).ToList();
+                            foreach (var item in groupbymenu)
+                            {
+                                foreach (var a in item)
+                                {
+                            <li>
+
+                                @if (a.ActionName == "Index" && a.ControllerName != "AdminAccess" && a.ControllerName != "UserRegistration")
+                                {
+                                    <span class="btn-warning btn-block btn-lg mb-1">@Html.ActionLink(item.Key, a.ActionName, a.ControllerName)</span>
+                                }
+                            </li>
+                            
+                            
+                                }
+                            }
+                        }
+@*  @if (HttpContext.Current.Session["UserRole"].ToString() == "Manager" && HttpContext.Current.Session["CurrentLoginUser"].ToString() == "mohiddin@fortunesofttech.com")
+                        {
+                            <li class="button mb-1">
+                              
+
+                            </li> 
+                        }*@
+                        <li class="button mb-1">
+                            <span class="btn-warning btn-block btn-lg">@Html.ActionLink("SendMail", "SendCustomEmail", "Enquiry")</span>
+
+                        </li>
+                        @*  @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            <li class="button mb-1">
+                                <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Campaign", "Index", "Scheduling")</span>
+
+                            </li>
+                        }*@
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            <li class="button mb-1">
+                                <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Payment", "index", "Billing")</span>
+
+                            </li>
+                        }
+                        <li class="button mb-1">
+                            <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Import Leads", "", "", new { href = "javascript:void(0)" })</span>
+
+                        </li>
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            <li class="button mb-1">
+                                <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Assign Leads", "LeadAssign", "MultiLeadsAssign")</span>
+
+                            </li>
+                        }
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            if (HttpContext.Current.Session["emailflag"].ToString().ToUpper() == "Yes".ToUpper())
+                            {
+                            <li class="button mb-1">
+                                <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Email Campaign", "Index", "MailCampaign")</span>
+
+                            </li>
+                            }
+
+                        }
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            if (HttpContext.Current.Session["smsflag"].ToString().ToUpper() == "Yes".ToUpper())
+                            {
+                            <li class="button mb-1">
+                                <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Sms Campaign", "Index", "Scheduling")</span>
+
+                            </li>
+                            }
+
+                        }
+                      @*  email alerts*@
+                           @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            if (HttpContext.Current.Session["emailalert"].ToString().ToUpper() == "Yes".ToUpper())
+                            {
+                             <li class="button mb-1">
+                            <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Email Alerts", "Index", "EmailAlerts")</span>
+
+                        </li>
+                            }
+
+                        }
+                       @*  sms alerts*@
+                           @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            if (HttpContext.Current.Session["smsalert"].ToString().ToUpper() == "Yes".ToUpper())
+                            {
+                             <li class="button mb-1">
+                            <span class="btn-warning btn-block btn-lg">@Html.ActionLink("Sms Alerts", "Index", "SmsAlerts")</span>
+
+                        </li>
+                            }
+
+                        }
+
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            if (HttpContext.Current.Session["analyticsflag"].ToString().ToUpper() == "Yes".ToUpper())
+                            {
+                            <li class="button mb-1">
+                                @* <span class="btn-warning btn-block btn-lg">@Html.ActionLink("SMS Campaign", "Index", "Scheduling")</span>*@
+                                <a class="btn-warning btn-block btn-lg" href="http://analytics.fortunesofttech.com" target="_blank">Analytics</a>
+
+                            </li>
+                            }
+
+
+                        }
+@*  @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            <li class="dropdown mb-1">
+                                <a href="#" class="btn btn-warning btn-block btn-lg dropdown-toggle buttonMenu dropdown-toggle-split" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Campaign</a>
+                                <ul class="dropdown-menu">
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("SMS Campaign", "Index", "Scheduling")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("EMAIL Campaign", "Index", "MailCampaign")</li>
+                                </ul>
+                            </li>
+                          
+                        }*@
+
+                        @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                        {
+                            <li class="dropdown mb-1">
+                                <a href="#" class="btn btn-warning btn-block btn-lg dropdown-toggle buttonMenu dropdown-toggle-split" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">Masters</a>
+                                <ul class="dropdown-menu">
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("OrganizationDetails", "Index", "CompanyBasciInfo")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("User Registration", "Index", "UserRegistration")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Source", "Index", "PropSource")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Status", "Index", "PropStatus")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Product", "Index", "PropProduct")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Email", "Index", "EmailContent")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("SMS", "Index", "SMSContent")</li>
+                                    @* <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("SMS", "", "",new {href="javascript:void(0)"})</li>*@
+                                </ul>
+                            </li>
+                          
+                        }
+                        <li class="dropdown  mb-1">
+                            <a href="#" class="btn btn-warning btn-block btn-lg dropdown-toggle buttonMenu" data-toggle="dropdown">Reports</a>
+                            <ul class="dropdown-menu">
+
+                                @* <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("ProductWise ", "ProductWise", "Reports")</li>
+                                   <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("StatusWise ", "StatusWise", "Reports")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("LeadOwnerWise ", "LeadOwnerwise", "Reports")</li>
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("SourceWise ", "LeadSourceWise", "Reports")</li>*@
+                                <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Lead Reports", "GetMultiparameterwise", "Reports")</li>
+                                <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("EmailReports", "GetEmailReports", "Reports")</li>
+                                <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("SMSReports", "GetSmsReports", "Reports")</li>
+                                <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("LeadHistory", "UserHistory", "Reports")</li>
+
+                                @if (HttpContext.Current.Session["UserRole"].ToString() == "Admin" || HttpContext.Current.Session["UserRole"].ToString() == "Manager")
+                                { 
+                                    <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Payment Reports", "PaymentReports", "Reports")</li>
+                                }
+@*  <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Today's ", "Index", "Reports")</li>*@
+@* <li class="btn btn-warning btn-block btn-lg">@Html.ActionLink("Date Wise ", "GetDatewise", "Reports")</li>*@
+                            </ul>
+                        </li>
+
+
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <!-- end sidebarinner -->
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- Start right Content here -->
+
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <div class="logo-top">
+                        @if (Session["organizationdetails"] != null)
+                        {
+                            var orgdetails = (List<FortuneTechPvtLtd.Models.OrganizationModel>)Session["organizationdetails"];
+                            foreach (var item in orgdetails)
+                            {
+                                
+                            <h4 style="font-family: Broadway">@item.OrganizationName</h4>
+                           
+                            }
+                        }
+                    </div>
+                    <div class="topbar-left d-none d-lg-block">
+                        <div class="text-center">
+                            <!-- company logo  -->
+                            @* <a href="index.html" class="logo">
+                                 <img src="~/assets/images/logo.png" height="20" alt="logo">*@
+
+                            @if (Session["organizationdetails"] != null)
+                            {
+                                var orgdetails = (List<FortuneTechPvtLtd.Models.OrganizationModel>)Session["organizationdetails"];
+                                foreach (var item in orgdetails)
+                                {
+                                    if (!string.IsNullOrEmpty(item.LogoUrl))
+                                    {
+                                <a href="index.html" class="logo">
+                                    <img src="@Url.Content(item.LogoUrl)" height="30" width="160" alt="logo">
+                                </a>
+                                    }
+
+
+                                }
+                            }
+
+                        </div>
+                    </div>
+
+                    <nav class="navbar-custom">
+                        <ul class="list-inline float-right mg-0">
+
+                            <li class="list-inline-item">
+                                @* <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user" data-toggle="dropdown" href="#" role="button"
+                                    aria-haspopup="false" aria-expanded="false">
+                                    <img src="assets/images/users/user-1.jpg" alt="user" class="rounded-circle">
+                                </a>*@
+                                @* <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated profile-dropdown ">
+                                         <a class="dropdown-item" href="@Url.Action("LogOff","home")"><i class="mdi mdi-logout m-r-5 text-muted"></i> Logout</a>
+                                       <a class="dropdown-item" href="#"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> Profile</a>
+                                        <a class="dropdown-item" href="#"><span class="badge badge-success mt-1 float-right">5</span><i class="mdi mdi-settings m-r-5 text-muted"></i> Settings</a>
+                                        <a class="dropdown-item" href="#"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> Lock screen</a>
+                                       
+                                    </div>*@
+                                <div class="">
+                                    @*  <a href="@Url.Action("LogOff", "home")" class="btn-warning btn-block btn-sm">Logout
+                                        <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+                                    </a>*@
+                                    <span class="mb-1" style="color: white">@Html.Label("", Session["CurrentUser"].ToString())</span>
+                                    <a class="btn btn-warning btn-rounded" href="/home/LogOff"><span class="glyphicon glyphicon-log-out">Logout</span></a>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="list-inline-item">
+                                <button type="button" class="button-menu-mobile open-left waves-effect">
+                                    <i class="ion-navicon"></i>
+                                </button>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+
+                    </nav>
+
+                </div>
+                <!-- Top Bar End -->
+
+                <div class="page-content-wrapper ">
+
+                    <div class="container-fluid">
+
+                        @* <div class="row">
+                            <div class="col-sm-12">
+
+                                <h5 class="page-title">Leads</h5>
+                            </div>
+                        </div>*@
+                        <!-- end row -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card m-b-30">
+                                    <div class="card-body">
+                                        @RenderBody();
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end col -->
+                        </div>
+                        <!-- end row -->
+                    </div>
+                    <!-- container fluid -->
+
+                </div>
+                <!-- Page content Wrapper -->
+
+            </div>
+            <!-- content -->
+
+        </div>
+        <!-- End Right content here -->
+
+    </div>
+
+
+
+</body>
+</html>

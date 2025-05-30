@@ -1,0 +1,1836 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FortuneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_alerts">
+          <Key>
+            <PropertyRef Name="alert_Id" />
+          </Key>
+          <Property Name="alert_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alert_mast_Id" Type="int" Nullable="false" />
+          <Property Name="alert_mast__name" Type="varchar" MaxLength="300" />
+          <Property Name="alert_Category" Type="varchar" MaxLength="40" />
+          <Property Name="alert_type" Type="varchar" MaxLength="40" />
+          <Property Name="alert_product" Type="varchar" MaxLength="40" />
+          <Property Name="alert_status" Type="varchar" MaxLength="40" />
+          <Property Name="alert_comments" Type="nvarchar(max)" />
+          <Property Name="compId" Type="int" Nullable="false" />
+          <Property Name="brId" Type="int" Nullable="false" />
+          <Property Name="alert_flag" Type="varchar" MaxLength="40" />
+          <Property Name="alert_flagid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_alerts_master">
+          <Key>
+            <PropertyRef Name="alert_master_Id" />
+          </Key>
+          <Property Name="alert_master_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alert_master__name" Type="varchar" MaxLength="300" />
+          <Property Name="alert_master_category" Type="varchar" MaxLength="40" />
+          <Property Name="alert_master_type" Type="varchar" MaxLength="40" />
+          <Property Name="alert_master_flag" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tbl_campaign">
+          <Key>
+            <PropertyRef Name="campId" />
+          </Key>
+          <Property Name="campId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="camp_name" Type="varchar" MaxLength="100" />
+          <Property Name="camp_start_dt" Type="datetime" />
+          <Property Name="camp_end_dt" Type="datetime" />
+          <Property Name="camp_Category" Type="varchar" MaxLength="40" />
+          <Property Name="camp_type" Type="varchar" MaxLength="40" />
+          <Property Name="camp_day" Type="varchar" MaxLength="40" />
+          <Property Name="camp_product" Type="varchar" MaxLength="40" />
+          <Property Name="camp_status" Type="varchar" MaxLength="40" />
+          <Property Name="camp_comments" Type="nvarchar(max)" />
+          <Property Name="compId" Type="int" Nullable="false" />
+          <Property Name="brId" Type="int" Nullable="false" />
+          <Property Name="camp_flag" Type="varchar" MaxLength="40" />
+          <Property Name="camp_CategoryId" Type="int" />
+          <Property Name="camp_typeId" Type="int" />
+          <Property Name="camp_dayId" Type="int" />
+          <Property Name="camp_productId" Type="int" />
+          <Property Name="camp_statusId" Type="int" />
+          <Property Name="camp_flagId" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_customlabel">
+          <Key>
+            <PropertyRef Name="labelId" />
+          </Key>
+          <Property Name="labelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="label_schema_name" Type="varchar" MaxLength="100" />
+          <Property Name="label_name" Type="varchar" MaxLength="100" />
+          <Property Name="compId" Type="int" Nullable="false" />
+          <Property Name="brId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_EmailLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="330" />
+          <Property Name="EmailFrom" Type="varchar" MaxLength="300" />
+          <Property Name="EmailTo" Type="varchar" MaxLength="300" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="LeadName" Type="varchar" MaxLength="150" />
+          <Property Name="Product" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="IdentityFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Emailtemp">
+          <Key>
+            <PropertyRef Name="emailtemp_Id" />
+          </Key>
+          <Property Name="emailtemp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="330" />
+          <Property Name="EmailFrom" Type="varchar" MaxLength="300" />
+          <Property Name="EmailTo" Type="varchar" MaxLength="300" />
+          <Property Name="Emailsubject" Type="varchar" MaxLength="300" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="LeadName" Type="varchar" MaxLength="150" />
+          <Property Name="Product" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="EmailBody" Type="nvarchar" MaxLength="4000" />
+          <Property Name="emailtype" Type="varchar" MaxLength="10" />
+          <Property Name="alerttype" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tbl_EmailtempforAlerts">
+          <Key>
+            <PropertyRef Name="emailtemp_Id" />
+          </Key>
+          <Property Name="emailtemp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="330" />
+          <Property Name="EmailFrom" Type="varchar" MaxLength="300" />
+          <Property Name="EmailTo" Type="varchar" MaxLength="300" />
+          <Property Name="Emailsubject" Type="varchar" MaxLength="300" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="LeadName" Type="varchar" MaxLength="150" />
+          <Property Name="Product" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+          <Property Name="EmailBody" Type="nvarchar" MaxLength="4000" />
+          <Property Name="emailtype" Type="varchar" MaxLength="10" />
+          <Property Name="alerttype" Type="varchar" MaxLength="100" />
+          <Property Name="TomorrowsFollowupCount" Type="int" />
+          <Property Name="TotalNumofPaymentsRecievedTodayCount" Type="int" />
+          <Property Name="TotalNumofMailsSentTodayCount" Type="int" />
+          <Property Name="TotalNumofMailsForCampSentTodayCount" Type="int" />
+          <Property Name="TotalNumofLeadesRecievedTodayCount" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_enquirydetails">
+          <Key>
+            <PropertyRef Name="detailId" />
+          </Key>
+          <Property Name="detailId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="enquiryId" Type="int" Nullable="false" />
+          <Property Name="dtl_leadowner" Type="varchar" MaxLength="40" />
+          <Property Name="dtl_leadname" Type="varchar" MaxLength="100" />
+          <Property Name="dtl_status" Type="varchar" MaxLength="100" />
+          <Property Name="dtl_product" Type="varchar" MaxLength="100" />
+          <Property Name="dtl_comments" Type="nvarchar(max)" />
+          <Property Name="dtl_createddt" Type="datetime" />
+          <Property Name="compId" Type="int" Nullable="false" />
+          <Property Name="brId" Type="int" Nullable="false" />
+          <Property Name="dtl_maploc_url" Type="nvarchar(max)" />
+          <Property Name="dtl_fileloc_folder" Type="nvarchar(max)" />
+          <Property Name="followup_date" Type="datetime" />
+          <Property Name="dtl_longitude" Type="numeric" Precision="25" Scale="7" />
+          <Property Name="dtl_latitude" Type="numeric" Precision="25" Scale="7" />
+        </EntityType>
+        <EntityType Name="tbl_EnquiryForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeadName" Type="varchar" MaxLength="300" />
+          <Property Name="Address" Type="varchar" MaxLength="300" />
+          <Property Name="Mobile" Type="varchar" MaxLength="300" />
+          <Property Name="Email" Type="varchar" MaxLength="300" />
+          <Property Name="ProfessionalDetails" Type="varchar" MaxLength="50" />
+          <Property Name="Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="Yearofpassedout" Type="nvarchar" MaxLength="300" />
+          <Property Name="Workexpdomain" Type="varchar" MaxLength="30" />
+          <Property Name="Product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Preferredlocation" Type="varchar" MaxLength="50" />
+          <Property Name="Prefbatch" Type="varchar" MaxLength="50" />
+          <Property Name="Reference" Type="varchar" MaxLength="50" />
+          <Property Name="Wanttojoin" Type="varchar" MaxLength="50" />
+          <Property Name="WantSMSAlerts" Type="varchar" MaxLength="50" />
+          <Property Name="LeadAssignedby" Type="varchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="300" />
+          <Property Name="LeadAssignedTo" Type="varchar" MaxLength="50" />
+          <Property Name="Record_CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Record_ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Modified_Date" Type="datetime" />
+          <Property Name="Website" Type="varchar" MaxLength="300" />
+          <Property Name="Industry" Type="varchar" MaxLength="300" />
+          <Property Name="Rating" Type="varchar" MaxLength="300" />
+          <Property Name="Comment1" Type="varchar" MaxLength="300" />
+          <Property Name="Comment2" Type="varchar" MaxLength="800" />
+          <Property Name="Comment3" Type="varchar" MaxLength="800" />
+          <Property Name="LeadOwner" Type="varchar" MaxLength="300" />
+          <Property Name="LeadDate" Type="datetime" />
+          <Property Name="FollowUpdate" Type="datetime" />
+          <Property Name="CommentsForAssignment" Type="varchar" MaxLength="800" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="SelectedProductId" Type="int" />
+          <Property Name="SelectedStatusId" Type="int" />
+          <Property Name="SelectedReference" Type="int" />
+          <Property Name="WantMailAlerts" Type="varchar" MaxLength="30" />
+          <Property Name="Wantsmsalertsid" Type="int" />
+          <Property Name="Wantemailalertsid" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Enquirytracking">
+          <Key>
+            <PropertyRef Name="track_enq_Id" />
+          </Key>
+          <Property Name="track_enq_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="track_parent_enq_Id" Type="int" Nullable="false" />
+          <Property Name="track_LeadName" Type="varchar" MaxLength="300" />
+          <Property Name="track_Address" Type="varchar" MaxLength="300" />
+          <Property Name="track_Mobile" Type="varchar" MaxLength="300" />
+          <Property Name="track_Email" Type="varchar" MaxLength="300" />
+          <Property Name="track_ProfessionalDetails" Type="varchar" MaxLength="50" />
+          <Property Name="track_Qualification" Type="varchar" MaxLength="50" />
+          <Property Name="track_Yearofpassedout" Type="nvarchar" MaxLength="300" />
+          <Property Name="track_Workexpdomain" Type="varchar" MaxLength="30" />
+          <Property Name="track_Product" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="track_Preferredlocation" Type="varchar" MaxLength="50" />
+          <Property Name="track_Prefbatch" Type="varchar" MaxLength="50" />
+          <Property Name="track_Reference" Type="varchar" MaxLength="50" />
+          <Property Name="track_Wanttojoin" Type="varchar" MaxLength="50" />
+          <Property Name="track_WantSMSAlerts" Type="varchar" MaxLength="50" />
+          <Property Name="track_LeadAssignedby" Type="varchar" MaxLength="50" />
+          <Property Name="track_Status" Type="varchar" MaxLength="300" />
+          <Property Name="track_LeadAssignedTo" Type="varchar" MaxLength="50" />
+          <Property Name="track_Record_CreatedBy" Type="varchar" MaxLength="50" />
+          <Property Name="track_Record_ModifiedBy" Type="varchar" MaxLength="50" />
+          <Property Name="track_Created_Date" Type="datetime" />
+          <Property Name="track_Modified_Date" Type="datetime" />
+          <Property Name="track_Website" Type="varchar" MaxLength="300" />
+          <Property Name="track_Industry" Type="varchar" MaxLength="300" />
+          <Property Name="track_Rating" Type="varchar" MaxLength="300" />
+          <Property Name="track_Comment1" Type="varchar" MaxLength="300" />
+          <Property Name="track_Comment2" Type="varchar" MaxLength="800" />
+          <Property Name="track_Comment3" Type="varchar" MaxLength="800" />
+          <Property Name="track_LeadOwner" Type="varchar" MaxLength="300" />
+          <Property Name="track_LeadDate" Type="datetime" />
+          <Property Name="track_FollowUpdate" Type="datetime" />
+          <Property Name="track_CommentsForAssignment" Type="varchar" MaxLength="800" />
+          <Property Name="track_CompId" Type="int" />
+          <Property Name="track_BrId" Type="int" />
+          <Property Name="track_SelectedProductId" Type="int" />
+          <Property Name="track_SelectedStatusId" Type="int" />
+          <Property Name="track_SelectedReference" Type="int" />
+          <Property Name="track_WantMailAlerts" Type="varchar" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="tbl_ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="Source" Type="nvarchar(max)" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneBasicInfo">
+          <Key>
+            <PropertyRef Name="basic_id" />
+          </Key>
+          <Property Name="basic_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompId" Type="int" Nullable="false" />
+          <Property Name="BrId" Type="int" Nullable="false" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="500" />
+          <Property Name="BranchName" Type="varchar" MaxLength="500" />
+          <Property Name="LogoPath" Type="nvarchar" MaxLength="900" />
+          <Property Name="OrgEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrgPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
+          <Property Name="SmsCount" Type="int" />
+          <Property Name="NumberOfUserToAllowed" Type="int" />
+          <Property Name="OrgLogo" Type="varbinary(max)" />
+          <Property Name="email_flag" Type="varchar" MaxLength="10" />
+          <Property Name="analytics_flag" Type="varchar" MaxLength="10" />
+          <Property Name="Email_limit" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="Leads_limit" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="sms_flag" Type="varchar" MaxLength="10" />
+          <Property Name="sms_limit" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="email_alert" Type="varchar" MaxLength="10" />
+          <Property Name="sms_alert" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="RoleName" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="EmailId" Type="nvarchar" MaxLength="100" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="Record_CreatedBy" Type="varchar" MaxLength="30" />
+          <Property Name="Record_ModifiedBy" Type="varchar" MaxLength="30" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Modified_Date" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="IsActiveId" Type="int" />
+          <Property Name="IsActiveName" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="tbl_LeadEmailContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmailSubject" Type="nvarchar(max)" />
+          <Property Name="EmailBody" Type="nvarchar(max)" />
+          <Property Name="InterestedCourse" Type="nvarchar(max)" />
+          <Property Name="leadstatus" Type="nvarchar(max)" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_LeadStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatusName" Type="varchar" MaxLength="70" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_LeadStatusEmailContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LeadStatus" Type="varchar" MaxLength="40" />
+          <Property Name="EmailSubject" Type="nvarchar(max)" />
+          <Property Name="EmailBody" Type="nvarchar(max)" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Logs">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="30" />
+          <Property Name="ActionName" Type="varchar" MaxLength="30" />
+          <Property Name="ExceptionMessage" Type="nvarchar(max)" />
+          <Property Name="StackTrace" Type="nvarchar(max)" />
+          <Property Name="DateTime" Type="datetime" />
+          <Property Name="UserName" Type="varchar" MaxLength="40" />
+          <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ControllerName" Type="varchar" MaxLength="30" />
+          <Property Name="ActionName" Type="varchar" MaxLength="30" />
+          <Property Name="RoleId" Type="int" />
+          <Property Name="RoleName" Type="varchar" MaxLength="30" />
+          <Property Name="Text" Type="varchar" MaxLength="30" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Payment">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cust_name" Type="varchar" MaxLength="200" />
+          <Property Name="cust_mobile" Type="nvarchar" MaxLength="100" />
+          <Property Name="product_name" Type="varchar" MaxLength="200" />
+          <Property Name="product_actual_cost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="product_revised_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="modeof_payment" Type="varchar" MaxLength="200" />
+          <Property Name="paid_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="balance_amount" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="payment_date" Type="datetime" />
+          <Property Name="payment_followupdate" Type="datetime" />
+          <Property Name="compid" Type="int" />
+          <Property Name="brid" Type="int" />
+          <Property Name="product_id" Type="int" />
+          <Property Name="modeofpayment_id" Type="int" />
+          <Property Name="comments" Type="nvarchar" MaxLength="900" />
+        </EntityType>
+        <EntityType Name="tbl_Productlist">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="varchar" MaxLength="70" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="ProductAmount" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_SmsContent">
+          <Key>
+            <PropertyRef Name="SmsId" />
+          </Key>
+          <Property Name="SmsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SmsContent" Type="varchar(max)" />
+          <Property Name="InterestedCourse" Type="varchar" MaxLength="400" />
+          <Property Name="leadstatus" Type="varchar" MaxLength="400" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_SmsLog">
+          <Key>
+            <PropertyRef Name="SmsIdCount" />
+          </Key>
+          <Property Name="SmsIdCount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="400" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNum" Type="nvarchar" MaxLength="30" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="IdentityFlag" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_SmsLogForAlerts">
+          <Key>
+            <PropertyRef Name="SmsIdCount" />
+          </Key>
+          <Property Name="SmsIdCount" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="400" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNum" Type="nvarchar" MaxLength="30" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="IdentityFlag" Type="int" />
+          <Property Name="TomorrowsFollowupCount" Type="int" />
+          <Property Name="TotalNumofPaymentsRecievedTodayCount" Type="int" />
+          <Property Name="TotalNumofMailsSentTodayCount" Type="int" />
+          <Property Name="TotalNumofMailsForCampSentTodayCount" Type="int" />
+          <Property Name="TotalNumofLeadesRecievedTodayCount" Type="int" />
+          <Property Name="content" Type="nvarchar" MaxLength="3000" />
+        </EntityType>
+        <EntityType Name="tbl_Smstemp">
+          <Key>
+            <PropertyRef Name="Smstemp_id" />
+          </Key>
+          <Property Name="Smstemp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginUserName" Type="varchar" MaxLength="400" />
+          <Property Name="OrganizationName" Type="varchar" MaxLength="200" />
+          <Property Name="MobileNum" Type="nvarchar" MaxLength="30" />
+          <Property Name="SentDate" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="SmsContent" Type="varchar" MaxLength="4000" />
+          <Property Name="Product" Type="varchar" MaxLength="200" />
+          <Property Name="Status" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="tbl_Source">
+          <Key>
+            <PropertyRef Name="SourceId" />
+          </Key>
+          <Property Name="SourceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SourceName" Type="varchar" MaxLength="70" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+          <Property Name="monthly_budget" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="JanBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FebBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MarBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AprBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MayBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="JunBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="JulBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="AugBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="SepBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OctBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="NovBudgtet" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="DecBudgtet" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_UserLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" />
+          <Property Name="OrgName" Type="varchar" MaxLength="500" />
+          <Property Name="ScreenName" Type="varchar" MaxLength="500" />
+          <Property Name="LogDatetime" Type="datetime" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <EntityType Name="tbl_Userreports">
+          <Key>
+            <PropertyRef Name="reportId" />
+          </Key>
+          <Property Name="reportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userId" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="200" />
+          <Property Name="UserRole" Type="varchar" MaxLength="50" />
+          <Property Name="ReportName" Type="varchar" MaxLength="100" />
+          <Property Name="report_flag" Type="varchar" MaxLength="50" />
+          <Property Name="CompId" Type="int" />
+          <Property Name="BrId" Type="int" />
+        </EntityType>
+        <Association Name="FK__tbl_Menu__RoleId__36B12243">
+          <End Role="tbl_FortuneRoles" Type="Self.tbl_FortuneRoles" Multiplicity="0..1" />
+          <End Role="tbl_Menu" Type="Self.tbl_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_FortuneRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tbl_Menu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Proc_AddLead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompId" Type="int" Mode="In" />
+          <Parameter Name="BrId" Type="int" Mode="In" />
+          <Parameter Name="LeadName" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Mobile" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Product" Type="varchar" Mode="In" />
+          <Parameter Name="Reference" Type="varchar" Mode="In" />
+          <Parameter Name="WantSMSAlerts" Type="varchar" Mode="In" />
+          <Parameter Name="LeadAssignedby" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Website" Type="varchar" Mode="In" />
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+          <Parameter Name="Comment1" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comment2" Type="varchar" Mode="In" />
+          <Parameter Name="Comment3" Type="varchar" Mode="In" />
+          <Parameter Name="LeadOwner" Type="varchar" Mode="In" />
+          <Parameter Name="LeadDate" Type="datetime" Mode="In" />
+          <Parameter Name="FollowUpdate" Type="datetime" Mode="In" />
+          <Parameter Name="SelectedProductId" Type="int" Mode="In" />
+          <Parameter Name="SelectedStatusId" Type="int" Mode="In" />
+          <Parameter Name="SelectedReference" Type="int" Mode="In" />
+          <Parameter Name="WantMailAlerts" Type="varchar" Mode="In" />
+          <Parameter Name="Record_CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+          <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+          <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Proc_AddUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompId" Type="int" Mode="In" />
+          <Parameter Name="BrId" Type="int" Mode="In" />
+          <Parameter Name="IsActiveId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+          <Parameter Name="IsActiveName" Type="varchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="varchar" Mode="In" />
+          <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+          <Parameter Name="Record_CreatedBy" Type="varchar" Mode="In" />
+          <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Proc_getleadsbyuseridentity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="stu_LeadAssignedTo" Type="varchar" Mode="In" />
+          <Parameter Name="stu_LeadAssignedby" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Proc_InserLogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="MachineName" Type="varchar" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="UserRole" Type="varchar" Mode="In" />
+          <Parameter Name="ControllerName" Type="varchar" Mode="In" />
+          <Parameter Name="ActionName" Type="varchar" Mode="In" />
+          <Parameter Name="ExceptionMessage" Type="varchar" Mode="In" />
+          <Parameter Name="StackTrace" Type="varchar" Mode="In" />
+          <Parameter Name="DateTime" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Proc_UpdateLead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Id" Type="int" Mode="In" />
+          <Parameter Name="CompId" Type="int" Mode="In" />
+          <Parameter Name="BrId" Type="int" Mode="In" />
+          <Parameter Name="LeadName" Type="varchar" Mode="In" />
+          <Parameter Name="Address" Type="varchar" Mode="In" />
+          <Parameter Name="Mobile" Type="varchar" Mode="In" />
+          <Parameter Name="Email" Type="varchar" Mode="In" />
+          <Parameter Name="Product" Type="varchar" Mode="In" />
+          <Parameter Name="Reference" Type="varchar" Mode="In" />
+          <Parameter Name="WantSMSAlerts" Type="varchar" Mode="In" />
+          <Parameter Name="LeadAssignedby" Type="varchar" Mode="In" />
+          <Parameter Name="Status" Type="varchar" Mode="In" />
+          <Parameter Name="Website" Type="varchar" Mode="In" />
+          <Parameter Name="Industry" Type="varchar" Mode="In" />
+          <Parameter Name="Rating" Type="varchar" Mode="In" />
+          <Parameter Name="Comment1" Type="nvarchar" Mode="In" />
+          <Parameter Name="Comment2" Type="varchar" Mode="In" />
+          <Parameter Name="Comment3" Type="varchar" Mode="In" />
+          <Parameter Name="LeadOwner" Type="varchar" Mode="In" />
+          <Parameter Name="LeadDate" Type="datetime" Mode="In" />
+          <Parameter Name="FollowUpdate" Type="datetime" Mode="In" />
+          <Parameter Name="SelectedProductId" Type="int" Mode="In" />
+          <Parameter Name="SelectedStatusId" Type="int" Mode="In" />
+          <Parameter Name="SelectedReference" Type="int" Mode="In" />
+          <Parameter Name="WantMailAlerts" Type="varchar" Mode="In" />
+          <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+          <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+        </Function>
+        <Function Name="Proc_UpdateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CompId" Type="int" Mode="In" />
+          <Parameter Name="BrId" Type="int" Mode="In" />
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="UserName" Type="varchar" Mode="In" />
+          <Parameter Name="RoleId" Type="int" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+          <Parameter Name="RoleName" Type="varchar" Mode="In" />
+          <Parameter Name="EmailId" Type="nvarchar" Mode="In" />
+          <Parameter Name="Record_ModifiedBy" Type="varchar" Mode="In" />
+          <Parameter Name="IsActiveId" Type="int" Mode="In" />
+          <Parameter Name="IsActiveName" Type="varchar" Mode="In" />
+          <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+        </Function>
+        <EntityContainer Name="FortuneModelStoreContainer">
+          <EntitySet Name="tbl_alerts" EntityType="Self.tbl_alerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_alerts_master" EntityType="Self.tbl_alerts_master" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_campaign" EntityType="Self.tbl_campaign" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_customlabel" EntityType="Self.tbl_customlabel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_EmailLog" EntityType="Self.tbl_EmailLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Emailtemp" EntityType="Self.tbl_Emailtemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_EmailtempforAlerts" EntityType="Self.tbl_EmailtempforAlerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_enquirydetails" EntityType="Self.tbl_enquirydetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_EnquiryForm" EntityType="Self.tbl_EnquiryForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Enquirytracking" EntityType="Self.tbl_Enquirytracking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ErrorLog" EntityType="Self.tbl_ErrorLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_FortuneBasicInfo" EntityType="Self.tbl_FortuneBasicInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_FortuneRoles" EntityType="Self.tbl_FortuneRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_FortuneUsers" EntityType="Self.tbl_FortuneUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeadEmailContent" EntityType="Self.tbl_LeadEmailContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeadStatus" EntityType="Self.tbl_LeadStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_LeadStatusEmailContent" EntityType="Self.tbl_LeadStatusEmailContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Logs" EntityType="Self.tbl_Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Menu" EntityType="Self.tbl_Menu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Payment" EntityType="Self.tbl_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Productlist" EntityType="Self.tbl_Productlist" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SmsContent" EntityType="Self.tbl_SmsContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SmsLog" EntityType="Self.tbl_SmsLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_SmsLogForAlerts" EntityType="Self.tbl_SmsLogForAlerts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Smstemp" EntityType="Self.tbl_Smstemp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Source" EntityType="Self.tbl_Source" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserLog" EntityType="Self.tbl_UserLog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_Userreports" EntityType="Self.tbl_Userreports" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tbl_Menu__RoleId__36B12243" Association="Self.FK__tbl_Menu__RoleId__36B12243">
+            <End Role="tbl_FortuneRoles" EntitySet="tbl_FortuneRoles" />
+            <End Role="tbl_Menu" EntitySet="tbl_Menu" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FortuneModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="FortuneSoftEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_campaign" EntityType="FortuneModel.tbl_campaign" />
+          <EntitySet Name="tbl_EmailLog" EntityType="FortuneModel.tbl_EmailLog" />
+          <EntitySet Name="tbl_EnquiryForm" EntityType="FortuneModel.tbl_EnquiryForm" />
+          <EntitySet Name="tbl_FortuneBasicInfo" EntityType="FortuneModel.tbl_FortuneBasicInfo" />
+          <EntitySet Name="tbl_FortuneRoles" EntityType="FortuneModel.tbl_FortuneRoles" />
+          <EntitySet Name="tbl_FortuneUsers" EntityType="FortuneModel.tbl_FortuneUsers" />
+          <EntitySet Name="tbl_LeadEmailContent" EntityType="FortuneModel.tbl_LeadEmailContent" />
+          <EntitySet Name="tbl_LeadStatus" EntityType="FortuneModel.tbl_LeadStatus" />
+          <EntitySet Name="tbl_LeadStatusEmailContent" EntityType="FortuneModel.tbl_LeadStatusEmailContent" />
+          <EntitySet Name="tbl_Logs" EntityType="FortuneModel.tbl_Logs" />
+          <EntitySet Name="tbl_Menu" EntityType="FortuneModel.tbl_Menu" />
+          <EntitySet Name="tbl_Payment" EntityType="FortuneModel.tbl_Payment" />
+          <EntitySet Name="tbl_Productlist" EntityType="FortuneModel.tbl_Productlist" />
+          <EntitySet Name="tbl_SmsContent" EntityType="FortuneModel.tbl_SmsContent" />
+          <EntitySet Name="tbl_SmsLog" EntityType="FortuneModel.tbl_SmsLog" />
+          <EntitySet Name="tbl_Source" EntityType="FortuneModel.tbl_Source" />
+          <EntitySet Name="tbl_UserLog" EntityType="FortuneModel.tbl_UserLog" />
+          <AssociationSet Name="FK__tbl_Menu__RoleId__36B12243" Association="FortuneModel.FK__tbl_Menu__RoleId__36B12243">
+            <End Role="tbl_FortuneRoles" EntitySet="tbl_FortuneRoles" />
+            <End Role="tbl_Menu" EntitySet="tbl_Menu" />
+          </AssociationSet>
+          <FunctionImport Name="Proc_AddLead">
+            <Parameter Name="CompId" Mode="In" Type="Int32" />
+            <Parameter Name="BrId" Mode="In" Type="Int32" />
+            <Parameter Name="LeadName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Product" Mode="In" Type="String" />
+            <Parameter Name="Reference" Mode="In" Type="String" />
+            <Parameter Name="WantSMSAlerts" Mode="In" Type="String" />
+            <Parameter Name="LeadAssignedby" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Website" Mode="In" Type="String" />
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+            <Parameter Name="Comment1" Mode="In" Type="String" />
+            <Parameter Name="Comment2" Mode="In" Type="String" />
+            <Parameter Name="Comment3" Mode="In" Type="String" />
+            <Parameter Name="LeadOwner" Mode="In" Type="String" />
+            <Parameter Name="LeadDate" Mode="In" Type="DateTime" />
+            <Parameter Name="FollowUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="SelectedProductId" Mode="In" Type="Int32" />
+            <Parameter Name="SelectedStatusId" Mode="In" Type="Int32" />
+            <Parameter Name="SelectedReference" Mode="In" Type="Int32" />
+            <Parameter Name="WantMailAlerts" Mode="In" Type="String" />
+            <Parameter Name="Record_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+            <Parameter Name="Record_ModifiedBy" Mode="In" Type="String" />
+            <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_AddUser">
+            <Parameter Name="CompId" Mode="In" Type="Int32" />
+            <Parameter Name="BrId" Mode="In" Type="Int32" />
+            <Parameter Name="IsActiveId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+            <Parameter Name="IsActiveName" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="RoleName" Mode="In" Type="String" />
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="Record_CreatedBy" Mode="In" Type="String" />
+            <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_getleadsbyuseridentity">
+            <Parameter Name="stu_LeadAssignedTo" Mode="In" Type="String" />
+            <Parameter Name="stu_LeadAssignedby" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_InserLogs">
+            <Parameter Name="MachineName" Mode="In" Type="String" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="UserRole" Mode="In" Type="String" />
+            <Parameter Name="ControllerName" Mode="In" Type="String" />
+            <Parameter Name="ActionName" Mode="In" Type="String" />
+            <Parameter Name="ExceptionMessage" Mode="In" Type="String" />
+            <Parameter Name="StackTrace" Mode="In" Type="String" />
+            <Parameter Name="DateTime" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_UpdateLead">
+            <Parameter Name="Id" Mode="In" Type="Int32" />
+            <Parameter Name="CompId" Mode="In" Type="Int32" />
+            <Parameter Name="BrId" Mode="In" Type="Int32" />
+            <Parameter Name="LeadName" Mode="In" Type="String" />
+            <Parameter Name="Address" Mode="In" Type="String" />
+            <Parameter Name="Mobile" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Product" Mode="In" Type="String" />
+            <Parameter Name="Reference" Mode="In" Type="String" />
+            <Parameter Name="WantSMSAlerts" Mode="In" Type="String" />
+            <Parameter Name="LeadAssignedby" Mode="In" Type="String" />
+            <Parameter Name="Status" Mode="In" Type="String" />
+            <Parameter Name="Website" Mode="In" Type="String" />
+            <Parameter Name="Industry" Mode="In" Type="String" />
+            <Parameter Name="Rating" Mode="In" Type="String" />
+            <Parameter Name="Comment1" Mode="In" Type="String" />
+            <Parameter Name="Comment2" Mode="In" Type="String" />
+            <Parameter Name="Comment3" Mode="In" Type="String" />
+            <Parameter Name="LeadOwner" Mode="In" Type="String" />
+            <Parameter Name="LeadDate" Mode="In" Type="DateTime" />
+            <Parameter Name="FollowUpdate" Mode="In" Type="DateTime" />
+            <Parameter Name="SelectedProductId" Mode="In" Type="Int32" />
+            <Parameter Name="SelectedStatusId" Mode="In" Type="Int32" />
+            <Parameter Name="SelectedReference" Mode="In" Type="Int32" />
+            <Parameter Name="WantMailAlerts" Mode="In" Type="String" />
+            <Parameter Name="Record_ModifiedBy" Mode="In" Type="String" />
+            <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="Proc_UpdateUser">
+            <Parameter Name="CompId" Mode="In" Type="Int32" />
+            <Parameter Name="BrId" Mode="In" Type="Int32" />
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="RoleId" Mode="In" Type="Int32" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+            <Parameter Name="RoleName" Mode="In" Type="String" />
+            <Parameter Name="EmailId" Mode="In" Type="String" />
+            <Parameter Name="Record_ModifiedBy" Mode="In" Type="String" />
+            <Parameter Name="IsActiveId" Mode="In" Type="Int32" />
+            <Parameter Name="IsActiveName" Mode="In" Type="String" />
+            <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="tbl_enquirydetails" EntityType="FortuneModel.tbl_enquirydetails" />
+          <EntitySet Name="tbl_Emailtemp" EntityType="FortuneModel.tbl_Emailtemp" />
+          <EntitySet Name="tbl_alerts" EntityType="FortuneModel.tbl_alerts" />
+          <EntitySet Name="tbl_alerts_master" EntityType="FortuneModel.tbl_alerts_master" />
+          <EntitySet Name="tbl_Smstemp" EntityType="FortuneModel.tbl_Smstemp" />
+          <EntitySet Name="tbl_customlabel" EntityType="FortuneModel.tbl_customlabel" />
+          <EntitySet Name="tbl_EmailtempforAlerts" EntityType="FortuneModel.tbl_EmailtempforAlerts" />
+          <EntitySet Name="tbl_Enquirytracking" EntityType="FortuneModel.tbl_Enquirytracking" />
+          <EntitySet Name="tbl_ErrorLog" EntityType="FortuneModel.tbl_ErrorLog" />
+          <EntitySet Name="tbl_SmsLogForAlerts" EntityType="FortuneModel.tbl_SmsLogForAlerts" />
+          <EntitySet Name="tbl_Userreports" EntityType="FortuneModel.tbl_Userreports" />
+        </EntityContainer>
+        <EntityType Name="tbl_campaign">
+          <Key>
+            <PropertyRef Name="campId" />
+          </Key>
+          <Property Name="campId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="camp_name" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="camp_start_dt" Type="DateTime" Precision="3" />
+          <Property Name="camp_end_dt" Type="DateTime" Precision="3" />
+          <Property Name="camp_Category" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_type" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_day" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_product" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_status" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_comments" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="compId" Type="Int32" Nullable="false" />
+          <Property Name="brId" Type="Int32" Nullable="false" />
+          <Property Name="camp_flag" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="camp_CategoryId" Type="Int32" />
+          <Property Name="camp_typeId" Type="Int32" />
+          <Property Name="camp_dayId" Type="Int32" />
+          <Property Name="camp_productId" Type="Int32" />
+          <Property Name="camp_statusId" Type="Int32" />
+          <Property Name="camp_flagId" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_EmailLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginUserName" Type="String" MaxLength="330" Unicode="false" FixedLength="false" />
+          <Property Name="EmailFrom" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="EmailTo" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="LeadName" Type="String" MaxLength="150" Unicode="false" FixedLength="false" />
+          <Property Name="Product" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="IdentityFlag" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_EnquiryForm">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LeadName" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Mobile" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="ProfessionalDetails" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Qualification" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Yearofpassedout" Type="String" MaxLength="300" Unicode="true" FixedLength="false" />
+          <Property Name="Workexpdomain" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Product" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Preferredlocation" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Prefbatch" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Reference" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Wanttojoin" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="WantSMSAlerts" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LeadAssignedby" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="LeadAssignedTo" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Record_CreatedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Record_ModifiedBy" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="Website" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Industry" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Rating" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Comment1" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="Comment2" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="Comment3" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="LeadOwner" Type="String" MaxLength="300" Unicode="false" FixedLength="false" />
+          <Property Name="LeadDate" Type="DateTime" Precision="3" />
+          <Property Name="FollowUpdate" Type="DateTime" Precision="3" />
+          <Property Name="CommentsForAssignment" Type="String" MaxLength="800" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="SelectedProductId" Type="Int32" />
+          <Property Name="SelectedStatusId" Type="Int32" />
+          <Property Name="SelectedReference" Type="Int32" />
+          <Property Name="WantMailAlerts" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Wantsmsalertsid" Type="Int32" />
+          <Property Name="Wantemailalertsid" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneBasicInfo">
+          <Key>
+            <PropertyRef Name="basic_id" />
+          </Key>
+          <Property Name="basic_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="CompId" Type="Int32" Nullable="false" />
+          <Property Name="BrId" Type="Int32" Nullable="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="BranchName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="LogoPath" Type="String" MaxLength="900" Unicode="true" FixedLength="false" />
+          <Property Name="OrgEmail" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="OrgPhone" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <Property Name="SmsCount" Type="Int32" />
+          <Property Name="NumberOfUserToAllowed" Type="Int32" />
+          <Property Name="OrgLogo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Type="String" Name="email_flag" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="analytics_flag" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="Email_limit" Precision="10" Scale="0" />
+          <Property Type="Decimal" Name="Leads_limit" Precision="10" Scale="0" />
+          <Property Type="String" Name="sms_flag" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="Decimal" Name="sms_limit" Precision="10" Scale="0" />
+          <Property Type="String" Name="email_alert" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="sms_alert" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneRoles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <NavigationProperty Name="tbl_Menu" Relationship="FortuneModel.FK__tbl_Menu__RoleId__36B12243" FromRole="tbl_FortuneRoles" ToRole="tbl_Menu" />
+        </EntityType>
+        <EntityType Name="tbl_FortuneUsers">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="EmailId" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="Record_CreatedBy" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Record_ModifiedBy" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="IsActiveId" Type="Int32" />
+          <Property Name="IsActiveName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_LeadEmailContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="EmailSubject" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailBody" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="InterestedCourse" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="leadstatus" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_LeadStatus">
+          <Key>
+            <PropertyRef Name="StatusId" />
+          </Key>
+          <Property Name="StatusId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StatusName" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_LeadStatusEmailContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LeadStatus" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="EmailSubject" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="EmailBody" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Logs">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ControllerName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ActionName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ExceptionMessage" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="StackTrace" Type="String" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <Property Name="DateTime" Type="DateTime" Precision="3" />
+          <Property Name="UserName" Type="String" MaxLength="40" Unicode="false" FixedLength="false" />
+          <Property Name="IpAddress" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Menu">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ControllerName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ActionName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="RoleId" Type="Int32" />
+          <Property Name="RoleName" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="Text" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <NavigationProperty Name="tbl_FortuneRoles" Relationship="FortuneModel.FK__tbl_Menu__RoleId__36B12243" FromRole="tbl_Menu" ToRole="tbl_FortuneRoles" />
+        </EntityType>
+        <EntityType Name="tbl_Payment">
+          <Key>
+            <PropertyRef Name="cust_id" />
+          </Key>
+          <Property Name="cust_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="cust_name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="cust_mobile" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="product_name" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="product_actual_cost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="product_revised_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="modeof_payment" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="paid_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="balance_amount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="payment_date" Type="DateTime" Precision="3" />
+          <Property Name="payment_followupdate" Type="DateTime" Precision="3" />
+          <Property Name="compid" Type="Int32" />
+          <Property Name="brid" Type="Int32" />
+          <Property Name="product_id" Type="Int32" />
+          <Property Name="modeofpayment_id" Type="Int32" />
+          <Property Name="comments" Type="String" MaxLength="900" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="tbl_Productlist">
+          <Key>
+            <PropertyRef Name="ProductId" />
+          </Key>
+          <Property Name="ProductId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="ProductAmount" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_SmsContent">
+          <Key>
+            <PropertyRef Name="SmsId" />
+          </Key>
+          <Property Name="SmsId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SmsContent" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="InterestedCourse" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="leadstatus" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_SmsLog">
+          <Key>
+            <PropertyRef Name="SmsIdCount" />
+          </Key>
+          <Property Name="SmsIdCount" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginUserName" Type="String" MaxLength="400" Unicode="false" FixedLength="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="MobileNum" Type="String" MaxLength="30" Unicode="true" FixedLength="false" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Type="Int32" Name="IdentityFlag" />
+        </EntityType>
+        <EntityType Name="tbl_Source">
+          <Key>
+            <PropertyRef Name="SourceId" />
+          </Key>
+          <Property Name="SourceId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="SourceName" Type="String" MaxLength="70" Unicode="false" FixedLength="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="monthly_budget" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="JanBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FebBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MarBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AprBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MayBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="JunBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="JulBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="AugBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="SepBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OctBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="NovBudgtet" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="DecBudgtet" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="tbl_UserLog">
+          <Key>
+            <PropertyRef Name="LogId" />
+          </Key>
+          <Property Name="LogId" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+          <Property Name="OrgName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="ScreenName" Type="String" MaxLength="500" Unicode="false" FixedLength="false" />
+          <Property Name="LogDatetime" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+        <Association Name="FK__tbl_Menu__RoleId__36B12243">
+          <End Role="tbl_FortuneRoles" Type="FortuneModel.tbl_FortuneRoles" Multiplicity="0..1" />
+          <End Role="tbl_Menu" Type="FortuneModel.tbl_Menu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tbl_FortuneRoles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="tbl_Menu">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="tbl_enquirydetails">
+          <Key>
+            <PropertyRef Name="detailId" />
+          </Key>
+          <Property Type="Int32" Name="detailId" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="enquiryId" Nullable="false" />
+          <Property Type="String" Name="dtl_leadowner" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dtl_leadname" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dtl_status" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dtl_product" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="dtl_comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="dtl_createddt" Precision="3" />
+          <Property Type="Int32" Name="compId" Nullable="false" />
+          <Property Type="Int32" Name="brId" Nullable="false" />
+          <Property Type="String" Name="dtl_maploc_url" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="dtl_fileloc_folder" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="followup_date" Precision="3" />
+          <Property Type="Decimal" Name="dtl_longitude" Precision="25" Scale="7" />
+          <Property Type="Decimal" Name="dtl_latitude" Precision="25" Scale="7" />
+        </EntityType>
+        <EntityType Name="tbl_Emailtemp">
+          <Key>
+            <PropertyRef Name="emailtemp_Id" />
+          </Key>
+          <Property Type="Int32" Name="emailtemp_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LoginUserName" MaxLength="330" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailFrom" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailTo" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Emailsubject" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="SentDate" Precision="3" />
+          <Property Type="Int32" Name="CompId" />
+          <Property Type="Int32" Name="BrId" />
+          <Property Type="String" Name="LeadName" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Product" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="EmailBody" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="emailtype" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alerttype" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_alerts">
+          <Key>
+            <PropertyRef Name="alert_Id" />
+          </Key>
+          <Property Type="Int32" Name="alert_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="alert_mast_Id" Nullable="false" />
+          <Property Type="String" Name="alert_mast__name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_Category" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_type" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_product" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_status" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_comments" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="compId" Nullable="false" />
+          <Property Type="Int32" Name="brId" Nullable="false" />
+          <Property Type="String" Name="alert_flag" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="alert_flagid" />
+        </EntityType>
+        <EntityType Name="tbl_alerts_master">
+          <Key>
+            <PropertyRef Name="alert_master_Id" />
+          </Key>
+          <Property Type="Int32" Name="alert_master_Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="alert_master__name" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_master_category" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_master_type" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="alert_master_flag" MaxLength="40" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_Smstemp">
+          <Key>
+            <PropertyRef Name="Smstemp_id" />
+          </Key>
+          <Property Type="Int32" Name="Smstemp_id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="LoginUserName" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="OrganizationName" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MobileNum" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="SentDate" Precision="3" />
+          <Property Type="Int32" Name="CompId" />
+          <Property Type="Int32" Name="BrId" />
+          <Property Type="String" Name="SmsContent" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Product" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Status" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_customlabel">
+          <Key>
+            <PropertyRef Name="labelId" />
+          </Key>
+          <Property Name="labelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="label_schema_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="label_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="compId" Type="Int32" Nullable="false" />
+          <Property Name="brId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_EmailtempforAlerts">
+          <Key>
+            <PropertyRef Name="emailtemp_Id" />
+          </Key>
+          <Property Name="emailtemp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginUserName" Type="String" MaxLength="330" FixedLength="false" Unicode="false" />
+          <Property Name="EmailFrom" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EmailTo" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Emailsubject" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="LeadName" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Product" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Status" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EmailBody" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="emailtype" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="alerttype" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TomorrowsFollowupCount" Type="Int32" />
+          <Property Name="TotalNumofPaymentsRecievedTodayCount" Type="Int32" />
+          <Property Name="TotalNumofMailsSentTodayCount" Type="Int32" />
+          <Property Name="TotalNumofMailsForCampSentTodayCount" Type="Int32" />
+          <Property Name="TotalNumofLeadesRecievedTodayCount" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tbl_Enquirytracking">
+          <Key>
+            <PropertyRef Name="track_enq_Id" />
+          </Key>
+          <Property Name="track_enq_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="track_parent_enq_Id" Type="Int32" Nullable="false" />
+          <Property Name="track_LeadName" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Address" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Mobile" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Email" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_ProfessionalDetails" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Qualification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Yearofpassedout" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="track_Workexpdomain" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="track_Product" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="track_Preferredlocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Prefbatch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Reference" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Wanttojoin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_WantSMSAlerts" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_LeadAssignedby" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Status" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_LeadAssignedTo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Record_CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Record_ModifiedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="track_Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="track_Modified_Date" Type="DateTime" Precision="3" />
+          <Property Name="track_Website" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Industry" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Rating" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Comment1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_Comment2" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="track_Comment3" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="track_LeadOwner" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="track_LeadDate" Type="DateTime" Precision="3" />
+          <Property Name="track_FollowUpdate" Type="DateTime" Precision="3" />
+          <Property Name="track_CommentsForAssignment" Type="String" MaxLength="800" FixedLength="false" Unicode="false" />
+          <Property Name="track_CompId" Type="Int32" />
+          <Property Name="track_BrId" Type="Int32" />
+          <Property Name="track_SelectedProductId" Type="Int32" />
+          <Property Name="track_SelectedStatusId" Type="Int32" />
+          <Property Name="track_SelectedReference" Type="Int32" />
+          <Property Name="track_WantMailAlerts" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_ErrorLog">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Source" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_SmsLogForAlerts">
+          <Key>
+            <PropertyRef Name="SmsIdCount" />
+          </Key>
+          <Property Name="SmsIdCount" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LoginUserName" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="OrganizationName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="MobileNum" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="SentDate" Type="DateTime" Precision="3" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+          <Property Name="IdentityFlag" Type="Int32" />
+          <Property Name="TomorrowsFollowupCount" Type="Int32" />
+          <Property Name="TotalNumofPaymentsRecievedTodayCount" Type="Int32" />
+          <Property Name="TotalNumofMailsSentTodayCount" Type="Int32" />
+          <Property Name="TotalNumofMailsForCampSentTodayCount" Type="Int32" />
+          <Property Name="TotalNumofLeadesRecievedTodayCount" Type="Int32" />
+          <Property Name="content" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_Userreports">
+          <Key>
+            <PropertyRef Name="reportId" />
+          </Key>
+          <Property Name="reportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userId" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UserRole" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ReportName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="report_flag" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CompId" Type="Int32" />
+          <Property Name="BrId" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FortuneModelStoreContainer" CdmEntityContainer="FortuneSoftEntities">
+          <EntitySetMapping Name="tbl_campaign">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_campaign">
+              <MappingFragment StoreEntitySet="tbl_campaign">
+                <ScalarProperty Name="campId" ColumnName="campId" />
+                <ScalarProperty Name="camp_name" ColumnName="camp_name" />
+                <ScalarProperty Name="camp_start_dt" ColumnName="camp_start_dt" />
+                <ScalarProperty Name="camp_end_dt" ColumnName="camp_end_dt" />
+                <ScalarProperty Name="camp_Category" ColumnName="camp_Category" />
+                <ScalarProperty Name="camp_type" ColumnName="camp_type" />
+                <ScalarProperty Name="camp_day" ColumnName="camp_day" />
+                <ScalarProperty Name="camp_product" ColumnName="camp_product" />
+                <ScalarProperty Name="camp_status" ColumnName="camp_status" />
+                <ScalarProperty Name="camp_comments" ColumnName="camp_comments" />
+                <ScalarProperty Name="compId" ColumnName="compId" />
+                <ScalarProperty Name="brId" ColumnName="brId" />
+                <ScalarProperty Name="camp_flag" ColumnName="camp_flag" />
+                <ScalarProperty Name="camp_CategoryId" ColumnName="camp_CategoryId" />
+                <ScalarProperty Name="camp_typeId" ColumnName="camp_typeId" />
+                <ScalarProperty Name="camp_dayId" ColumnName="camp_dayId" />
+                <ScalarProperty Name="camp_productId" ColumnName="camp_productId" />
+                <ScalarProperty Name="camp_statusId" ColumnName="camp_statusId" />
+                <ScalarProperty Name="camp_flagId" ColumnName="camp_flagId" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_EmailLog">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_EmailLog">
+              <MappingFragment StoreEntitySet="tbl_EmailLog">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="IdentityFlag" ColumnName="IdentityFlag" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_EnquiryForm">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_EnquiryForm">
+              <MappingFragment StoreEntitySet="tbl_EnquiryForm">
+                <ScalarProperty Name="Wantemailalertsid" ColumnName="Wantemailalertsid" />
+                <ScalarProperty Name="Wantsmsalertsid" ColumnName="Wantsmsalertsid" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="ProfessionalDetails" ColumnName="ProfessionalDetails" />
+                <ScalarProperty Name="Qualification" ColumnName="Qualification" />
+                <ScalarProperty Name="Yearofpassedout" ColumnName="Yearofpassedout" />
+                <ScalarProperty Name="Workexpdomain" ColumnName="Workexpdomain" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Preferredlocation" ColumnName="Preferredlocation" />
+                <ScalarProperty Name="Prefbatch" ColumnName="Prefbatch" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Wanttojoin" ColumnName="Wanttojoin" />
+                <ScalarProperty Name="WantSMSAlerts" ColumnName="WantSMSAlerts" />
+                <ScalarProperty Name="LeadAssignedby" ColumnName="LeadAssignedby" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="LeadAssignedTo" ColumnName="LeadAssignedTo" />
+                <ScalarProperty Name="Record_CreatedBy" ColumnName="Record_CreatedBy" />
+                <ScalarProperty Name="Record_ModifiedBy" ColumnName="Record_ModifiedBy" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="Industry" ColumnName="Industry" />
+                <ScalarProperty Name="Rating" ColumnName="Rating" />
+                <ScalarProperty Name="Comment1" ColumnName="Comment1" />
+                <ScalarProperty Name="Comment2" ColumnName="Comment2" />
+                <ScalarProperty Name="Comment3" ColumnName="Comment3" />
+                <ScalarProperty Name="LeadOwner" ColumnName="LeadOwner" />
+                <ScalarProperty Name="LeadDate" ColumnName="LeadDate" />
+                <ScalarProperty Name="FollowUpdate" ColumnName="FollowUpdate" />
+                <ScalarProperty Name="CommentsForAssignment" ColumnName="CommentsForAssignment" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="SelectedProductId" ColumnName="SelectedProductId" />
+                <ScalarProperty Name="SelectedStatusId" ColumnName="SelectedStatusId" />
+                <ScalarProperty Name="SelectedReference" ColumnName="SelectedReference" />
+                <ScalarProperty Name="WantMailAlerts" ColumnName="WantMailAlerts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_FortuneBasicInfo">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneBasicInfo">
+              <MappingFragment StoreEntitySet="tbl_FortuneBasicInfo">
+                <ScalarProperty Name="sms_alert" ColumnName="sms_alert" />
+                <ScalarProperty Name="email_alert" ColumnName="email_alert" />
+                <ScalarProperty Name="sms_limit" ColumnName="sms_limit" />
+                <ScalarProperty Name="sms_flag" ColumnName="sms_flag" />
+                <ScalarProperty Name="Leads_limit" ColumnName="Leads_limit" />
+                <ScalarProperty Name="Email_limit" ColumnName="Email_limit" />
+                <ScalarProperty Name="analytics_flag" ColumnName="analytics_flag" />
+                <ScalarProperty Name="email_flag" ColumnName="email_flag" />
+                <ScalarProperty Name="basic_id" ColumnName="basic_id" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="BranchName" ColumnName="BranchName" />
+                <ScalarProperty Name="LogoPath" ColumnName="LogoPath" />
+                <ScalarProperty Name="OrgEmail" ColumnName="OrgEmail" />
+                <ScalarProperty Name="OrgPhone" ColumnName="OrgPhone" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="SmsCount" ColumnName="SmsCount" />
+                <ScalarProperty Name="NumberOfUserToAllowed" ColumnName="NumberOfUserToAllowed" />
+                <ScalarProperty Name="OrgLogo" ColumnName="OrgLogo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_FortuneRoles">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneRoles">
+              <MappingFragment StoreEntitySet="tbl_FortuneRoles">
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_FortuneUsers">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_FortuneUsers">
+              <MappingFragment StoreEntitySet="tbl_FortuneUsers">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="EmailId" ColumnName="EmailId" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="Record_CreatedBy" ColumnName="Record_CreatedBy" />
+                <ScalarProperty Name="Record_ModifiedBy" ColumnName="Record_ModifiedBy" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="IsActiveId" ColumnName="IsActiveId" />
+                <ScalarProperty Name="IsActiveName" ColumnName="IsActiveName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeadEmailContent">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_LeadEmailContent">
+              <MappingFragment StoreEntitySet="tbl_LeadEmailContent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="InterestedCourse" ColumnName="InterestedCourse" />
+                <ScalarProperty Name="leadstatus" ColumnName="leadstatus" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeadStatus">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_LeadStatus">
+              <MappingFragment StoreEntitySet="tbl_LeadStatus">
+                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="StatusName" ColumnName="StatusName" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_LeadStatusEmailContent">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_LeadStatusEmailContent">
+              <MappingFragment StoreEntitySet="tbl_LeadStatusEmailContent">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="LeadStatus" ColumnName="LeadStatus" />
+                <ScalarProperty Name="EmailSubject" ColumnName="EmailSubject" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Logs">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Logs">
+              <MappingFragment StoreEntitySet="tbl_Logs">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="ExceptionMessage" ColumnName="ExceptionMessage" />
+                <ScalarProperty Name="StackTrace" ColumnName="StackTrace" />
+                <ScalarProperty Name="DateTime" ColumnName="DateTime" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Menu">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Menu">
+              <MappingFragment StoreEntitySet="tbl_Menu">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ControllerName" ColumnName="ControllerName" />
+                <ScalarProperty Name="ActionName" ColumnName="ActionName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="Text" ColumnName="Text" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Payment">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Payment">
+              <MappingFragment StoreEntitySet="tbl_Payment">
+                <ScalarProperty Name="cust_id" ColumnName="cust_id" />
+                <ScalarProperty Name="cust_name" ColumnName="cust_name" />
+                <ScalarProperty Name="cust_mobile" ColumnName="cust_mobile" />
+                <ScalarProperty Name="product_name" ColumnName="product_name" />
+                <ScalarProperty Name="product_actual_cost" ColumnName="product_actual_cost" />
+                <ScalarProperty Name="product_revised_amount" ColumnName="product_revised_amount" />
+                <ScalarProperty Name="modeof_payment" ColumnName="modeof_payment" />
+                <ScalarProperty Name="paid_amount" ColumnName="paid_amount" />
+                <ScalarProperty Name="balance_amount" ColumnName="balance_amount" />
+                <ScalarProperty Name="payment_date" ColumnName="payment_date" />
+                <ScalarProperty Name="payment_followupdate" ColumnName="payment_followupdate" />
+                <ScalarProperty Name="compid" ColumnName="compid" />
+                <ScalarProperty Name="brid" ColumnName="brid" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="modeofpayment_id" ColumnName="modeofpayment_id" />
+                <ScalarProperty Name="comments" ColumnName="comments" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Productlist">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Productlist">
+              <MappingFragment StoreEntitySet="tbl_Productlist">
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="ProductAmount" ColumnName="ProductAmount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SmsContent">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_SmsContent">
+              <MappingFragment StoreEntitySet="tbl_SmsContent">
+                <ScalarProperty Name="SmsId" ColumnName="SmsId" />
+                <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+                <ScalarProperty Name="InterestedCourse" ColumnName="InterestedCourse" />
+                <ScalarProperty Name="leadstatus" ColumnName="leadstatus" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SmsLog">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_SmsLog">
+              <MappingFragment StoreEntitySet="tbl_SmsLog">
+                <ScalarProperty Name="IdentityFlag" ColumnName="IdentityFlag" />
+                <ScalarProperty Name="SmsIdCount" ColumnName="SmsIdCount" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Source">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Source">
+              <MappingFragment StoreEntitySet="tbl_Source">
+                <ScalarProperty Name="SourceId" ColumnName="SourceId" />
+                <ScalarProperty Name="SourceName" ColumnName="SourceName" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="monthly_budget" ColumnName="monthly_budget" />
+                <ScalarProperty Name="JanBudgtet" ColumnName="JanBudgtet" />
+                <ScalarProperty Name="FebBudgtet" ColumnName="FebBudgtet" />
+                <ScalarProperty Name="MarBudgtet" ColumnName="MarBudgtet" />
+                <ScalarProperty Name="AprBudgtet" ColumnName="AprBudgtet" />
+                <ScalarProperty Name="MayBudgtet" ColumnName="MayBudgtet" />
+                <ScalarProperty Name="JunBudgtet" ColumnName="JunBudgtet" />
+                <ScalarProperty Name="JulBudgtet" ColumnName="JulBudgtet" />
+                <ScalarProperty Name="AugBudgtet" ColumnName="AugBudgtet" />
+                <ScalarProperty Name="SepBudgtet" ColumnName="SepBudgtet" />
+                <ScalarProperty Name="OctBudgtet" ColumnName="OctBudgtet" />
+                <ScalarProperty Name="NovBudgtet" ColumnName="NovBudgtet" />
+                <ScalarProperty Name="DecBudgtet" ColumnName="DecBudgtet" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_UserLog">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_UserLog">
+              <MappingFragment StoreEntitySet="tbl_UserLog">
+                <ScalarProperty Name="LogId" ColumnName="LogId" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="OrgName" ColumnName="OrgName" />
+                <ScalarProperty Name="ScreenName" ColumnName="ScreenName" />
+                <ScalarProperty Name="LogDatetime" ColumnName="LogDatetime" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="Proc_AddLead" FunctionName="FortuneModel.Store.Proc_AddLead" />
+          <FunctionImportMapping FunctionImportName="Proc_AddUser" FunctionName="FortuneModel.Store.Proc_AddUser" />
+          <FunctionImportMapping FunctionImportName="Proc_getleadsbyuseridentity" FunctionName="FortuneModel.Store.Proc_getleadsbyuseridentity" />
+          <FunctionImportMapping FunctionImportName="Proc_InserLogs" FunctionName="FortuneModel.Store.Proc_InserLogs" />
+          <FunctionImportMapping FunctionImportName="Proc_UpdateLead" FunctionName="FortuneModel.Store.Proc_UpdateLead" />
+          <FunctionImportMapping FunctionImportName="Proc_UpdateUser" FunctionName="FortuneModel.Store.Proc_UpdateUser" />
+          <EntitySetMapping Name="tbl_enquirydetails">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_enquirydetails">
+              <MappingFragment StoreEntitySet="tbl_enquirydetails">
+                <ScalarProperty Name="dtl_latitude" ColumnName="dtl_latitude" />
+                <ScalarProperty Name="dtl_longitude" ColumnName="dtl_longitude" />
+                <ScalarProperty Name="followup_date" ColumnName="followup_date" />
+                <ScalarProperty Name="dtl_fileloc_folder" ColumnName="dtl_fileloc_folder" />
+                <ScalarProperty Name="dtl_maploc_url" ColumnName="dtl_maploc_url" />
+                <ScalarProperty Name="brId" ColumnName="brId" />
+                <ScalarProperty Name="compId" ColumnName="compId" />
+                <ScalarProperty Name="dtl_createddt" ColumnName="dtl_createddt" />
+                <ScalarProperty Name="dtl_comments" ColumnName="dtl_comments" />
+                <ScalarProperty Name="dtl_product" ColumnName="dtl_product" />
+                <ScalarProperty Name="dtl_status" ColumnName="dtl_status" />
+                <ScalarProperty Name="dtl_leadname" ColumnName="dtl_leadname" />
+                <ScalarProperty Name="dtl_leadowner" ColumnName="dtl_leadowner" />
+                <ScalarProperty Name="enquiryId" ColumnName="enquiryId" />
+                <ScalarProperty Name="detailId" ColumnName="detailId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Emailtemp">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Emailtemp">
+              <MappingFragment StoreEntitySet="tbl_Emailtemp">
+                <ScalarProperty Name="alerttype" ColumnName="alerttype" />
+                <ScalarProperty Name="emailtype" ColumnName="emailtype" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="Emailsubject" ColumnName="Emailsubject" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="emailtemp_Id" ColumnName="emailtemp_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_alerts">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_alerts">
+              <MappingFragment StoreEntitySet="tbl_alerts">
+                <ScalarProperty Name="alert_flagid" ColumnName="alert_flagid" />
+                <ScalarProperty Name="alert_flag" ColumnName="alert_flag" />
+                <ScalarProperty Name="brId" ColumnName="brId" />
+                <ScalarProperty Name="compId" ColumnName="compId" />
+                <ScalarProperty Name="alert_comments" ColumnName="alert_comments" />
+                <ScalarProperty Name="alert_status" ColumnName="alert_status" />
+                <ScalarProperty Name="alert_product" ColumnName="alert_product" />
+                <ScalarProperty Name="alert_type" ColumnName="alert_type" />
+                <ScalarProperty Name="alert_Category" ColumnName="alert_Category" />
+                <ScalarProperty Name="alert_mast__name" ColumnName="alert_mast__name" />
+                <ScalarProperty Name="alert_mast_Id" ColumnName="alert_mast_Id" />
+                <ScalarProperty Name="alert_Id" ColumnName="alert_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_alerts_master">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_alerts_master">
+              <MappingFragment StoreEntitySet="tbl_alerts_master">
+                <ScalarProperty Name="alert_master_flag" ColumnName="alert_master_flag" />
+                <ScalarProperty Name="alert_master_type" ColumnName="alert_master_type" />
+                <ScalarProperty Name="alert_master_category" ColumnName="alert_master_category" />
+                <ScalarProperty Name="alert_master__name" ColumnName="alert_master__name" />
+                <ScalarProperty Name="alert_master_Id" ColumnName="alert_master_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Smstemp">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Smstemp">
+              <MappingFragment StoreEntitySet="tbl_Smstemp">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="SmsContent" ColumnName="SmsContent" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="Smstemp_id" ColumnName="Smstemp_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_customlabel">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_customlabel">
+              <MappingFragment StoreEntitySet="tbl_customlabel">
+                <ScalarProperty Name="brId" ColumnName="brId" />
+                <ScalarProperty Name="compId" ColumnName="compId" />
+                <ScalarProperty Name="label_name" ColumnName="label_name" />
+                <ScalarProperty Name="label_schema_name" ColumnName="label_schema_name" />
+                <ScalarProperty Name="labelId" ColumnName="labelId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_EmailtempforAlerts">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_EmailtempforAlerts">
+              <MappingFragment StoreEntitySet="tbl_EmailtempforAlerts">
+                <ScalarProperty Name="TotalNumofLeadesRecievedTodayCount" ColumnName="TotalNumofLeadesRecievedTodayCount" />
+                <ScalarProperty Name="TotalNumofMailsForCampSentTodayCount" ColumnName="TotalNumofMailsForCampSentTodayCount" />
+                <ScalarProperty Name="TotalNumofMailsSentTodayCount" ColumnName="TotalNumofMailsSentTodayCount" />
+                <ScalarProperty Name="TotalNumofPaymentsRecievedTodayCount" ColumnName="TotalNumofPaymentsRecievedTodayCount" />
+                <ScalarProperty Name="TomorrowsFollowupCount" ColumnName="TomorrowsFollowupCount" />
+                <ScalarProperty Name="alerttype" ColumnName="alerttype" />
+                <ScalarProperty Name="emailtype" ColumnName="emailtype" />
+                <ScalarProperty Name="EmailBody" ColumnName="EmailBody" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="LeadName" ColumnName="LeadName" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="Emailsubject" ColumnName="Emailsubject" />
+                <ScalarProperty Name="EmailTo" ColumnName="EmailTo" />
+                <ScalarProperty Name="EmailFrom" ColumnName="EmailFrom" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="emailtemp_Id" ColumnName="emailtemp_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Enquirytracking">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Enquirytracking">
+              <MappingFragment StoreEntitySet="tbl_Enquirytracking">
+                <ScalarProperty Name="track_WantMailAlerts" ColumnName="track_WantMailAlerts" />
+                <ScalarProperty Name="track_SelectedReference" ColumnName="track_SelectedReference" />
+                <ScalarProperty Name="track_SelectedStatusId" ColumnName="track_SelectedStatusId" />
+                <ScalarProperty Name="track_SelectedProductId" ColumnName="track_SelectedProductId" />
+                <ScalarProperty Name="track_BrId" ColumnName="track_BrId" />
+                <ScalarProperty Name="track_CompId" ColumnName="track_CompId" />
+                <ScalarProperty Name="track_CommentsForAssignment" ColumnName="track_CommentsForAssignment" />
+                <ScalarProperty Name="track_FollowUpdate" ColumnName="track_FollowUpdate" />
+                <ScalarProperty Name="track_LeadDate" ColumnName="track_LeadDate" />
+                <ScalarProperty Name="track_LeadOwner" ColumnName="track_LeadOwner" />
+                <ScalarProperty Name="track_Comment3" ColumnName="track_Comment3" />
+                <ScalarProperty Name="track_Comment2" ColumnName="track_Comment2" />
+                <ScalarProperty Name="track_Comment1" ColumnName="track_Comment1" />
+                <ScalarProperty Name="track_Rating" ColumnName="track_Rating" />
+                <ScalarProperty Name="track_Industry" ColumnName="track_Industry" />
+                <ScalarProperty Name="track_Website" ColumnName="track_Website" />
+                <ScalarProperty Name="track_Modified_Date" ColumnName="track_Modified_Date" />
+                <ScalarProperty Name="track_Created_Date" ColumnName="track_Created_Date" />
+                <ScalarProperty Name="track_Record_ModifiedBy" ColumnName="track_Record_ModifiedBy" />
+                <ScalarProperty Name="track_Record_CreatedBy" ColumnName="track_Record_CreatedBy" />
+                <ScalarProperty Name="track_LeadAssignedTo" ColumnName="track_LeadAssignedTo" />
+                <ScalarProperty Name="track_Status" ColumnName="track_Status" />
+                <ScalarProperty Name="track_LeadAssignedby" ColumnName="track_LeadAssignedby" />
+                <ScalarProperty Name="track_WantSMSAlerts" ColumnName="track_WantSMSAlerts" />
+                <ScalarProperty Name="track_Wanttojoin" ColumnName="track_Wanttojoin" />
+                <ScalarProperty Name="track_Reference" ColumnName="track_Reference" />
+                <ScalarProperty Name="track_Prefbatch" ColumnName="track_Prefbatch" />
+                <ScalarProperty Name="track_Preferredlocation" ColumnName="track_Preferredlocation" />
+                <ScalarProperty Name="track_Product" ColumnName="track_Product" />
+                <ScalarProperty Name="track_Workexpdomain" ColumnName="track_Workexpdomain" />
+                <ScalarProperty Name="track_Yearofpassedout" ColumnName="track_Yearofpassedout" />
+                <ScalarProperty Name="track_Qualification" ColumnName="track_Qualification" />
+                <ScalarProperty Name="track_ProfessionalDetails" ColumnName="track_ProfessionalDetails" />
+                <ScalarProperty Name="track_Email" ColumnName="track_Email" />
+                <ScalarProperty Name="track_Mobile" ColumnName="track_Mobile" />
+                <ScalarProperty Name="track_Address" ColumnName="track_Address" />
+                <ScalarProperty Name="track_LeadName" ColumnName="track_LeadName" />
+                <ScalarProperty Name="track_parent_enq_Id" ColumnName="track_parent_enq_Id" />
+                <ScalarProperty Name="track_enq_Id" ColumnName="track_enq_Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ErrorLog">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_ErrorLog">
+              <MappingFragment StoreEntitySet="tbl_ErrorLog">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Source" ColumnName="Source" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_SmsLogForAlerts">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_SmsLogForAlerts">
+              <MappingFragment StoreEntitySet="tbl_SmsLogForAlerts">
+                <ScalarProperty Name="content" ColumnName="content" />
+                <ScalarProperty Name="TotalNumofLeadesRecievedTodayCount" ColumnName="TotalNumofLeadesRecievedTodayCount" />
+                <ScalarProperty Name="TotalNumofMailsForCampSentTodayCount" ColumnName="TotalNumofMailsForCampSentTodayCount" />
+                <ScalarProperty Name="TotalNumofMailsSentTodayCount" ColumnName="TotalNumofMailsSentTodayCount" />
+                <ScalarProperty Name="TotalNumofPaymentsRecievedTodayCount" ColumnName="TotalNumofPaymentsRecievedTodayCount" />
+                <ScalarProperty Name="TomorrowsFollowupCount" ColumnName="TomorrowsFollowupCount" />
+                <ScalarProperty Name="IdentityFlag" ColumnName="IdentityFlag" />
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="SentDate" ColumnName="SentDate" />
+                <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+                <ScalarProperty Name="OrganizationName" ColumnName="OrganizationName" />
+                <ScalarProperty Name="LoginUserName" ColumnName="LoginUserName" />
+                <ScalarProperty Name="SmsIdCount" ColumnName="SmsIdCount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_Userreports">
+            <EntityTypeMapping TypeName="FortuneModel.tbl_Userreports">
+              <MappingFragment StoreEntitySet="tbl_Userreports">
+                <ScalarProperty Name="BrId" ColumnName="BrId" />
+                <ScalarProperty Name="CompId" ColumnName="CompId" />
+                <ScalarProperty Name="report_flag" ColumnName="report_flag" />
+                <ScalarProperty Name="ReportName" ColumnName="ReportName" />
+                <ScalarProperty Name="UserRole" ColumnName="UserRole" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="userId" ColumnName="userId" />
+                <ScalarProperty Name="reportId" ColumnName="reportId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

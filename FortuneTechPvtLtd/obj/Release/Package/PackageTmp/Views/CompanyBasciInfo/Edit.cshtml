@@ -1,0 +1,284 @@
+﻿@model FortuneTechPvtLtd.Models.CompanyBasicDataModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+         <style type="text/css">
+             #form {
+                 background-color: hsla(100, 43%, 51%, 0.3);
+                 min-height: 100%;
+             }
+
+             .required:after {
+                 content: "*";
+                 font-weight: bold;
+                 color: red;
+             }
+         </style>
+</head>
+<body>
+
+    @using (Html.BeginForm("Update", "CompanyBasciInfo", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+       <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Edit Organization Basic Info</b></h3>
+                             <div class="col-md-12">
+                    <div class="form-group mb-3">
+                       @* <div> <span class="required">Branch Id</span></div>*@
+                        @Html.HiddenFor(m => m.CompBasicId)
+                        <div>@Html.HiddenFor(m => m.branchid, new {  @readonly="readonly",@Value = (Session["CurrentCompanyBranchId"].ToString())})</div>
+                       @* <div> @Html.ValidationMessageFor(model => model.branchid, "", new { @class = "text-danger" })</div>*@
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div>@Html.HiddenFor(m => m.companyid)<span class="required">Organization Name</span></div>
+                        <div>@Html.TextBoxFor(m => m.organizationname, new { @class = "form-control", @placeholder = "Organization Name",@autocomplete="off"  })</div>
+                        <div>@Html.ValidationMessageFor(model => model.organizationname, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                       
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required"> Organization Email</span></div>
+                        <div>@Html.TextBoxFor(m=>m.organizationemail, new { @class = "form-control", @placeholder = "Organization Email" ,@autocomplete="off" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.organizationemail, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>  
+                         <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required"> Organization Phone</span></div>
+                        <div>@Html.TextBoxFor(m=>m.organizationphone, new { @class = "form-control", @placeholder = "Organization Phone" ,@autocomplete="off" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.organizationphone, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div> 
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required">Logo path</span></div>
+                        <div>@Html.TextBoxFor(m => m.logopath, new { @class = "form-control", @placeholder = "Logo path",@readonly="readonly" ,@autocomplete="off" })</div>
+                        <div>@Html.ValidationMessageFor(model => model.logopath, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>  
+                          <div class="col-md-12">
+                        <div class="form-group mb-3">
+                            <div><span class="required">Upload Organization Logo</span></div>
+                            <div>
+                                <input type="file"  name="file" />
+                                <span class="field-validation-error" id="spanfile"></span>
+                            </div>
+                            <div></div>
+                        </div>
+                    </div>  
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required"> Number Of Users To Allowed</span></div>
+                        <div>@Html.TextBoxFor(m=>m.NumOfUserToAllow, new { @class = "form-control",@readonly="readonly", @placeholder = "Number Of Users To Allowed",@id="numericOnly" ,@autocomplete="off" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.NumOfUserToAllow, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div> 
+    <div class="col-md-12">
+                        <div class="form-group  mb-3">
+                                    <div class="col-md-12">SMS Alerts </div>
+                                       <div class="col-md-12">
+                                          <div class="form-check"> 
+                                 @foreach (FortuneTechPvtLtd.Models.Alerts alerts in ViewBag.alters)
+                                            {
+                                                @Html.RadioButtonFor(m => m.smsflag, alerts.AlertId, (alerts.AlertName.Equals(Model.emailflag) ? new { @checked = "checked" } : null))@Html.Label(alerts.AlertName, new { @class = "form-check-label mr-3" })
+                                     
+                                            }
+                                <input type="hidden" id="hdnseletedwantsmsalerts"  name="hdnseletedwantsmsalerts"  value="" />
+                            </div>
+                                       
+                                </div>    
+                        </div>
+        </div>
+                    <div class="col-md-12">
+                      <div class="form-group mb-3">
+                                
+                                    <div class="col-md-12">Mail Alerts </div>
+                                    <div class="col-md-12">
+                                          <div class="form-check"> 
+                                 @foreach (FortuneTechPvtLtd.Models.Alerts alerts in ViewBag.alters)
+                                            {
+                                                @Html.RadioButtonFor(m => m.emailflag, alerts.AlertId, (alerts.AlertName.Equals(Model.emailflag) ? new { @checked = "checked" } : null))@Html.Label(alerts.AlertName, new { @class = "form-check-label mr-3" })
+                                     
+                                            }
+                                <input type="hidden" id="hdnseletedwantmailalerts"  name="hdnseletedwantmailalerts"  value="" />
+                            </div>
+                                       
+                                </div>  
+                        </div>
+                        </div>
+                    <div class="col-md-12">
+                     <div class="form-group mb-3">
+                                
+                                    <div class="col-md-12">Analytics </div>
+                                  <div class="form-check"> 
+                                 @foreach (FortuneTechPvtLtd.Models.Alerts alerts in ViewBag.alters)
+                                            {
+                                                @Html.RadioButtonFor(m => m.analyticsflag, alerts.AlertId, (alerts.AlertName.Equals(Model.analyticsflag) ? new { @checked = "checked" } : null))@Html.Label(alerts.AlertName, new { @class = "form-check-label mr-3" })
+                                     
+                                            }
+                                <input type="hidden" id="hdnseletedwantanalytics"  name="hdnseletedwantanalytics"  value="" />
+                            </div>
+                                </div> 
+                        </div>
+                         @* <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required"> Free SmsLimit Count</span></div>
+                        <div>@Html.TextBoxFor(m=>m.smscount, new { @class = "form-control", @placeholder = "Sms Limit Count" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.smscount, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>        *@               
+                    <div class="col-md-12">
+                          <div class="form-group row">
+                        <input class="btn btn-info btn-rounded mr-3" type="submit" name="Update" value="Update" id="btnupdate" />
+                        <input class="btn btn-info btn-rounded" type="submit" value="Cancel" formaction="@Url.Action("Cancel")" />
+                    </div>
+                </div>
+            </div>
+        </div>  
+           </div>  
+    }
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $("#fileToUpload").change(function () {
+                    checkfile();
+                });
+            });
+            function checkfile() {
+                var file = getNameFromPath($("#fileToUpload").val());
+                if (file != null) {
+                    var extension = file.substr((file.lastIndexOf('.') + 1));
+                    // alert(extension);
+                    switch (extension) {
+                        case 'jpg':
+                        case 'png':
+                            flag = true;
+                            break;
+                        default:
+                            flag = false;
+                    }
+                }
+                if (flag == false) {
+                    $("#spanfile").text("You can upload only jpg,png extension file");
+                    return false;
+                }
+                else {
+                    var size = GetFileSize('fileToUpload');
+                    if (size > 3) {
+                        $("#spanfile").text("You can upload file up to 3 MB");
+                        return false;
+                    }
+                    else {
+                        $("#spanfile").text("");
+                    }
+                }
+            }
+            //Allow users to enter numbers only
+            $("#numericOnly").bind('keypress', function (e) {
+                if (e.keyCode == '9' || e.keyCode == '16') {
+                    return;
+                }
+                var code;
+                if (e.keyCode) code = e.keyCode;
+                else if (e.which) code = e.which;
+                if (e.which == 46)
+                    return false;
+                if (code == 8 || code == 46)
+                    return true;
+                if (code < 48 || code > 57)
+                    return false;
+            });
+
+            // sms
+            $("input[type=radio][name='smsflag']").change(function () {
+                var radioValue = $("input[name='smsflag']:checked").val();
+                var radiotext = $("input[name='smsflag']:checked").next().html();
+                $("input[id=hdnseletedwantsmsalerts]").val(radiotext);
+            });
+
+            //mail
+            $("input[type=radio][name='emailflag']").change(function () {
+                var radioValue = $("input[name='emailflag']:checked").val();
+                var radiotext = $("input[name='emailflag']:checked").next().html();
+                $("input[id=hdnseletedwantmailalerts]").val(radiotext);
+            });
+            //analytics
+            $("input[type=radio][name='analyticsflag']").change(function () {
+                var radioValue = $("input[name='analyticsflag']:checked").val();
+                var radiotext = $("input[name='analyticsflag']:checked").next().html();
+                $("input[id=hdnseletedwantanalytics]").val(radiotext);
+            });
+            //Disable paste
+            $("#numericOnly").bind("paste", function (e) {
+                e.preventDefault();
+            });
+
+            $("#numericOnly").bind('mouseenter', function (e) {
+                var val = $(this).val();
+                if (val != '0') {
+                    val = val.replace(/[^0-9]+/g, "")
+                    $(this).val(val);
+                }
+            });
+            $("#btnupdate").click(function () {
+                if ($('#fileToUpload').val() == "") {
+                    $("#spanfile").html("Please upload file");
+                    return false;
+                }
+                else {
+                    return checkfile();
+                }
+                if ($("#organizationname").val() == "") {
+                    alert("Please Enter Organization Name");
+                    return false;
+                }
+                if ($("#logopath").val() == "") {
+                    alert("Please Enter Logo path");
+                    return false;
+                }
+                if ($("#organizationemail").val() == "") {
+                    alert("Please Enter Organization Email");
+                    return false;
+                }
+                if ($("#organizationphone").val() == "") {
+                    alert("Please Enter Organization Phone");
+                    return false;
+                }
+
+                if ($("#NumOfUserToAllow").val() == "") {
+                    alert("Please Enter Number of Users To Allowed");
+                    return false;
+                }
+                //if ($("#smscount").val() == "") {
+                //    alert("Please Enter SmsLimit Count");
+                //    return false;
+                //}
+            });
+        });
+    </script>
+</body>
+</html>

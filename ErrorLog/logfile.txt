@@ -1,0 +1,16 @@
+------Error(2019-12-07 13:54:10.4320)DESKTOP-55B96TF------
+
+                      Exception Type: |
+                      Exception Message: |
+                      Stack Trace: |
+                      Additional Info:System.NullReferenceException: Object reference not set to an instance of an object.
+   at FortuneTechPvtLtd.Controllers.EnquiryController.Index() in e:\Current_Projects\FortuneSoft\FortuneTechPvtLtd\FortuneTechPvtLtd\Controllers\EnquiryController.cs:line 28
+
+------Fatal(2019-12-07 13:54:11.2393)DESKTOP-55B96TF------
+
+                      Exception Type: |
+                      Exception Message: |
+                      Stack Trace: |
+                      Additional Info:System.NullReferenceException: Object reference not set to an instance of an object.
+   at FortuneTechPvtLtd.Controllers.EnquiryController.Index() in e:\Current_Projects\FortuneSoft\FortuneTechPvtLtd\FortuneTechPvtLtd\Controllers\EnquiryController.cs:line 28
+

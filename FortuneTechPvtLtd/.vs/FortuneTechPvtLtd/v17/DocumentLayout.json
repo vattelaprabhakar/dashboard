@@ -1,0 +1,188 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\controllers\\userregistrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\userregistrationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\models\\emailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:models\\emailmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:views\\dashboard\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\views\\userregistration\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:views\\userregistration\\adduser.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\controllers\\adminaccesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\adminaccesscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\assets\\images\\logo-dark.png||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:assets\\images\\logo-dark.png||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\assets\\images\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:assets\\images\\favicon.ico||{177559E0-D141-11D0-92DF-00A0C9138C45}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|c:\\users\\hp\\downloads\\fortunetechpvtltd\\fortunetechpvtltd\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\datamodel\\userdata.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:datamodel\\userdata.context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\datamodel\\userdata.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|",
+      "RelativeMoniker": "D:0:0:{CB8C1632-02B9-466B-B60F-B2A3832C387D}|FortuneTechPvtLtd.csproj|solutionrelative:datamodel\\userdata.edmx||{C99AEA30-8E36-4515-B76F-496F5A48A6AA}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddUser.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Views\\UserRegistration\\AddUser.cshtml",
+              "RelativeDocumentMoniker": "Views\\UserRegistration\\AddUser.cshtml",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Views\\UserRegistration\\AddUser.cshtml",
+              "RelativeToolTip": "Views\\UserRegistration\\AddUser.cshtml",
+              "ViewState": "AQIAAD8AAAAAAAAAAAAkwEoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-16T12:35:22.872Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AdminAccessController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\AdminAccessController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AdminAccessController.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\AdminAccessController.cs",
+              "RelativeToolTip": "Controllers\\AdminAccessController.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAAAJYAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T11:55:05.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmailModel.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Models\\EmailModel.cs",
+              "RelativeDocumentMoniker": "Models\\EmailModel.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Models\\EmailModel.cs",
+              "RelativeToolTip": "Models\\EmailModel.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T11:50:00.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Views\\Dashboard\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Dashboard\\Index.cshtml",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Views\\Dashboard\\Index.cshtml",
+              "RelativeToolTip": "Views\\Dashboard\\Index.cshtml",
+              "ViewState": "AQIAAFwAAAAAAAAAAAAAANUAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-16T11:41:16.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRegistrationController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\UserRegistrationController.cs",
+              "RelativeDocumentMoniker": "Controllers\\UserRegistrationController.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\UserRegistrationController.cs",
+              "RelativeToolTip": "Controllers\\UserRegistrationController.cs",
+              "ViewState": "AQIAAP4AAAAAAAAAAAAAAAMBAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T11:12:11.506Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "logo-dark.png -  [English (United States)] - PNG [244x54, 32 bit, PNG]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\assets\\images\\logo-dark.png",
+              "RelativeDocumentMoniker": "assets\\images\\logo-dark.png",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\assets\\images\\logo-dark.png -  [English (United States)] - PNG [244x54, 32 bit, PNG]",
+              "RelativeToolTip": "assets\\images\\logo-dark.png -  [English (United States)] - PNG [244x54, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001533|",
+              "WhenOpened": "2024-07-16T11:41:50.144Z",
+              "EditorCaption": " -  [English (United States)] - PNG [244x54, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "favicon.ico -  [English (United States)] - Icon [256x256, 32 bit, PNG]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\assets\\images\\favicon.ico",
+              "RelativeDocumentMoniker": "assets\\images\\favicon.ico",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\assets\\images\\favicon.ico -  [English (United States)] - Icon [256x256, 32 bit, PNG]",
+              "RelativeToolTip": "assets\\images\\favicon.ico -  [English (United States)] - Icon [256x256, 32 bit, PNG]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001525|",
+              "WhenOpened": "2024-07-16T11:41:43.982Z",
+              "EditorCaption": " -  [English (United States)] - Icon [256x256, 32 bit, PNG]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "UserData.edmx [Diagram1]",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\DataModel\\UserData.edmx",
+              "RelativeDocumentMoniker": "DataModel\\UserData.edmx",
+              "ToolTip": "G:\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\DataModel\\UserData.edmx [Diagram1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001116|",
+              "WhenOpened": "2024-07-04T11:00:24.282Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "UserData.Context.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\DataModel\\UserData.Context.cs",
+              "RelativeDocumentMoniker": "DataModel\\UserData.Context.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\DataModel\\UserData.Context.cs",
+              "RelativeToolTip": "DataModel\\UserData.Context.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAEAAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T06:26:36.037Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "homeController.cs",
+              "DocumentMoniker": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\homeController.cs",
+              "RelativeDocumentMoniker": "Controllers\\homeController.cs",
+              "ToolTip": "C:\\Users\\HP\\Downloads\\FortuneTechPvtLtd\\FortuneTechPvtLtd\\Controllers\\homeController.cs",
+              "RelativeToolTip": "Controllers\\homeController.cs",
+              "ViewState": "AQIAAAEBAAAAAAAAAAAYwBQBAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-04T04:58:40.757Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

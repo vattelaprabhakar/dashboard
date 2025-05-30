@@ -1,0 +1,356 @@
+﻿@model FortuneTechPvtLtd.Models.BillingModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Create</title>
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+ <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style> 
+  
+  <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head><body>
+   
+         @using (Html.BeginForm("Update", "Billing", FormMethod.Post))
+         {
+             @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Edit Payment </b></h3>
+                         @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+  @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+             <div class="form-group row">
+                 
+                        <div class=" col-md-12"> <span class="required"> Customer Name</span></div>@Html.HiddenFor(mbox=>mbox.custid)
+                    <div class="col-md-12">@Html.TextBoxFor(m => m.custname, new { @class = "form-control",@readonly="readonly"})</div>
+                                       @* <div  class=" col-md-12" id="empddlList" ></div>
+                  <input type="hidden" id="hdncustname" value="" name="hdncustname" />*@
+                  
+                </div>
+                      @*  <div class="form-group row">
+                   
+                        <div class=" col-md-12"> <span class="required"> Product Name</span></div>
+                       <div class=" col-md-12">   @Html.DropDownListFor(m=>m.productname, new SelectList(ViewBag.products, "ProductId", "ProductName"), "select", new {  @class = "form-control",@id="productname"})</div>
+                        <div> @Html.ValidationMessageFor(model => model.productname, "", new { @class = "text-danger" })</div>
+                        <input type="hidden" id="hdnproductname" value="" name="hdnproductname" />
+                </div>*@
+                         <div class="form-group row">
+                                    <div class=" col-md-12"> <span class="required">Product Actual Price</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.productactualprice, new { @class = "form-control",@id="productactualprice",@readonly="readonly",@placeholder = "click here to get product cost"})</div>
+                                    @Html.ValidationMessageFor(model => model.productactualprice, "", new { @class = "text-danger" })
+                              
+                            </div>
+                          <div class="form-group row">
+                                    <div class=" col-md-12"> <span class="required"> Agreed Price</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.productrevisedprice, new { @class = "form-control",@autocomplete="off" })</div>
+                                    @Html.ValidationMessageFor(model => model.productrevisedprice, "", new { @class = "text-danger" })
+                              
+                            </div>
+                         <div class="form-group row">
+                                    <div class=" col-md-12"> <span class="required">Received Amount</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.payamout, new { @class = "form-control",@autocomplete="off" })</div>
+                                    @Html.ValidationMessageFor(model => model.payamout, "", new { @class = "text-danger" })
+                              
+                            </div>
+                             <div class="form-group row">
+                                    <div class=" col-md-12"> <span class="required">Balance Amount</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.balanceamount, new { @class = "form-control",@readonly="readonly",@autocomplete="off" })</div>
+                                    @Html.ValidationMessageFor(model => model.balanceamount, "", new { @class = "text-danger" })
+                              
+                            </div>
+                      @*   <div class="form-group row">
+                                    <div class=" col-md-12"> <span class="required">Pay Amount</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.payamout, new { @class = "form-control"})</div>
+                                    @Html.ValidationMessageFor(model => model.payamout, "", new { @class = "text-danger" })
+                              
+                            </div>*@
+                         <div class="form-group row">
+                             <div class="col-md-12">Payment Mode</div>
+                             <div class="col-md-12">
+                                        <div class="form-check form-check-inline">
+                                            @foreach (FortuneTechPvtLtd.Models.paymenttype pay in ViewBag.paymenttype)
+                                            {
+                                              //  @Html.RadioButtonFor(m => m.paymentmode, pay.paymentid, new { @class = "form-check-input" })@Html.Label(pay.paymentmode, new { @class = "form-check-label mr-3" })
+                                                  @Html.RadioButtonFor(m => m.paymentmode, pay.paymentid, (Model.paymentmode.Equals(pay.paymentmode) ? new { @checked = "checked" } : null))@Html.Label(pay.paymentmode, new { @class = "form-check-label mr-3" })
+                                            }
+                                        </div>
+                                        <input type="hidden" id="hdnpaymentmode" value="" name="hdnpaymentmode" />
+                                    </div>
+                             </div>
+                           <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span class="required">Payment Date</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.paymentdate, new { @class = "form-control", @placeholder = "Payment Date",@readonly="readonly",@autocomplete="off" })</div>
+                                
+                            </div>
+                          <div class="form-group row">
+                               
+                                    <div class=" col-md-12"><span class="required">Payment Followupdate Date</span></div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.followupdate, new { @class = "form-control", @placeholder = "Payment Followupdate",@readonly="readonly",@autocomplete="off" })</div>
+                                
+                            </div>
+                            <div class="form-group row">
+                                    <div class=" col-md-12"> Comments</div>
+                                    <div class="col-md-12">@Html.TextBoxFor(m => m.Comments, new { @class = "form-control",@placeholder = "Comments",@autocomplete="off" })</div>
+                                    @Html.ValidationMessageFor(model => model.Comments, "", new { @class = "text-danger" })
+                              
+                            </div>
+                                
+                   <div class="col-md-12">
+                         <div class="form-group row">
+                       <input class="btn btn-info mr-3" type="submit" name="Submit" value="Submit" id="btnsubmit" />
+                       <input class="btn btn-info" type="submit" name="Cancel" value="Cancel" id="btncancel" formaction='@Url.Action("Cancel")' />
+                    </div>
+                </div>
+            </div>
+        </div>
+             </div>
+                      
+        }
+    
+     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var name, mobile, product;
+            var product1 = $('#productname option:selected').text();
+            $('#balanceamount').on('click', function () {
+                var productactualcost = $('#productactualprice').val();
+                var productagreedcost = $('#productrevisedprice').val();
+                var receivedamount = $('#payamout').val();
+
+                if (productagreedcost > productactualcost) {
+                    alert('Please Enter Product Agreed Amount must be lessthan or equals of Product Actual Amount ');
+                    return false;
+                }
+                if (receivedamount > productagreedcost) {
+                    alert('Please Enter Product Received Amount must be lessthan or equals of Product Agreed Amount ');
+                    return false;
+                }
+                if (receivedamount <= productagreedcost) {
+                    var balanceamount = productagreedcost - receivedamount;
+                    $('#balanceamount').val(balanceamount);
+                }
+            });
+
+            $('#productactualprice').on('click', function () {
+                var string = $('#username').val();
+                var substr = string.split('-');
+                for (var i = 0; i < substr.length; i++) {
+                    name = substr[0];
+                    mobile = substr[1];
+                    product = substr[2];
+                }
+                //alert(name +' '+ mobile+' '+product);
+                $.ajax({
+                    type: 'get',
+                    url: '@Url.Action("GetCostofProduct", "Billing")',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",
+                        data: { productname: product },
+                        success: function (data) {
+                            if (data == '') {
+                                alert('product price not mentioned')
+
+                            }
+                            $('#productactualprice').val(data);
+                        }
+                    });
+            });
+            $("#username").autocomplete({
+
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Billing/GetCustomerNames",
+                        type: "POST",
+                        dataType: "json",
+                        data: { Prefix: request.term },
+                        success: function (data) {
+                            response($.map(data, function (item) {
+                                return { label: item.username, value: item.username };
+
+                            }))
+                        }
+                    })
+                },
+                messages: {
+                    noResults: "",
+                    results: function (count) {
+                        return count + (count > 1 ? ' results' : ' result ') + ' found';
+                    }
+                }
+
+            });
+          @*  $('#productname').change(function () {
+               
+                var product = $('#productname option:selected').text();
+
+                $.ajax({
+                        type: 'get',
+                        url: '@Url.Action("GetCostofProduct", "Billing")',
+                        contentType: "application/json; charset=utf-8",
+                        dataType: "json",   
+                        data: { productname: product },
+                        success: function (data)
+                        {
+                            if (data=='') {
+                                alert('product price not mentioned')
+                            }
+                            $('#productactualprice').val(data);
+                        }
+                    });
+                });*@
+
+
+
+            //get customers
+            $.get('@Url.Content("~/Billing/GetCustomerList")', function (data) {
+                // debugger;
+                var i = 0;
+                // debugger;
+                if (data != undefined && data.length > 0) {
+                    // debugger;
+                    var i = 0, drpEmp = '<select ' + "id=" + "\"ddlEmp\"" + "class=" + "\"form-control\"" + "onchange=" + "\"GetEmpSelectedValue(this)\"" + ' required><option value="">select..</option>';
+                    $.each(data, function () {
+                        // debugger;
+                        drpEmp += '<option value="' + this['Employee_Id'] + '">' + this['user_name'] + '</option>';
+                        i++;
+                    });
+                    drpEmp + '</select>';
+                    $('#empddlList').append(drpEmp);
+                }
+            });
+
+
+            //Allow users to enter numbers only
+            //$("#productcost").bind('keypress', function (e) {
+            //    if (e.keyCode == '9' || e.keyCode == '16') {
+            //        return;
+            //    }
+
+            //    var code;
+            //    if (e.keyCode) code = e.keyCode;
+            //    else if (e.which) code = e.which;
+            //    if (e.which == 46)
+            //        return false;
+            //    if (code == 8 || code == 46)
+            //        return true;
+            //    if (code < 48 || code > 57)
+            //        return false;
+
+            //});
+
+            //Disable paste
+            //$("#productcost").bind("paste", function (e) {
+            //    e.preventDefault();
+            //});
+
+            //$("#productcost").bind('mouseenter', function (e) {
+            //    var val = $(this).val();
+            //    if (val != '0') {
+            //        val = val.replace(/[^0-9]+/g, "")
+            //        $(this).val(val);
+            //    }
+            //});
+            $("#btnsubmit").click(function () {
+                if ($('#custname').val() == '') {
+                    alert('Please Search Customer Name');
+                    return false;
+                }
+                if ($('#productactualprice').val() == '') {
+                    alert('Please click on textbox for get product price');
+                    return false;
+                }
+                if ($('#productrevisedprice').val() == '') {
+                    alert('Please Enter product agreed price');
+                    return false;
+                }
+                if ($('#payamout').val() == '') {
+                    alert('Please Enter received amount');
+                    return false;
+                }
+                if ($('#paymentdate').val() == '') {
+                    alert('Please Enter payment date');
+                    return false;
+                }
+
+                if ($('[name="paymentmode"]:checked').length === 0) {
+                    alert('Please select Payment Mode');
+                    return false;
+                }
+
+                var productactualcost = $('#productactualprice').val();
+                var productagreedcost = $('#productrevisedprice').val();
+                var receivedamount = $('#payamout').val();
+
+                if (productagreedcost > productactualcost) {
+                    alert('Please Enter Product Agreed Amount must be lessthan or equals of Product Actual Amount ');
+                    return false;
+                }
+                if (receivedamount > productagreedcost) {
+                    alert('Please Enter Product Received Amount must be lessthan or equals of Product Agreed Amount ');
+                    return false;
+                }
+                if (receivedamount <= productagreedcost) {
+                    var balanceamount = productagreedcost - receivedamount;
+                    $('#balanceamount').val(balanceamount);
+                }
+
+                var product = $('#empddlList option:selected').text();
+                $("input[id=hdncustname]").val(product);
+                var productname = $('#productname option:selected').text();
+                $("input[id=hdnproductname]").val(productname);
+                var radiotext = $("input[name='paymentmode']:checked").next().html();
+                $("input[id=hdnpaymentmode]").val(radiotext);
+
+                //if ($("#productname").val() == "") {
+                //    alert("Please Enter Product Name");
+                //    return false;
+                //}
+                //if ($("#productcost").val() == "") {
+                //    alert("Please Enter Product Cost");
+                //    return false;
+                //}
+            });
+            $("#btncancel").click(function () {
+                // $('#paymentmode').removeAttr('checked');
+                // $("#<%= paymentmode.ClientID %> input[type=radio]").prop('checked', false);
+            });
+            //get date using datepicker
+            $("#paymentdate").datepicker().datepicker("setDate", new Date());
+            $("#followupdate").datepicker();
+        });
+    </script>
+</body>
+</html>

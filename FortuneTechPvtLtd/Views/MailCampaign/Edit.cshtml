@@ -1,0 +1,257 @@
+﻿@model FortuneTechPvtLtd.Models.MailSchedulingModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edit EMail Campaign</title>
+
+     <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.theme.min.css" rel="stylesheet" />
+    <link href="~/Js_Files/jquery-ui-themes-1.12.1/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+       <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style> 
+</head>
+<body>
+   
+         @using (Html.BeginForm("Update","MailCampaign",FormMethod.Post))
+         {
+           
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Edit EMAIL Campaign</b></h3>
+                         @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+  @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign Name</span></div>
+                        <div>@Html.HiddenFor(m=>m.campid)@Html.TextBoxFor(m=>m.campname, new { @class = "form-control", @placeholder = "Campaign Name",@autocomplete="off"  })</div>
+                        <div> @Html.ValidationMessageFor(model => model.campname, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                         <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Product Name</span></div>
+                         @Html.DropDownListFor(m=>m.campproduct, new SelectList(ViewBag.products, "ProductId", "ProductName"), "Select", new {  @class = "form-control"})
+                         <input type="hidden" name="hdncampproduct" id="hdncampproduct" value="" />
+                        <div> @Html.ValidationMessageFor(model => model.campproduct, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                         <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Product Status</span></div>
+                      @Html.DropDownListFor(m=>m.campstatus, new SelectList(ViewBag.stustatus, "StatusId", "StatusName"), "Select", new {  @class = "form-control"})
+                           <input type="hidden" name="hdncampstatus" id="hdncampstatus" value="" />
+                        <div> @Html.ValidationMessageFor(model => model.campstatus, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                        @* <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign Type</span></div>
+                     
+                        <div>  @Html.DropDownListFor(m=>m.camptype, new SelectList(ViewBag.camptypeobj, "camptypeid", "camptypename"), "Select", new {  @class = "form-control"})
+                             <input type="hidden" name="hdncamptype" id="hdncamptype" value="" />
+                        </div>
+                        <div> @Html.ValidationMessageFor(model => model.camptype, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>*@
+                           <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign Category</span></div>
+                        <div>@*@Html.TextBoxFor(m=>m.campcategory, new { @class = "form-control", @placeholder = "Product Cost" })*@
+                              <div>  @Html.DropDownListFor(m=>m.campcategory, new SelectList(ViewBag.campcategoryobj, "campcategoryid", "campcategoryname"), "Select", new {  @class = "form-control"})
+                                     <input type="hidden" name="hdncampcategory" id="hdncampcategory" value="" />
+                              </div>
+                        </div>
+                        <div> @Html.ValidationMessageFor(model => model.campcategory, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign StartDate</span></div>
+                        <div>@Html.TextBoxFor(m=>m.campstartdate, new { @class = "form-control", @placeholder = "Campaign StartDate",@autocomplete="off",@readonly="readonly" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.campstartdate, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign EndDate</span></div>
+                        <div>@Html.TextBoxFor(m=>m.campenddate, new { @class = "form-control", @placeholder = "Campaign EndDate",@autocomplete="off",@readonly="readonly" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.campenddate, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required">Campaign Day</span></div>
+                       @* <div>@Html.TextBoxFor(m=>m.campday, new { @class = "form-control", @placeholder = "Product Cost" })</div>*@
+                           <div>  @Html.DropDownListFor(m=>m.campday, new SelectList(ViewBag.campdayobj, "campdayid", "campdayname"), "Select", new {  @class = "form-control"})
+                                <input type="hidden" name="hdncampday" id="hdncampday" value="" />
+                           </div>
+                        <div> @Html.ValidationMessageFor(model => model.campday, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                     @*   <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div>  Campaign Time</div>
+                        <div>@Html.TextBoxFor(m=>m.camptime, new { @class = "form-control", @placeholder = "Campaign Time",@type="time" })</div>
+                        <div> @Html.ValidationMessageFor(model => model.camptime, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>*@
+                          <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div> <span class="required"> Campaign Status</span></div>
+                       @* <div>@Html.TextBoxFor(m=>m.campflag, new { @class = "form-control", @placeholder = "Product Cost" })</div>*@
+                           <div>  @Html.DropDownListFor(m=>m.campflag, new SelectList(ViewBag.campstatusobj, "campstatusid", "campstatusname"), "Select", new {  @class = "form-control"})
+                                <input type="hidden" name="hdncampflag" id="hdncampflag" value="" />
+                           </div>
+                        <div> @Html.ValidationMessageFor(model => model.campflag, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                                
+                    <div class="col-md-12">
+                         <div class="form-group row">
+                        
+                       <input class="btn btn-info mr-3" type="submit" name="Update" value="Update" id="btnsubmit" />
+                        <input class="btn btn-info" type="submit" value="Cancel"  formaction="@Url.Action("Cancel")"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+         </div>                   
+        }
+    
+     <script type="text/javascript" charset="utf8" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#campstartdate").datepicker();
+            $("#campenddate").datepicker();
+
+            //Allow users to enter numbers only
+            $("#productcost").bind('keypress', function (e) {
+                if (e.keyCode == '9' || e.keyCode == '16') {
+                    return;
+                }
+
+                var code;
+                if (e.keyCode) code = e.keyCode;
+                else if (e.which) code = e.which;
+                if (e.which == 46)
+                    return false;
+                if (code == 8 || code == 46)
+                    return true;
+                if (code < 48 || code > 57)
+                    return false;
+
+            });
+
+            //Disable paste
+            $("#productcost").bind("paste", function (e) {
+                e.preventDefault();
+            });
+
+            $("#productcost").bind('mouseenter', function (e) {
+                var val = $(this).val();
+                if (val != '0') {
+                    val = val.replace(/[^0-9]+/g, "")
+                    $(this).val(val);
+                }
+            });
+            $("#btnsubmit").click(function () {
+
+                if ($("#campname").val() == "") {
+                    alert("Please Enter Campaign Name");
+                    return false;
+                }
+                if ($("#campstartdate").val() == "") {
+                    alert("Please Select Campaign Start Date");
+                    return false;
+                }
+                if ($("#campenddate").val() == "") {
+                    alert("Please Select Campaign End Date");
+                    return false;
+                }
+                //product
+                var campproduct = $('#campproduct option:selected').text();
+                if (campproduct == 'Select') {
+                    alert('Please Select Product');
+                    return false;
+                }
+                else {
+                    $("#hdncampproduct").val(campproduct);
+                }
+                //camp status
+                var campstatus = $('#campstatus option:selected').text();
+                if (campstatus == 'Select') {
+                    alert('Please Select Status');
+                    return false;
+                }
+                else {
+                    $("#hdncampstatus").val(campstatus);
+                }
+
+                //camp Type
+                //var camptype = $('#camptype option:selected').text();
+                //if (camptype == 'Select') {
+                //    alert('Please Select Campaign Type');
+                //    return false;
+                //}
+                //else {
+                //    $("#hdncamptype").val(camptype);
+                //}
+
+                //camp category
+                var campcategory = $('#campcategory option:selected').text();
+                if (campcategory == 'Select') {
+                    alert('Please Select Campaign Category');
+                    return false;
+                }
+                else {
+                    $("#hdncampcategory").val(campcategory);
+                }
+                //camp day
+                var campday = $('#campday option:selected').text();
+                if (campday == 'Select') {
+                    alert('Please Select Campaign Day');
+                    return false;
+                }
+                else {
+                    $("#hdncampday").val(campday);
+                }
+                //camp flag for status
+                var campflag = $('#campflag option:selected').text();
+                if (campflag == 'Select') {
+                    alert('Please Select Campaign Status');
+                    return false;
+                }
+                else {
+                    $("#hdncampflag").val(campflag);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

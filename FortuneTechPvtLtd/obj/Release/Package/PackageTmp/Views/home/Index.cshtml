@@ -1,0 +1,220 @@
+﻿@model FortuneTechPvtLtd.Models.UserLoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-show-password/1.0.3/bootstrap-show-password.min.js"></script>
+    <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+    <link href="~/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/css/style.css" rel="stylesheet" type="text/css">
+    <style>
+    </style>
+</head>
+<body class="fixed-left">
+    <div>
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+
+          
+            <!-- Loader -->
+            <div id="preloader">
+                <div id="status">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <!-- Begin page -->
+            <div class="accountbg">
+
+                <div class="content-center">
+                    <div class="content-desc-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5 col-md-8">
+                                    <div class="card">
+                                        <div class="card-body">
+
+                                            <h3 class="text-center mt-0 m-b-15" style="font-family:Broadway;color:#0094ff">
+                                              @*  <a href="index.html" class="logo logo-admin">
+                                                    <img src="assets/images/logo-dark.png" height="30" alt="logo"></a>*@
+                                               Customer RelationShip Management
+                                            </h3>
+                                          
+                                            @* <h3 class="text-muted text-center font-18"><b>Register</b></h3>*@
+                                            @*<a href="@Url.Content("~/ProjectContent/CRMGuideInfo.pdf")">Download File</a>*@
+                                            @* <a href="@Url.Action("GetPdf", "home")">Download</a>*@
+                                            <h3 class="text-muted text-center font-12"><b>@Html.ActionLink("Click here to Download Help Document", "GetPdf", new { })</b></h3>
+                                             @*<h3 class="text-muted text-center font-12"><b>@Html.ActionLink("Click here to Download MobileApp", "DownloadApp","", new {href="javascript:void(0)"})</b></h3>*@
+                                            <h3 class="text-muted text-center font-12"><b>@Html.ActionLink("Click here to Download MobileApp", "DownloadApp", new {})</b></h3>
+                                            <div class="p-3">
+                                                <form class="form-horizontal m-t-20" action="index.html">
+                                                      @* <div class="form-group row form-group-lg">
+                                                      
+                                                        <div class="col-12">@Html.TextBoxFor(m => m.companyid, new { @class = "form-control", @placeholder = "Company id", @id = "txtcompid", @autofocus = "autofocus",@maxlength="5" })
+                                                            @Html.ValidationMessageFor(model => model.companyid, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+                                                       <div class="form-group row form-group-lg">
+                                                      
+                                                        <div class="col-12">@Html.TextBoxFor(m => m.branchid, new { @class = "form-control", @placeholder = " Branch id", @id = "txtcompid", @autofocus = "autofocus",@maxlength="5" })
+                                                            @Html.ValidationMessageFor(model => model.branchid, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>*@
+                                                    <div class="form-group row form-group-lg">
+                                                        @* <div class="col-md-3 ">User Name</div>*@
+                                                        <div class="col-12">@Html.TextBoxFor(m => m.username, new { @class = "form-control", @id = "txtusername", @placeholder = "MailId",@autocomplete="off" }) @*, @type = "email"*@
+                                                            @Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })
+                                                        </div>
+                                                    </div>
+
+
+                                                    @*  <div class="form-group row form-group-lg">
+                                                   <div class=" col-md-3">Password</div>*@
+
+                                                    @*  <div class="col-12 ">
+                                                         <div class="input-group">
+                                                        @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password", @id = "txtpassword" })<span class="input-group-btn">
+            <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                                                           
+          </span>  </div>  </div>
+                                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                                     </div>*@
+                                                    <div class="form-group row form-group-lg">
+                                                        <div class="col-12 ">
+                                                            <div class="input-group">
+                                                                @Html.PasswordFor(m => m.password, new { @class = "form-control", @placeholder = "Password", @id = "txtpassword",@autocomplete="off" })
+                                                                <button class="btn btn-default reveal" type="button"><i class="glyphicon glyphicon-eye-open"></i></button>
+                                                                @Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group row form-group-lg">
+                                                          
+                                                        <div class="col-12">
+                                                            <span class="col-4 mr-5">   @Html.ActionLink("Forget Password", "ForgetPassword", "home")</span>  
+                                                            <input class="col-3 btn mt-5 rounded-pill btn-lg btn-primary  " type="submit" value="Submit" id="btnsubmit" onclick="return ValidateEmail();" />
+                                                          
+                                                        </div>
+
+                                                    </div>
+                                                        
+                                                </form>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end row -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        }
+    </div>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- jQuery  -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/modernizr.min.js"></script>
+    <script src="~/assets/js/detect.js"></script>
+    <script src="~/assets/js/fastclick.js"></script>
+    <script src="~/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/assets/js/jquery.blockUI.js"></script>
+    <script src="~/assets/js/waves.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.js"></script>
+    <script src="~/assets/js/jquery.scrollTo.min.js"></script>
+
+    <!-- App js -->
+    <script src="assets/js/app.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var validation = '@TempData["notvalid"]';
+
+            if (validation == "notvaliduser") {
+                alert("UserName or Password Missmatch!");
+                return false;
+            }
+          @*  var notreg = '@TempData["notregisterd"]';
+            if (notreg == "notregisterd")
+            {
+                alert("Organization Registration Expects More Number of Parameters!");
+                return false;
+            }*@
+            $("#btnsubmit").click(function () {
+                //if ($("#txtcompid").val() == "") {
+                //    alert("Please Enter Company Id");
+                //    return false;
+                //}
+                //if ($("#txtusername").val() == "") {
+                //    alert("Please Enter UserName");
+                //    return false;
+                //}
+                if ($("#txtpassword").val() == "") {
+                    alert("Please Enter Password");
+                    return false;
+                }
+               
+            });
+            //$("#txtcompid").bind("keypress", function (e) {
+            //    var keyCode = e.which ? e.which : e.keyCode
+
+            //    if (!(keyCode >= 48 && keyCode <= 57)) {
+            //        $(".error").css("display", "inline");
+            //        return false;
+            //    } else {
+            //        $(".error").css("display", "none");
+            //    }
+            //});
+            $(".reveal").on('click', function () {
+                var $pwd = $("#txtpassword");
+                if ($pwd.attr('type') === 'password') {
+                    $pwd.attr('type', 'text');
+                } else {
+                    $pwd.attr('type', 'password');
+                }
+            });
+
+        });
+        //email validation
+        //function ValidateEmail() {
+
+        //    var email = $("#txtusername").val();
+           
+
+        //    var expr = /.+@@(gmail)\.com$/;
+        //    if (!expr.test(email)) {
+        //        alert('Please Enter Valid UserName');
+        //        return false;
+        //    }
+        //    if ($.trim(email).length == 0) {
+        //        alert("Please Enter UserName");
+        //        return false;
+        //    }
+        //}
+    </script>
+</body>
+</html>

@@ -1,0 +1,157 @@
+﻿@model FortuneTechPvtLtd.Models.UserRegModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <style type="text/css">
+      #form{
+background-color:hsla(100, 43%, 51%, 0.3);
+min-height:100%;
+}
+        .required:after 
+            {
+                content: "*";
+                font-weight: bold;
+                color: red; 
+            }
+  </style> 
+</head>
+
+
+
+
+<body>
+    @using (Html.BeginForm("Update", "UserRegistration", FormMethod.Post))
+    {
+  
+        <div class="row">
+            <div class="col-md-12">
+                    <div class="table-resposive">
+                        <h3 class="text-muted text-left font-18 "><b class="btn-warning">Edit User Registration</b></h3>
+                          @Html.HiddenFor(m => m.companyid, new {  @Value = Session["CurrentCompanyId"].ToString()})
+  @Html.HiddenFor(m => m.branchid, new {  @Value = Session["CurrentCompanyBranchId"].ToString()})
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div>@Html.HiddenFor(m => m.userid)<span class="required">User Name</span></div>
+                        <div>@Html.TextBoxFor(m => m.username, new { @class = "form-control", @placeholder = "User Name" })</div>@* ,@readonly="readonly"*@
+                        <div>@Html.ValidationMessageFor(model => model.username, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required">Password</span></div>
+                        <div>@Html.TextBoxFor(m => m.password, new { @class = "form-control", @placeholder = "Password" })</div>
+                        <div>@Html.ValidationMessageFor(model => model.password, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required">Role Name</span></div>
+                        <div>@Html.DropDownListFor(m => m.selectedrole, new SelectList(ViewBag.roles, "rId", "rName"), "-select-", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.selectedrole, "", new { @class = "text-danger" })
+                            <input type="hidden" name="hdnselectedrole" id="hdnselectedrole" value="" />
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required">Email Id</span></div>
+                        <div>@Html.TextBoxFor(m => m.email, new { @class = "form-control", @placeholder = "Email Id" })</div>
+                        <div>@Html.ValidationMessageFor(model => model.email, "", new { @class = "text-danger" })</div>
+                    </div>
+                </div>
+                           <div class="col-md-12">
+                    <div class="form-group mb-3">
+                        <div><span class="required">Active Status</span></div>
+                        <div>@Html.DropDownListFor(m=>m.IsActiveName, new SelectList(ViewBag.IsuserActive, "id", "name"), new {  @class = "form-control"})</div>
+                        <div>@Html.ValidationMessageFor(model => model.IsActiveName, "", new { @class = "text-danger" })
+                            <input type="hidden" id="hdnactivestatus" name="hdnactivestatus" value="" />
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-md-12">
+                        <div class="form-group row">
+                        <input class="btn btn-info btn-rounded mr-3" type="submit" name="Update" value="Update" id="btnsubmit" onclick="return ValidateEmail();"/>
+                        <input class="btn btn-info btn-rounded" type="submit" name="Cancel" id="btncancel" value="Cancel" formaction="@Url.Action("Cancel")"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+            </div>
+    }
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function DisableButton() {
+                $("#btnsubmit").attr('disabled', 'disabled');
+                $("#btncancel").attr('disabled', 'disabled');
+            }
+            window.onbeforeunload = DisableButton;
+            var catText = $("#selectedrole option:selected").text();
+            var catvalue = $("#selectedrole option:selected").val();
+            $("#hdnselectedrole").val(catText);
+            $("#selectedrole").change(function () {
+
+                var catText = $("#selectedrole option:selected").text();
+                var catvalue = $("#selectedrole option:selected").val();
+                $("#hdnselectedrole").val(catText);
+            });
+            $("#btnsubmit").click(function () {
+                if ($("#username").val() == "") {
+                    alert("Please User Name");
+                    return false;
+                }
+                if ($("#password").val() == "") {
+                    alert("Please Enter Password");
+                    return false;
+                }
+                if ($("#selectedrole :selected").val() == 0) {
+                    alert('Please Select Role Name ');
+                    return false;
+                }
+                if ($("#email").val() == "") {
+                    alert("Please Enter Email");
+                    return false;
+                }
+                var isact = $('#IsActiveName option:selected').text();
+                $("#hdnactivestatus").val(isact);
+            });
+        });
+        //email validation
+        //function ValidateEmail() {
+
+        //    var email = $("#username").val();
+
+
+        //    var expr = /.+@@(gmail)\.com$/;
+        //    if (!expr.test(email)) {
+        //        alert('Please Enter Valid UserName');
+        //        return false;
+        //    }
+        //    if ($.trim(email).length == 0) {
+        //        alert("Please Enter UserName");
+        //        return false;
+        //    }
+        //}
+    </script>
+</body>
+</html>

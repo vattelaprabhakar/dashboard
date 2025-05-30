@@ -1,0 +1,71 @@
+﻿@model FortuneTechPvtLtd.Models.EnquiryModel
+
+
+<html>
+    <head>
+     
+
+        <title></title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+   </head>
+ <body>
+
+          <!--Bootstrap Pop Up modal-->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Student details</h4>
+            </div>
+            <div class="modal-body" id="ModalBody">
+               <div class="col-md-12">
+                                        <div>
+                                           <div class="col-md-3">Lead Name</div>
+                                            <div class="col-md-9">@Html.TextBoxFor(model => model.LeadName, new { @class = "form-control",@readonly=true })</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Product</span></div>
+                                            <div class="form-check">
+                                               
+                                               @Html.DisplayFor(model => model.selectedinterestedcourse, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--End of Bootstrap Pop-Up modal-->
+
+
+        <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdn.datatables.net/1.10.10/js/jquery.dataTables.min.js" type="text/javascript"></script>
+ <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+ </body>
+   <script>
+
+       $(document).ready(function () {
+
+          // $('#myModal').dialog('show');
+           //$('#ModalBody').html(response);
+           //$('#myModal').modal('show');
+
+       });
+   </script>
+                                
+    </html>

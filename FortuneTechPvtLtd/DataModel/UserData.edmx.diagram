@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="10efa5165e5c41f8bf44f9f9a20c4335" Name="Diagram1">
+        <EntityTypeShape EntityType="FortuneModel.tbl_campaign" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_EmailLog" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_EnquiryForm" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_FortuneBasicInfo" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_FortuneRoles" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_FortuneUsers" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_LeadEmailContent" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_LeadStatus" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_LeadStatusEmailContent" Width="1.5" PointX="8.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Logs" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Menu" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Payment" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Productlist" Width="1.5" PointX="10.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_SmsContent" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_SmsLog" Width="1.5" PointX="10.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Source" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_UserLog" Width="1.5" PointX="9.25" PointY="10.625" IsExpanded="true" />
+        <AssociationConnector Association="FortuneModel.FK__tbl_Menu__RoleId__36B12243" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_enquirydetails" Width="1.5" PointX="0.078331243283269569" PointY="13.199372655339246" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Emailtemp" Width="1.5" PointX="7.8296860772323269" PointY="5.5277265336027961" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_alerts" Width="1.5" PointX="9.7747874715248066" PointY="4.5595617166532021" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_alerts_master" Width="1.5" PointX="9.8961121392883875" PointY="26.164841351176072" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Smstemp" Width="1.5" PointX="6.1235307371819072" PointY="22.397816802560268" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_customlabel" Width="1.5" PointX="11.375" PointY="11.75" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_EmailtempforAlerts" Width="1.5" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Enquirytracking" Width="1.5" PointX="13.375" PointY="6.75" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_ErrorLog" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_SmsLogForAlerts" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="FortuneModel.tbl_Userreports" Width="1.5" PointX="15.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

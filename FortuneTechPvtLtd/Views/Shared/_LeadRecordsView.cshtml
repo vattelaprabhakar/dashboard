@@ -1,0 +1,170 @@
+﻿@model FortuneTechPvtLtd.Models.EnquiryModel
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<html>
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+    
+<body>
+
+    
+                                   @* <h3 class="text-muted text-left font-18 "><b class="btn-warning">Edit Lead</b></h3>*@
+                                    <div class="col-md-12">
+                                        <div>
+                                           <div class="col-md-3">Lead Name</div>
+                                            <div class="col-md-9">@Html.TextBoxFor(model => model.LeadName, new { @class = "form-control",@readonly=true })</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Product</span></div>
+                                            <div class="form-check">
+                                               
+                                               @Html.DisplayFor(model => model.selectedinterestedcourse, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Lead Source</span></div>
+                                            <div class="form-check">
+                                              @Html.DisplayFor(model => model.selectedrefby, new { @class = "form-control" })
+                                            </div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Mobile</span></div>
+                                            <div>@Html.DisplayFor(model => model.Mobile, new { @class = "form-control", @placeholder = "Mobile" })</div>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Email</span></div>
+                                            <div>@Html.DisplayFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })</div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Status</span></div>
+                                            <div class="form-check">
+                                                <div class="form-check">
+                                                   @Html.DisplayFor(model => model.selectedstatus, new { @class = "form-control" })
+                                                </div>
+                                                <div></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span>Address</span></div>
+                                            <div>@Html.DisplayFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })</div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Lead Date</span></div>
+                                            <div>@Html.DisplayFor(m => m.Leaddate, "{0:d MMM yyyy}", new { @class = "form-control", @placeholder = "LeadDate" })</div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span>FollowupDate</span> </div>
+                                            <div>@Html.DisplayFor(m => m.Followupdate, "{0:d MMM yyyy}", new { @class = "form-control ", @placeholder = "Followupdate" })</div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Lead Assigned By</span></div>
+                                            <div>@Html.DisplayFor(m => m.LeadAssignedby, new { @class = "form-control", @placeholder = "LeadAssignedBy", @readonly = "readonly" })</div>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div><span class="required">Lead Owner</span></div>
+                                            <div>@Html.DisplayFor(m => m.LeadOwner, new { @class = "form-control", @placeholder = "LeadOwner" })</div>
+                                          
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Website</div>
+                                            <div>@Html.DisplayFor(m => m.Website, new { @class = "form-control", @placeholder = "Website" })</div>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Industry</div>
+                                            <div>@Html.DisplayFor(m => m.Industry, new { @class = "form-control", @placeholder = "Industry" })</div>
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Rating</div>
+                                            <div>@Html.DisplayFor(m => m.Rating, new { @class = "form-control", @placeholder = "Rating" })</div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Comment1</div>
+                                            <div>@Html.DisplayFor(m => m.Comment1, new { @class = "form-control", @placeholder = "Comments" })</div>
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Comment2</div>
+                                            <div>@Html.DisplayFor(m => m.Comment2, new { @class = "form-control", @placeholder = "Comments" })</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Comment3</div>
+                                            <div>@Html.DisplayFor(m => m.Comment3, new { @class = "form-control" })</div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group mb-3">
+                                            <div>Want Alerts</div>
+                                            <div>
+                                              
+                                                 @Html.DisplayFor(model => model.seletedwantalerts, new { @class = "form-control" })
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                    
+   @* <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#myModal").modal("show");
+            // $("#myModal").modal("show");
+        });
+    </script>*@
+</body>
+</html>
